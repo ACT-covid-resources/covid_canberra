@@ -8,6 +8,7 @@ The aim of this website is for the end product to be hosted on github pages, wit
 
 ## Shiny
 
-The ability to extend the functionality of this site into a interactive shiny application can be found online in tutorials and within the Definitive Guide to RMarkdown. 
+The ability to extend the functionality of this site into a interactive shiny application can be found online in tutorials and within the Definitive Guide to RMarkdown.
 
-[This work is for future development currently but some functionality already exists if `runtime: shiny` is added to the RMD header.]
+< This work is for future development currently but some functionality already exists if `runtime: shiny` is added to the RMD header.
+</br>
