@@ -83,6 +83,8 @@ tbls <- signals %>%
 
 tab3 <- data.frame(tbls)
 
+###save script here for reassessing
+#write.rds
 
 
 
