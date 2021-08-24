@@ -11,6 +11,13 @@ params:
     lup: "unknown"
 ---
 
+<style>
+.crosstalk-input-checkboxgroup{
+  color: blue;
+  font-size: 12px;
+}
+</style>
+
 ```{r setup, include=TRUE}
 library(tidyverse)
 library(ggmap)
@@ -19,6 +26,7 @@ library(plotly)
 library(flexdashboard)
 library(DT)
 library(rgdal)
+library(crosstalk)
 #latest dataset
 tab3 <- read.csv("data/last.csv")
 # Aggregate method
@@ -30,14 +38,15 @@ addBuses <- TRUE
 
 cc <- as.numeric(factor(tab3$Contact))
 
+tab3$Date <- substr(tab3$Date,1,10) #ditch day of the week
 labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
 
 ###############################################
 ##plot the map
+df_shared <- crosstalk::SharedData$new(tab3[,c(1,8,2:7)])
 
 
-
-m <- leaflet() %>% addTiles()
+m <- leaflet(df_shared) %>% addTiles()
 
 
 if (addBuses) {
@@ -65,8 +74,22 @@ for (ib in 1:length(coo))
 }
 
 
-m <- m %>% addCircleMarkers(lat=tab3$lat, lng=tab3$lon,popup = labs, weight=0.5, color = cols[cc], radius = 5 , fillOpacity = 0.8) 
-m <- m %>% addLegend("bottomright", labels = levels(factor(tab3$Contact)), colors = cols, opacity = 1)
+m <- m %>% addCircleMarkers(lat=tab3$lat, lng=tab3$lon,popup = labs, weight=0.5, color = cols[cc], radius = 5 , fillOpacity = 0.8)
+  #                           , clusterOptions =markerClusterOptions(spiderfyDistanceMultiplier=1.5,
+  # iconCreateFunction=JS("function (cluster) {    
+  # 
+  #   var childCount = cluster.getChildCount();  
+  # 
+  #   if (childCount < 100) {  
+  #     c = 'rgba(64, 64, 64, 0.5);'
+  #   } else if (childCount < 1000) {  
+  #     c = 'rgba(64, 64, 64, 0.5);'  
+  #   } else { 
+  #     c = 'rgba(64, 64, 64, 0.5);'  
+  #   }    
+  #    return new L.DivIcon({ html: '<div style=\"background-color:'+c+'\"><span>' + childCount + '</span></div>', className: 'marker-cluster', iconSize: new L.Point(40, 40) });
+  # }"))                                                                                                                           #) 
+m <- m %>%  addLegend("bottomright", labels = levels(factor(tab3$Contact)), colors = cols, opacity = 1)
 
 ####################################################
 ### add bus lines mentioned
@@ -103,8 +126,28 @@ Column {data-width=350}
 ### Table of Exposure sites
 
 ```{r}
-dtt <-DT::datatable(tab3[,c(1,8,2:7)],
-  rownames = FALSE, options = list(pageLength = 50, ausoHideNavigation=TRUE, 
+bscols(
+  filter_checkbox(
+    id = "contact",
+    label = "",
+    sharedData = df_shared,
+    group = ~Contact,
+    inline=TRUE
+  ),
+  filter_select(id="dates", label="Date",sharedData = df_shared, group=~Date))
+
+dtt <-DT::datatable(df_shared,
+     caption = 'Search for entries, (shift)click to select, this highlights the locations in the map.',selection = "multiple", rownames = FALSE, 
+  extensions = c("Buttons", "Select"), options = list(pageLength = 50, autoHideNavigation=TRUE, 
+   dom = 'Bfrtip',
+            select = TRUE, 
+            buttons = list(
+              "copy",
+              list(
+                extend = "selectNone",
+                text = "Clear"
+              )
+            ),                                   
   initComplete = JS(
         "function(settings, json) {",
         "$(this.api().table().header()).css({'font-size': '50%'});",
