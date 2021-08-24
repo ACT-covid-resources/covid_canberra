@@ -45,4 +45,9 @@ wu <- grep(lu, ff)
 if(length(wu)==0){
   print("Check on github")
 } #loop end
-  #, "No stress. Nothing new on the ACT Health site")
+
+#, "No stress. Nothing new on the ACT Health site")
+if(length(wu)>0) {
+  
+  l1 <- paste("No new update available. Current data is from:", lu,"\n")
+} #loop end
