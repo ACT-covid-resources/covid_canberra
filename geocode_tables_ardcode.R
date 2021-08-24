@@ -7,11 +7,7 @@ library(DescTools)
 library(knitr)
 library(mapview)
 library(arsenal)
-library(rgdal)
-library(dplyr)
-
-#had to fix plyr:: here
-# ?join
+require(rgdal)
 
 
 addBuses = TRUE
@@ -30,7 +26,7 @@ fixgeo <- function(search,  lat, lon, column="Exposure.Location",tt=tab3) {
 }
 
 #load google api
-gapi <- readLines("C:/Code/act-covid19/gapi.txt")
+gapi <- readLines("c:/bernd/r/covid_canberra/gapi.txt")
 register_google(gapi)
 
 #grab from website
@@ -48,7 +44,7 @@ lu <- gsub(" ", "_",lu)
 lu <- gsub(":","",lu)
 lu
 #check if there was an update....
-ff <- list.files(",/data/")
+ff <- list.files("c:/Bernd/R/covid_canberra/data/")
 wu <- grep(lu, ff)
 
 
@@ -63,7 +59,6 @@ if(length(wu)==0)
   
   
 ##### scrape covid exposure table from website
-
 rD <- rsDriver(browser="firefox", port=4545L, verbose=FALSE)
 remDr <- rD[["client"]]
 remDr$navigate("https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations")
@@ -75,10 +70,10 @@ remDr$close()
 rD$server$stop()
 rm(rD)
 gc()
+
 #necessary to stop the server...
 system("taskkill /im java.exe /f", intern=FALSE, ignore.stdout=FALSE)
 signals <- read_html(html)
-
 
 tbls <- signals %>%
   html_nodes("table") %>%
@@ -86,40 +81,24 @@ tbls <- signals %>%
 
 tab3 <- data.frame(tbls)
 
-###save script here for reassessing
-#write.rds
-
-
-
 #change empty to previous
 tab3$Status <- ifelse(tab3$Status=="New","New","")
 #tab3$type <- paste(tab3$Contact, tab3$Status)
 
 ###todo check only new sites and not the once we have data from
+
 #load last.csv
-ldata <- read.csv("data/last.csv")
-#check identical entries column Exposure.Location
-ldata$check <- paste(ldata$Exposure.Location, ldata$Street, ldata$Suburb, ldata$Date, ldata$Arrival.Time, ldata$Departure.Time)
-tab3$check <- paste(tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date, tab3$Arrival.Time, tab3$Departure.Time)
-tab3 <- plyr::join(tab3, ldata[,c("lat","lon","check")],  by="check")
-tab3$check <- NULL
-ldata$check <- NULL
-
-toadd <- which(is.na(tab3$lat))
-
-
+#check identical entries column(1:8)
 #add lat lon
 #
-if (length(toadd)>0)
-{
-tt <- tab3[toadd,]
+
+
 #get coordinates only for those where lat lon is empty
 
-address <- geocode(paste0( tt$Street,", ", tt$Exposure.Location,", ",tt$Suburb ,", Canberra, Australia"))
+address <- geocode(paste0( tab3$Street,", ", tab3$Exposure.Location,", ",tab3$Suburb ,", Canberra, Australia"))
 
-tab3$lat[toadd] <- address$lat
-tab3$lon[toadd] <- address$lon
-}
+tab3$lat <- address$lat
+tab3$lon <- address$lon
 
 ######################################################3
 ##errors (manual)
@@ -176,16 +155,10 @@ for ( i in 1:length(index))
   }
 }
 
-cols <- c( "red", "yellow","blue")
+cols <- c( "yellow", "red","cyan", "blue")
 
 labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
-cc <- as.numeric(factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") ))
-ncols <- c("black","cyan")
-nn <- as.numeric(factor(tab3$Status))
-nn2 <- ifelse(nn==1,nn, 3)
-
-
-
+cc <- as.numeric(factor(tab3$Contact))
 
 ###############################################
 ##plot the map
@@ -197,7 +170,7 @@ m <- leaflet() %>% addTiles()
 
 if (addBuses) {
   #read from shape file
-  busses <- readOGR(dsn = ",/bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca")
+  busses <- readOGR(dsn = "c:/bernd/r/covid_canberra/bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca")
   
   #search all bus lines that are mentioned
   
@@ -220,22 +193,10 @@ if (addBuses) {
 }
 
 
-m <- m %>% addCircleMarkers(lat=tab3$lat, lng=tab3$lon,popup = labs, weight=nn2, fillColor = cols[cc],color=ncols[nn], opacity =0.8, radius = 5 , fillOpacity = 0.8)
-#                           , clusterOptions =markerClusterOptions(spiderfyDistanceMultiplier=1.5,
-# iconCreateFunction=JS("function (cluster) {    
-# 
-#   var childCount = cluster.getChildCount();  
-# 
-#   if (childCount < 100) {  
-#     c = 'rgba(64, 64, 64, 0.5);'
-#   } else if (childCount < 1000) {  
-#     c = 'rgba(64, 64, 64, 0.5);'  
-#   } else { 
-#     c = 'rgba(64, 64, 64, 0.5);'  
-#   }    
-#    return new L.DivIcon({ html: '<div style=\"background-color:'+c+'\"><span>' + childCount + '</span></div>', className: 'marker-cluster', iconSize: new L.Point(40, 40) });
-# }"))                                                                                                                           #) 
-m <- m %>%  addLegend("bottomright", labels = levels(factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") )), colors = cols, opacity = 0.8)
+m <- m %>% addCircleMarkers(lat=tab3$lat, lng=tab3$lon,popup = labs, weight=0.5, color = cols[cc], radius = 5 , fillOpacity = 0.8)
+m <- m %>% addLegend("bottomright", labels = levels(factor(tab3$Contact)), colors = cols, opacity = 1)
+
+
 
 m
 
@@ -245,20 +206,17 @@ m
  range(tab3$lon) 
 ####################################################
 
-
-
  
  
  
  #once fixed save the table again and push to github
-write.csv(tab3,"data/last.csv",row.names = FALSE)
-write.csv(tab3, paste0("data/table_",lu,".csv"),row.names = FALSE)
-
-writeLines(lup, "lastupdated.csv")
+write.csv( tab3,"c:/bernd/r/covid_canberra/data/last.csv",row.names = FALSE)
+write.csv(tab3, paste0("c:/bernd/r/covid_canberra/data/table_",lu,".csv"),row.names = FALSE )
+writeLines(lup, "c:/Bernd/R/covid_canberra/lastupdated.csv")
 
 l1 <- paste("Updated tab3 and last.csv. Current data is from:", lu,"\nYou should have received a notification email now.\n")
 l2 <- as.character(Sys.time())
-writeLines(c(l1,l2),"lastrun.txt")
+writeLines(c(l1,l2),"c:/bernd/r/covid_canberra/lastrun.txt")
 
 
 ####################################################
@@ -272,16 +230,16 @@ if(length(wu)>0) {
   
   l1 <- paste("No new update available. Current data is from:", lu,"\n")
   l2 <- as.character(Sys.time())
-  writeLines(c(l1,l2),"lastrun.txt")
+  writeLines(c(l1,l2),"c:/bernd/r/covid_canberra/lastrun.txt")
   } else {
   
   cat("Data have been updated.\nNew data is from:", lup,"\n")
   
   #latest files
-  flast <- list.files("data/", pattern="table_")
+  flast <- list.files("c:/Bernd/R/covid_canberra/data/", pattern="table_")
   t.name<- flast[order(file.mtime(file.path("data",flast)), decreasing = TRUE)[2]]
-  ldata <- read.csv(file.path("data","last.csv"))
-  l2data <- read.csv(file.path("data",t.name)) 
+  ldata <- read.csv(file.path("c:/bernd/r/covid_canberra/data","last.csv"))
+  l2data <- read.csv(file.path("c:/bernd/r/covid_canberra/data",t.name)) 
   
 
   comp <- comparedf(ldata, l2data)
@@ -314,31 +272,34 @@ if(length(wu)>0) {
   
 ############################################################
   
-  body <- paste0("New update is from: ", lup,"\n Please be aware data have not been curated yet and locations are assigned via a computer script.\n Therefore locations might be in the wrong place. \nPlease report locations that need to be corrected to: maybe a wiki page???\n Covid resources:
+  body <- paste0("New update is from: ", lup,"\n Please be aware data have not been curated yet and locations are assigned via a computer script.\n Therefore locations might be in the wrong place. \nPlease report locations that need to be corrected to: maybe a wiki page???\n Covid resources: 
                  \nACT health pages (official): https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations
                  \nACT health map: https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations/map
                  \nThis map: https://green-striped-gecko.github.io/covid_canberra/
                  \nCovid near me map: https://covid19nearme.com.au/state/act
-
+                 
                  ")
   attach <- kable(list(scomp$comparison.summary.table, scomp$diffs.byvar.table))
   dlat <- paste0("range of lats:",paste0(range(ldata$lat), collapse = " to "))
   dlon <- paste0("range of lons:",paste0(range(ldata$lon), collapse = " to "))
   attach <- c(attach, dlat, dlon)
-  writeLines(attach,"comparison/attach.txt")
-#mapshot by script does not work
-  #mapshot(nm, file = ",/comparison/newsites.png")
-  # tolist <-  c("bernd.gruber@canberra.edu.au")
+  writeLines(attach,"c:/Bernd/R/covid_canberra/comparison/attach.txt")
+#mapshot by script does not work  
+  #mapshot(nm, file = "c:/Bernd/R/covid_canberra/comparison/newsites.png")
+  tolist <-  c("bernd.gruber@canberra.edu.au")
   #tolist <- c("bernd.gruber@canberra.edu.au", "Luis.MijangosAraujo@canberra.edu.au", "Anthony.Davidson@canberra.edu.au")
-  tolist <-  c("anthony.davidson@canberra.edu.au")
-  SendOutlookMail(to = paste(tolist,sep="", collapse="; "),
-                  subject = paste0("Bernd new Covid Exposure sites have been added.Update needed\n ", lup),
-                  body = body, attachment = c("comparison/attach.txt"))
-
+  
+  SendOutlookMail(to = paste(tolist,sep="", collapse="; "), 
+                  subject = paste0("Bernd new Covid Exposure sites have been added.Update needed\n ", lup), 
+                  body = body, attachment = c("c:/bernd/r/covid_canberra/comparison/attach.txt"))
+  
   l1 <- paste("Updated tab3 and last.csv. Current data is from:", lu,"\nSend an email. Check the coordinates!!!!!!.\n")
   l2 <- as.character(Sys.time())
-  writeLines(c(l1,l2),"lastrun.txt")
+  writeLines(c(l1,l2),"c:/bernd/r/covid_canberra/lastrun.txt")
+  
+  
+  
 }
-
-
+  
+ 
 

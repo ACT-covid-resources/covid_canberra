@@ -5,7 +5,10 @@ old_tables <- list.files(data_dir,pattern = "table")
 last_table <- read.csv(paste0(data_dir,"/last.csv"))
 
 old_tables_time_temp <- str_split(old_tables,pattern = "_")
-old_tables_time <- rbindlist(lapply(lapply(old_tables_time_temp, t), as.data.frame))
+
+old_tables_time <- data.table::rbindlist(lapply(lapply(old_tables_time_temp, t), as.data.frame))
+#changed filenames
+# ?rbindlist
 colnames(old_tables_time) <- c("type","day","month","year","hour")
 old_tables_time$hour <- substr(old_tables_time$hour,1,nchar(old_tables_time$hour)-4)
 old_tables_time$hour_a <- str_sub(old_tables_time$hour, start= -6,end = -3)
