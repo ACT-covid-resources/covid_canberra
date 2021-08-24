@@ -26,7 +26,7 @@ jobs:
         R -e 'install.packages("rvest")'
     # Run R script
     - name: Scrape
-      run: Rscript nifty50_scrapping.R
+      run: Rscript checkexternal.R
       
  # Add new files in data folder, commit along with other modified files, push
     - name: Commit files
