@@ -51,7 +51,7 @@ m <- leaflet(df_shared) %>% addTiles()
 
 if (addBuses) {
 #read from shape file
-busses <- readOGR(dsn = "c:/bernd/r/covid_canberra/bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca", verbose = FALSE )
+busses <- readOGR(dsn = "C://Code/covid_canberra/bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca", verbose = TRUE)
 
 #search all bus lines that are mentioned
 
