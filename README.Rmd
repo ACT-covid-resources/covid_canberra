@@ -13,6 +13,7 @@ This development branch converts the single Flexdashboard we have built and conv
 
 This workflow takes advantage of the hosting of static webpages on github accounts.
 
+1. `mods.ymal`: ....info coming
 ## github
 
 The aim of this website is for the end product to be hosted on github pages, within the docs folder.
