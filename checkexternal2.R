@@ -7,6 +7,21 @@ library(arsenal)
 library(rgdal)
 library(dplyr)
 
+
+#####function 1 #####################
+fixgeo <- function(search,  lat, lon, column="Exposure.Location",tt=tab3) {
+  
+  ii <- NA
+  ii <- grep(search,tt[,which(column==colnames(tab3))])
+  if(length(ii>0)) {
+    for (c in 1:length(ii)){
+      tt[ii[c],"lat"] <-lat
+      tt[ii[c],"lon"] <- lon
+    }
+  }
+  return(tt)
+}
+
 #grab from website
 es <- read_html("https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations", )
 
