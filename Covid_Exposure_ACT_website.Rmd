@@ -9,8 +9,6 @@ output:
     vertical_layout: fill
 params:
     lup: "unknown"
-editor_options: 
-  chunk_output_type: console
 ---
 
 <style>
@@ -30,12 +28,14 @@ library(DT)
 library(rgdal)
 library(crosstalk)
 #latest dataset
-tab3 <- read.csv(here::here("data/last.csv"))
+# https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/table_25_Aug_2021_227pm.csv
+tab3 <- read.csv("data/last.csv")
+tab3 <- read.csv("https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/table_25_Aug_2021_227pm.csv")
 # Aggregate method
 
 cols <- c( "red", "yellow","blue")
 
-addBuses <- FALSE
+addBuses <- TRUE
 
 tab3$Contact <- factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") )
 cc <- as.numeric( tab3$Contact)
@@ -58,7 +58,7 @@ m <- leaflet(df_shared) %>% addTiles()
 
 if (addBuses) {
 #read from shape file
-busses <- readOGR(dsn = here::here("bus"), layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca", verbose = TRUE)
+busses <- readOGR(dsn = "C://Code/covid_canberra/bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca", verbose = TRUE)
 
 #search all bus lines that are mentioned
 
@@ -81,7 +81,7 @@ for (ib in 1:length(coo))
 }
 
 
-m <- m %>% addCircleMarkers(lat=tab3$, lng=tab3$lon,popup = labs, weight=nn2, fillColor = cols[cc],color=ncols[nn], opacity =0.8, radius = 5 , fillOpacity = 0.8)
+m <- m %>% addCircleMarkers(lat=tab3$lat, lng=tab3$lon,popup = labs, weight=nn2, fillColor = cols[cc],color=ncols[nn], opacity =0.8, radius = 5 , fillOpacity = 0.8)
   #                           , clusterOptions =markerClusterOptions(spiderfyDistanceMultiplier=1.5,
   # iconCreateFunction=JS("function (cluster) {    
   # 
@@ -111,6 +111,7 @@ m <- m %>%  addLegend("bottomright", labels = levels(tab3$Contact), colors = col
 cat(paste0("# ", params$lup))
 
 ```
+
 <sup>Disclaimer: This map shows the covid exposure locations in the ACT and is an **unofficial website** based on [official sources](https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations). So if in doubt, refer to the [offical website](https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations), which has now also an [**official map**](https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations/map#Map-of-ACT-exposure-locations) included. Supported by Volunteers from the University of Canberra. Contacts: Bernd Gruber [bernd.gruber@canberra.edu.au] & Anthony Davidson [anthony.davidson@canberra.edu.au]</sup>
 
 
@@ -164,6 +165,7 @@ Column {data-width=100}
 ------------------------------------------------------------
 
 ### Filter
+
 ```{r}
 
 bscols(

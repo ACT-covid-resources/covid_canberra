@@ -11,11 +11,17 @@ This development branch converts the single Flexdashboard we have built and conv
 
 ## The code
 
-
+This workflow takes advantage of the hosting of static webpages on github accounts.
 
 ## github
 
-The aim of this website is for the end product to be hosted on github pages, within the docs folder. This workflow takes advantage of the hosting of static webpages on github accounts.
+The aim of this website is for the end product to be hosted on github pages, within the docs folder.
+
+### github actions
+
+github actions allows automation of the CI/DI pipelines. In other words, run and test code in an automated workflow.
+
+1. `mods.ymal`: ....info coming
 
 ## Shiny
 
