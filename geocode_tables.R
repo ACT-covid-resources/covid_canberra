@@ -55,8 +55,8 @@ wu <- grep(lu, ff)
 
 
 
-if(length(wu)==0)
-{
+# if(length(wu)==0)
+# {
 
 
   
@@ -176,13 +176,13 @@ for ( i in 1:length(index))
   }
 }
 
-cols <- c( "yellow", "red","cyan", "blue")
+cols <- c( "red", "yellow","blue")
 
 labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
-cc <- as.numeric(factor(tab3$Contact))
-
-
-
+cc <- as.numeric(factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") ))
+ncols <- c("black","cyan")
+nn <- as.numeric(factor(tab3$Status))
+nn2 <- ifelse(nn==1,nn, 3)
 
 
 
@@ -220,21 +220,22 @@ if (addBuses) {
 }
 
 
-m <- m %>% addCircleMarkers(lat=tab3$lat, lng=tab3$lon,popup = labs, weight=0.5, color = cols[cc], radius = 5 , fillOpacity = 0.8, clusterOptions =markerClusterOptions(spiderfyDistanceMultiplier=1.5,
-                                                                                                                                                                        iconCreateFunction=JS("function (cluster) {    
- 
-    var childCount = cluster.getChildCount();  
- 
-    if (childCount < 100) {  
-      c = 'rgba(64, 64, 64, 0.5);'
-    } else if (childCount < 1000) {  
-      c = 'rgba(64, 64, 64, 0.5);'  
-    } else { 
-      c = 'rgba(64, 64, 64, 0.5);'  
-    }    
-     return new L.DivIcon({ html: '<div style=\"background-color:'+c+'\"><span>' + childCount + '</span></div>', className: 'marker-cluster', iconSize: new L.Point(40, 40) });
-  }"))                                                                                                                           ) 
-m <- m %>% addCircleMarkers(lat=tab3$lat, lng=tab3$lon,popup = labs, weight=0.5, color = cols[cc], radius = 5 , fillOpacity = 0.8) %>% addLegend("bottomright", labels = levels(factor(tab3$Contact)), colors = cols, opacity = 1)
+m <- m %>% addCircleMarkers(lat=tab3$lat, lng=tab3$lon,popup = labs, weight=nn2, fillColor = cols[cc],color=ncols[nn], opacity =0.8, radius = 5 , fillOpacity = 0.8)
+#                           , clusterOptions =markerClusterOptions(spiderfyDistanceMultiplier=1.5,
+# iconCreateFunction=JS("function (cluster) {    
+# 
+#   var childCount = cluster.getChildCount();  
+# 
+#   if (childCount < 100) {  
+#     c = 'rgba(64, 64, 64, 0.5);'
+#   } else if (childCount < 1000) {  
+#     c = 'rgba(64, 64, 64, 0.5);'  
+#   } else { 
+#     c = 'rgba(64, 64, 64, 0.5);'  
+#   }    
+#    return new L.DivIcon({ html: '<div style=\"background-color:'+c+'\"><span>' + childCount + '</span></div>', className: 'marker-cluster', iconSize: new L.Point(40, 40) });
+# }"))                                                                                                                           #) 
+m <- m %>%  addLegend("bottomright", labels = levels(factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") )), colors = cols, opacity = 0.8)
 
 m
 
@@ -243,6 +244,8 @@ m
  range(tab3$lat) 
  range(tab3$lon) 
 ####################################################
+
+
 
  
  
@@ -311,30 +314,30 @@ if(length(wu)>0) {
   
 ############################################################
   
-  body <- paste0("New update is from: ", lup,"\n Please be aware data have not been curated yet and locations are assigned via a computer script.\n Therefore locations might be in the wrong place. \nPlease report locations that need to be corrected to: maybe a wiki page???\n Covid resources:
-                 \nACT health pages (official): https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations
-                 \nACT health map: https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations/map
-                 \nThis map: https://green-striped-gecko.github.io/covid_canberra/
-                 \nCovid near me map: https://covid19nearme.com.au/state/act
-
-                 ")
-  attach <- kable(list(scomp$comparison.summary.table, scomp$diffs.byvar.table))
-  dlat <- paste0("range of lats:",paste0(range(ldata$lat), collapse = " to "))
-  dlon <- paste0("range of lons:",paste0(range(ldata$lon), collapse = " to "))
-  attach <- c(attach, dlat, dlon)
-  writeLines(attach,"comparison/attach.txt")
-#mapshot by script does not work
-  #mapshot(nm, file = ",/comparison/newsites.png")
-  # tolist <-  c("bernd.gruber@canberra.edu.au")
-  #tolist <- c("bernd.gruber@canberra.edu.au", "Luis.MijangosAraujo@canberra.edu.au", "Anthony.Davidson@canberra.edu.au")
-  tolist <-  c("anthony.davidson@canberra.edu.au")
-  SendOutlookMail(to = paste(tolist,sep="", collapse="; "),
-                  subject = paste0("Bernd new Covid Exposure sites have been added.Update needed\n ", lup),
-                  body = body, attachment = c("comparison/attach.txt"))
-
-  l1 <- paste("Updated tab3 and last.csv. Current data is from:", lu,"\nSend an email. Check the coordinates!!!!!!.\n")
-  l2 <- as.character(Sys.time())
-  writeLines(c(l1,l2),"lastrun.txt")
+#   body <- paste0("New update is from: ", lup,"\n Please be aware data have not been curated yet and locations are assigned via a computer script.\n Therefore locations might be in the wrong place. \nPlease report locations that need to be corrected to: maybe a wiki page???\n Covid resources:
+#                  \nACT health pages (official): https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations
+#                  \nACT health map: https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations/map
+#                  \nThis map: https://green-striped-gecko.github.io/covid_canberra/
+#                  \nCovid near me map: https://covid19nearme.com.au/state/act
+# 
+#                  ")
+#   attach <- kable(list(scomp$comparison.summary.table, scomp$diffs.byvar.table))
+#   dlat <- paste0("range of lats:",paste0(range(ldata$lat), collapse = " to "))
+#   dlon <- paste0("range of lons:",paste0(range(ldata$lon), collapse = " to "))
+#   attach <- c(attach, dlat, dlon)
+#   writeLines(attach,"comparison/attach.txt")
+# #mapshot by script does not work
+#   #mapshot(nm, file = ",/comparison/newsites.png")
+#   # tolist <-  c("bernd.gruber@canberra.edu.au")
+#   #tolist <- c("bernd.gruber@canberra.edu.au", "Luis.MijangosAraujo@canberra.edu.au", "Anthony.Davidson@canberra.edu.au")
+#   tolist <-  c("anthony.davidson@canberra.edu.au")
+#   SendOutlookMail(to = paste(tolist,sep="", collapse="; "),
+#                   subject = paste0("Bernd new Covid Exposure sites have been added.Update needed\n ", lup),
+#                   body = body, attachment = c("comparison/attach.txt"))
+# 
+#   l1 <- paste("Updated tab3 and last.csv. Current data is from:", lu,"\nSend an email. Check the coordinates!!!!!!.\n")
+#   l2 <- as.character(Sys.time())
+#   writeLines(c(l1,l2),"lastrun.txt")
 }
 
 
