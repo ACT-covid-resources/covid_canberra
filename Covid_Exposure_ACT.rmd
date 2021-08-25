@@ -28,7 +28,9 @@ library(DT)
 library(rgdal)
 library(crosstalk)
 #latest dataset
+# https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/table_25_Aug_2021_227pm.csv
 tab3 <- read.csv("data/last.csv")
+tab3 <- read.csv("https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/table_25_Aug_2021_227pm.csv")
 # Aggregate method
 
 cols <- c( "red", "yellow","blue")
