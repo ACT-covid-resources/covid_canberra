@@ -4,10 +4,10 @@ name: newone
 on:
   schedule:
     - cron:  '30 5,17 * * *'
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  
+
+# Controls actions  
 jobs: 
   autoscrape:
     # The type of runner that the job will run on
