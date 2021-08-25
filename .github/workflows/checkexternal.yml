@@ -19,11 +19,17 @@ jobs:
     - uses: r-lib/actions/setup-r@master
 
     # Set-up R
+ ##   new aug2021
     - name: Install packages
       run: |
+        R -e 'install.packages("rvest")' 
+        R -e 'install.packages("RSelenium")'
         R -e 'install.packages("tidyverse")'
-        R -e 'install.packages("janitor")'
-        R -e 'install.packages("rvest")'
+        R -e 'install.packages("DescTools")'
+        R -e 'install.packages("knitr")'
+        R -e 'install.packages("arsenal")'
+        R -e 'install.packages("rgdal")'
+        R -e 'install.packages("dplyr")'
     # Run R script
     - name: Scrape
       run: Rscript checkexternal.R

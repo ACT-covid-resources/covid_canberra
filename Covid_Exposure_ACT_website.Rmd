@@ -9,6 +9,8 @@ output:
     vertical_layout: fill
 params:
     lup: "unknown"
+editor_options: 
+  chunk_output_type: console
 ---
 
 <style>
@@ -28,20 +30,20 @@ library(DT)
 library(rgdal)
 library(crosstalk)
 #latest dataset
-# https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/table_25_Aug_2021_227pm.csv
-#tab3 <- read.csv("data/last.csv")
-tab3 <- read.csv("https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/table_25_Aug_2021_227pm.csv")
+tab3 <- read.csv(here::here("data/last.csv"))
 # Aggregate method
 
 cols <- c( "red", "yellow","blue")
 
-addBuses <- TRUE
+addBuses <- FALSE
 
 tab3$Contact <- factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") )
 cc <- as.numeric( tab3$Contact)
 ncols <- c("black","cyan")
 nn <- as.numeric(factor(tab3$Status))
 nn2 <- ifelse(nn==1,nn, 3)
+
+
 
 tab3$Date <- substr(tab3$Date,1,10) #ditch day of the week
 labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
@@ -56,7 +58,7 @@ m <- leaflet(df_shared) %>% addTiles()
 
 if (addBuses) {
 #read from shape file
-busses <- readOGR(dsn = "C://Code/covid_canberra/bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca", verbose = TRUE)
+busses <- readOGR(dsn = here::here("bus"), layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca", verbose = TRUE)
 
 #search all bus lines that are mentioned
 
@@ -79,7 +81,7 @@ for (ib in 1:length(coo))
 }
 
 
-m <- m %>% addCircleMarkers(lat=tab3$lat, lng=tab3$lon,popup = labs, weight=nn2, fillColor = cols[cc],color=ncols[nn], opacity =0.8, radius = 5 , fillOpacity = 0.8)
+m <- m %>% addCircleMarkers(lat=tab3$, lng=tab3$lon,popup = labs, weight=nn2, fillColor = cols[cc],color=ncols[nn], opacity =0.8, radius = 5 , fillOpacity = 0.8)
   #                           , clusterOptions =markerClusterOptions(spiderfyDistanceMultiplier=1.5,
   # iconCreateFunction=JS("function (cluster) {    
   # 
