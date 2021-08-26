@@ -27,32 +27,28 @@ library(flexdashboard)
 library(DT)
 library(rgdal)
 library(crosstalk)
+
+#variables needed
+addBuses <- TRUE
+
 #latest dataset
+#tab3 <- read.csv("C://Code/covid_canberra/data/last.csv")
 # https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/table_25_Aug_2021_227pm.csv
 #tab3 <- read.csv("data/last.csv")
 tab3 <- read.csv("https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/table_25_Aug_2021_227pm.csv")
+
 # Aggregate method
-
 cols <- c( "red", "yellow","blue")
-
-addBuses <- TRUE
-
 tab3$Contact <- factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") )
 cc <- as.numeric( tab3$Contact)
 ncols <- c("black","cyan")
 nn <- as.numeric(factor(tab3$Status))
 nn2 <- ifelse(nn==1,nn, 3)
 
-tab3$Date <- substr(tab3$Date,1,10) #ditch day of the week
-labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
-
 ###############################################
 ##plot the map
 df_shared <- crosstalk::SharedData$new(tab3[,c(1,8,2:7)])
-
-
 m <- leaflet(df_shared) %>% addTiles()
-
 
 if (addBuses) {
 #read from shape file
