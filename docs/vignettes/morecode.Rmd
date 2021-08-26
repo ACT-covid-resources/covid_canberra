@@ -1,0 +1,6 @@
+---
+title: "README Notebook"
+output: html_notebook
+---
+
+This site is hosted on [github]() an [R Markdown](http://rmarkdown.rstudio.com) Notebook
