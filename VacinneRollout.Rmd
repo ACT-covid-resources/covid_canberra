@@ -1,0 +1,91 @@
+---
+title: "Vacinne rollout in the ACT."
+date: "`r Sys.Date()`"
+author:  "[Anthony Davidson](https://github.com/davan690)"
+output:
+  html_document:
+    output_dir: "docs"
+    css: index-style.css
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+# options(max.print="75")
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	cache = FALSE,
+	cache.path = "docs/",
+	# width=75,
+	comment = NA,
+	prompt = FALSE,
+	tidy = TRUE
+)
+```
+
+This website tracks COVID-19 data and mobility information for the ACT and Canberra using code and data developed in the open source community. This information is only a guide. Please refer to official reports and press releases from government certified resources.
+
+----
+
+# Lastest information {.tabset .tabpills}
+
+Currently a holding place for updated reporting. Currently under development.
+<!-- This data is collected using code that accesses twitter, act govt site, nsw govt site, vic govt site...? -->
+
+
+```{r}
+#webpageurl
+#scrap for warnings
+#save with date
+
+```
+
+## Recent contact locations
+
+- Goverment page: [ACT.govt.au](https://www.covid19.act.gov.au/)<br>
+- Data: [ACT govt data](https://app.powerbi.com/view?r=eyJrIjoiZTY4NTI1NzQtYTBhYy00ZTY4LTk3NmQtYjBjNzdiOGMzZjM3IiwidCI6ImI0NmMxOTA4LTAzMzQtNDIzNi1iOTc4LTU4NWVlODhlNDE5OSJ9)<br>
+
+```{r}
+#imbed storymap
+knitr::include_url("https://storymaps.arcgis.com/stories/7886a3c0b4b9413f82019b60e21d02db")
+
+# knitr::include_graphics("https://www.covid19.act.gov.au/__data/assets/image/0005/1820273/PICC0347-Exposure-locations_ACT_Aug-2021.png")
+# https://ourworldindata.org/grapher/covid-confirmed-cases-since-100th-case?country=NZL+KOR+DNK
+```
+
+## Current ACT covid data
+
+As of `5pm of Thursday 12th August 2021` the ACT went into a 7-day lockdown. This is due to a case in Canberra being active in the community for some days. Here is the current location data released on Thursday evening...
+
+UPDATE coming....
+
+```{r}
+# ACT raw map
+knitr::include_url("https://app.powerbi.com/view?r=eyJrIjoiZTY4NTI1NzQtYTBhYy00ZTY4LTk3NmQtYjBjNzdiOGMzZjM3IiwidCI6ImI0NmMxOTA4LTAzMzQtNDIzNi1iOTc4LTU4NWVlODhlNDE5OSJ9")
+
+##html to data here
+
+
+#save baseline
+
+##check dayly
+
+
+#interactive map in the future
+```
+
+## ACT vaccine rollout
+
+BRAND NEW and amazing app :) all abc top notch journalism (reproducible and transparent)
+
+```{r}
+knitr::include_url("https://markusmannheim.github.io/act-coronavirus-teaser/")
+```
+
+## Join mail list
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdw-QWPpUsD6eH59kFJC5zJCXD6bExu7lmLboKdixR6iXJhAg/viewform?embedded=true" width="640" height="931" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
