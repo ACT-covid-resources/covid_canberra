@@ -1,21 +1,21 @@
-name: "Unoffical covid19 tracking dashboard for the ACT"
+name: "Covid19 contact cases for the ACT"
 navbar:
   title: "CBR covid-info"
   left:
     - text: "Home"
       href: index.html
     - text: "NEW locations and hotspots"
-      href: 00-dashboard.html
+      href: Covid_Exposure_ACT.html
     - text: "ACT Covid-19 cases, locations and hotspots"
-      href: 02-act_covid_data.html
-    - text: "ACT mobility data"
-      href: 01-act-mobility.html
-    - text: "Neighbouring states"
-      href: 03-nsw-vic-covid.html
-    - text: "Australian covid trends"
-      href: 04-aus_covid_info.html
-    - text: "Reproducible framework"
-      href: 05-about_rmdsites.html
+      href: VacinneRollout.html
+    # - text: "ACT mobility data"
+    #   href: 01-act-mobility.html
+    # - text: "Neighbouring states"
+    #   href: 03-nsw-vic-covid.html
+    # - text: "Australian covid trends"
+    #   href: 04-aus_covid_info.html
+    # - text: "Reproducible framework"
+    #   href: 05-about_rmdsites.html
 output_dir: "docs"
 output:
   html_document:
