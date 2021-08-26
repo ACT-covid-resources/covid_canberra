@@ -10,6 +10,9 @@ library(arsenal)
 library(rgdal)
 library(dplyr)
 
+#had to fix plyr:: here
+# ?join
+
 
 addBuses = TRUE
 
@@ -27,7 +30,7 @@ fixgeo <- function(search,  lat, lon, column="Exposure.Location",tt=tab3) {
 }
 
 #load google api
-gapi <- readLines("c:/bernd/r/covid_canberra/gapi.txt")
+gapi <- readLines("C:/Code/act-covid19/gapi.txt")
 register_google(gapi)
 
 #grab from website
@@ -45,15 +48,15 @@ lu <- gsub(" ", "_",lu)
 lu <- gsub(":","",lu)
 lu
 #check if there was an update....
-ff <- list.files("c:/Bernd/R/covid_canberra/data/")
+ff <- list.files(",/data/")
 wu <- grep(lu, ff)
 
 
 
 
 
-if(length(wu)==0)
-{
+# if(length(wu)==0)
+# {
 
 
   
@@ -83,6 +86,8 @@ tbls <- signals %>%
 
 tab3 <- data.frame(tbls)
 
+###save script here for reassessing
+#write.rds
 
 
 
@@ -92,11 +97,11 @@ tab3$Status <- ifelse(tab3$Status=="New","New","")
 
 ###todo check only new sites and not the once we have data from
 #load last.csv
-ldata <- read.csv("c:/bernd/r/covid_canberra/data/last.csv")
+ldata <- read.csv("data/last.csv")
 #check identical entries column Exposure.Location
 ldata$check <- paste(ldata$Exposure.Location, ldata$Street, ldata$Suburb, ldata$Date, ldata$Arrival.Time, ldata$Departure.Time)
 tab3$check <- paste(tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date, tab3$Arrival.Time, tab3$Departure.Time)
-tab3 <- join(tab3, ldata[,c("lat","lon","check")],  by="check")
+tab3 <- plyr::join(tab3, ldata[,c("lat","lon","check")],  by="check")
 tab3$check <- NULL
 ldata$check <- NULL
 
@@ -118,28 +123,28 @@ tab3$lon[toadd] <- address$lon
 
 ######################################################3
 ##errors (manual)
-#tab3 <- fixgeo("Franklin Street &, Flinders Way", column = "Street"  , lat =   -35.3210247, lon =149.1341946)
-#tab3 <- fixgeo("Franklin Street & Flinders Way", column = "Street"  , lat =   -35.3210247, lon =149.1341946)
+tab3 <- fixgeo("Franklin Street &, Flinders Way", column = "Street"  , lat =   -35.3210247, lon =149.1341946)
+tab3 <- fixgeo("Franklin Street & Flinders Way", column = "Street"  , lat =   -35.3210247, lon =149.1341946)
 
 
-#tab3<- fixgeo("Basketball ACT", lat=-35.24185, lon=149.057)
+tab3<- fixgeo("Basketball ACT", lat=-35.24185, lon=149.057)
 
-#tab3<- fixgeo("Flatheads Takeaway", lat=-35.264, lon=149.122)
+tab3<- fixgeo("Flatheads Takeaway", lat=-35.264, lon=149.122)
 
 
-#tab3<- fixgeo("Flatheads Takeaway", lat=-35.264, lon=149.122)
+tab3<- fixgeo("Flatheads Takeaway", lat=-35.264, lon=149.122)
 
-#tab3 <- fixgeo("Hawker Drive In Bottle Shop", lat =   -35.2426147, lon =149.0449504)
+tab3 <- fixgeo("Hawker Drive In Bottle Shop", lat =   -35.2426147, lon =149.0449504)
 
-#tab3 <- fixgeo("Westfield Belconnen Food Court", lat =   -35.23793, lon =149.0653)
+tab3 <- fixgeo("Westfield Belconnen Food Court", lat =   -35.23793, lon =149.0653)
 
-#tab3 <- fixgeo("U14 girls AFL Ainslie Red", lat =   -35.2536251, lon =149.0800225)
+tab3 <- fixgeo("U14 girls AFL Ainslie Red", lat =   -35.2536251, lon =149.0800225)
 
-#tab3 <- fixgeo("Golden Touch Kedmar", lat =   -35.1848509, lon =149.1331888)
-#tab3 <- fixgeo("Golden Touch Kedmar", lat =   -35.1848509, lon =149.1331888)
+tab3 <- fixgeo("Golden Touch Kedmar", lat =   -35.1848509, lon =149.1331888)
+tab3 <- fixgeo("Golden Touch Kedmar", lat =   -35.1848509, lon =149.1331888)
 
-#tab3 <- fixgeo("Coombs to City", column = "Street"  , lat =   -35.2933, lon =149.1269703)
-#tab3 <- fixgeo("Coombs to Woden", column = "Street"  , lat =   -35.3444429, lon =149.0872442)
+tab3 <- fixgeo("Coombs to City", column = "Street"  , lat =   -35.2933, lon =149.1269703)
+tab3 <- fixgeo("Coombs to Woden", column = "Street"  , lat =   -35.3444429, lon =149.0872442)
 
 ######################################################
 
@@ -192,7 +197,7 @@ m <- leaflet() %>% addTiles()
 
 if (addBuses) {
   #read from shape file
-  busses <- readOGR(dsn = "c:/bernd/r/covid_canberra/bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca")
+  busses <- readOGR(dsn = ",/bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca")
   
   #search all bus lines that are mentioned
   
@@ -246,13 +251,14 @@ m
  
  
  #once fixed save the table again and push to github
-write.csv( tab3,"c:/bernd/r/covid_canberra/data/last.csv",row.names = FALSE)
-write.csv(tab3, paste0("c:/bernd/r/covid_canberra/data/table_",lu,".csv"),row.names = FALSE )
-writeLines(lup, "c:/Bernd/R/covid_canberra/lastupdated.csv")
+write.csv(tab3,"data/last.csv",row.names = FALSE)
+write.csv(tab3, paste0("data/table_",lu,".csv"),row.names = FALSE)
+
+writeLines(lup, "lastupdated.csv")
 
 l1 <- paste("Updated tab3 and last.csv. Current data is from:", lu,"\nYou should have received a notification email now.\n")
 l2 <- as.character(Sys.time())
-writeLines(c(l1,l2),"c:/bernd/r/covid_canberra/lastrun.txt")
+writeLines(c(l1,l2),"lastrun.txt")
 
 
 ####################################################
@@ -266,16 +272,16 @@ if(length(wu)>0) {
   
   l1 <- paste("No new update available. Current data is from:", lu,"\n")
   l2 <- as.character(Sys.time())
-  writeLines(c(l1,l2),"c:/bernd/r/covid_canberra/lastrun.txt")
+  writeLines(c(l1,l2),"lastrun.txt")
   } else {
   
   cat("Data have been updated.\nNew data is from:", lup,"\n")
   
   #latest files
-  flast <- list.files("c:/Bernd/R/covid_canberra/data/", pattern="table_")
+  flast <- list.files("data/", pattern="table_")
   t.name<- flast[order(file.mtime(file.path("data",flast)), decreasing = TRUE)[2]]
-  ldata <- read.csv(file.path("c:/bernd/r/covid_canberra/data","last.csv"))
-  l2data <- read.csv(file.path("c:/bernd/r/covid_canberra/data",t.name)) 
+  ldata <- read.csv(file.path("data","last.csv"))
+  l2data <- read.csv(file.path("data",t.name)) 
   
 
   comp <- comparedf(ldata, l2data)
@@ -333,6 +339,6 @@ mapshot(nm, file = "c:/Bernd/R/covid_canberra/comparison/newsites.png")
   l2 <- as.character(Sys.time())
   writeLines(c(l1,l2),"c:/bernd/r/covid_canberra/lastrun.txt")
 }
-  
- 
+
+
 
