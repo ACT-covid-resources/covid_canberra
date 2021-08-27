@@ -7,7 +7,7 @@
 "","ALDI Weston Creek","Brierly Street","Weston","13/08/2021 - Friday","6:00pm","6:30pm","Casual",-35.3414467,149.0525899,"",FALSE
 "","Bus Route 66 Transport Canberra Code BUS643","Coombs to Woden Intechange","Public Transport","13/08/2021 - Friday","12:21pm","12:33pm","Casual",-35.3444429,149.0873192,"",FALSE
 "","Bus Route 70 Transport Canberra Code BUS321","Woden Interchange to Kambah","Public Transport","13/08/2021 - Friday","12:57pm","1:15pm","Casual",-35.3444429,149.0872692,"",FALSE
-"","Capital Chemist Oï¿½Connor","9 Sargood Street","Oï¿½Connor","13/08/2021 - Friday","9:35am","10:00am","Casual",-35.2639132,149.122586,"",FALSE
+"","Capital Chemist O’Connor","9 Sargood Street","O’Connor","13/08/2021 - Friday","9:35am","10:00am","Casual",-35.2639132,149.122586,"",FALSE
 "","Coles Amaroo","Horse Park Drive","Amaroo","13/08/2021 - Friday","11:30am","1:00pm","Casual",-35.1646128,149.1318066,"",FALSE
 "","Coles Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","13/08/2021 - Friday","9:35am","10:00am","Casual",-35.237949,149.064812,"",FALSE
 "","Coles Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","13/08/2021 - Friday","2:15pm","2:45pm","Casual",-35.237949,149.064762,"",FALSE
@@ -19,85 +19,10 @@
 "","Food Works Weston Creek","40 Holder Place","Holder","13/08/2021 - Friday","5:00pm","5:10pm","Monitor",-35.3365862,149.0440993,"",FALSE
 "","Ginninderra Medical & Dental Centre - The general practice section ONLY","Corner Nettlefold Street and Coulter Drive","Belconnen","13/08/2021 - Friday","3:10pm","3:40pm","Close",-35.2395175,149.0576203,"",FALSE
 "","Hawker Drive In Bottle Shop","Belconnen Way and Springvale Drive","Hawker","13/08/2021 - Friday","4:45pm","5:00pm","Monitor",-35.2426147,149.0449504,"",FALSE
-"","Hungry Jacks Belconnen","108ï¿½Emu Bank Road","Belconnen","13/08/2021 - Friday","3:45pm","11:30pm","Close",-35.2363112,149.0703604,"",FALSE
+"","Hungry Jacks Belconnen","108 Emu Bank Road","Belconnen","13/08/2021 - Friday","3:45pm","11:30pm","Close",-35.2363112,149.0703604,"",FALSE
 "","IGA Evatt","Heydon Place","Evatt","13/08/2021 - Friday","11:45am","8:15pm","Casual",-35.2090949,149.0738421,"",FALSE
 "","IGA Lyneham","1 Wattle Place","Lyneham","13/08/2021 - Friday","11:00am","11:45am","Monitor",-35.2520717,149.1248594,"",FALSE
-"","Kopiku","1/5 Sargood Street","O'Connor","13/08/2021 - Friday","9:45am","10:15am","Casual",-35.2640694,149.1224283,"",FALSE
-"","LDK Greenway Views","260 Soward Way","Greenway","13/08/2021 - Friday","12:00am","11:59pm","Close",-35.4197317,149.0632775,"",FALSE
-"","Lennock Jaguar Land Rover","126 Melrose Drive","Phillip","13/08/2021 - Friday","8:30am","5:30pm","Close",-35.356842,149.0892491,"",FALSE
-"","Liquorland Amaroo","Horse Park Drive","Amaroo","13/08/2021 - Friday","12:00pm","12:30pm","Casual",-35.1647474,149.1320463,"",FALSE
-"","McDonalds Mitchell (near EPIC)","661 Northbourne Avenue","Lyneham","13/08/2021 - Friday","6:40pm","7:00pm","Casual",-35.2304555,149.1503226,"",FALSE
-"","Officeworks Fyshwick","1 Whyalla Street","Fyshwick","13/08/2021 - Friday","5:25pm","6:05pm","Casual",-35.3343363,149.1715514,"",FALSE
-"","Supabarn Casey","15 Kingsland Parade","Casey","13/08/2021 - Friday","3:00pm","3:35pm","Casual",-35.1741413,149.0960504,"",FALSE
-"","Food Forum","Westfield Belconnen, Benjamin Way","Belconnen","16/08/2021 - Monday","7:10pm","7:50pm","Casual",-35.2385072,149.0644201,"",FALSE
-"","Guzman y Gomez Canberra Centre","Canberra Centre, 148 Bunda Street","Canberra City","16/08/2021 - Monday","6:30am","8:30pm","Casual",-35.2802271,149.1334059,"",FALSE
-"","IGA O'Connor","3 Sargood Street","O'Connor","16/08/2021 - Monday","3:15pm","4:15pm","Casual",-35.2641187,149.1223094,"",FALSE
-"","Jiparu Cellars","96 Wollongong Street","Fyshwick","16/08/2021 - Monday","2:45pm","3:45pm","Monitor",-35.3232079,149.1781779,"",FALSE
-"","Laundry Facility, Unilodge @ANU- Kinloch Lodge","35 Childers Street","Canberra City","16/08/2021 - Monday","8:30am","11:30am","Casual",-35.2767133,149.1255585,"",FALSE
-"","McDonalds Braddon","Corner Cooyong Street and Mort Street","Braddon","16/08/2021 - Monday","10:15am","10:40am","Casual",-35.2754512,149.1304965,"",FALSE
-"","NewsXpress Wanniassa","Erindale Shopping Centre, 2 Denigan Street","Wanniassa","16/08/2021 - Monday","11:40am","12:20pm","Monitor",-35.4040526,149.0986255,"",FALSE
-"","Warrumbul Lodge","4 Hutton Street","Canberra City","16/08/2021 - Monday","12:00am","11:59pm","Casual",-35.2766548,149.124722,"",FALSE
-"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","16/08/2021 - Monday","7:10pm","8:00pm","Casual",-35.2386596,149.0653762,"",FALSE
-"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","16/08/2021 - Monday","4:40pm","6:00pm","Casual",-35.2386596,149.0653262,"",FALSE
-"","Woolworths Weston Creek","Corner Brierly Street and Mahony Court","Weston","16/08/2021 - Monday","12:45pm","1:30pm","Monitor",-35.340765,149.052681,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"","Woolworths Wanniassa","Erindale Shopping Centre, 50-68 Comrie Street","Wanniassa","16/08/2021 - Monday","11:45am","12:35pm","Monitor",-35.4035739,149.098802,"",FALSE
-"","Zambrero Weston Creek","14 Brierly Street","Weston","16/08/2021 - Monday","1:00pm","1:40pm","Monitor",-35.3420891,149.0524454,"",FALSE
-"","Acai Brothers Canberra Centre","Canberra Centre, 148 Bunda Street","Canberra City","15/08/2021 - Sunday","9:55am","10:05am","Casual",-35.2785479,149.1333424,"",FALSE
-"","ALDI Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","15/08/2021 - Sunday","5:10pm","6:00pm","Casual",-35.2380765,149.0651172,"",FALSE
-"","ALDI Canberra Centre","Canberra Centre, 148 Bunda Street","Canberra City","15/08/2021 - Sunday","9:15am","10:15am","Casual",-35.2802271,149.1332809,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"","Bunnings Belconnen","15 Lathlain Street","Belconnen","15/08/2021 - Sunday","5:20pm","5:45pm","Monitor",-35.2444848,149.0637878,"",FALSE
-"","Coles Gungahlin","Gungahlin Place","Gungahlin","15/08/2021 - Sunday","9:30am","10:00am","Casual",-35.1862806,149.136042,"",FALSE
-"","Coles Manuka","Franklin Street and Flinders Way","Griffith","15/08/2021 - Sunday","11:15am","12:00pm","Monitor",-35.3210247,149.1341696,"",FALSE
-"","Condamine Court","40-48 Forbes Street","Turner","15/08/2021 - Sunday","12:00am","11:59pm","Close",-35.2642655,149.1303065,"",FALSE
-"","Daily Market Gungahlin","137/43 Hibberson Street","Gungahlin","15/08/2021 - Sunday","10:00am","10:30am","Casual",-35.1854965,149.1363642,"",FALSE
-"","Dan Murphy's Dickson","44 Dickson Place","Dickson","15/08/2021 - Sunday","12:20pm","12:50pm","Monitor",-35.2504152,149.1401934,"",FALSE
-"","Dominos Gungahlin","3/8 Ernest Cavanagh Street","Gungahlin","15/08/2021 - Sunday","1:50pm","2:10pm","Casual",-35.183993,149.131686,"",FALSE
-"","IGA O'Connor","3 Sargood Street","O'Connor","15/08/2021 - Sunday","5:30pm","6:00pm","Monitor",-35.2641187,149.1222594,"",FALSE
-"","LDK Greenway Views","260 Soward Way","Greenway","15/08/2021 - Sunday","12:00am","11:59pm","Close",-35.4197317,149.0633775,"",FALSE
-"","Spence Grocer","1 Glassey Place","Spence","15/08/2021 - Sunday","9:30am","9:50am","Casual",-35.1947447,149.0614983,"",FALSE
-"","Woolworths Dickson","1 Dickson Place","Dickson","15/08/2021 - Sunday","12:00pm","12:30pm","Casual",-35.249974,149.1387251,"",FALSE
-"","7-Eleven Casey","10 Kingsland Parade","Casey","14/08/2021 - Saturday","7:30am","8:15am","Casual",-35.175773,149.0957326,"",FALSE
-"","About Health","2/22-25 Dickson Place","Dickson","14/08/2021 - Saturday","2:40pm","5:00pm","Casual",-35.2506067,149.1392435,"",FALSE
-"","Capital Chemist O'Connor","9 Sargood Street","O'Connor","14/08/2021 - Saturday","7:55pm","8:10pm","Monitor",-35.2639132,149.122611,"",FALSE
-"","Coles Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","14/08/2021 - Saturday","9:20am","10:00am","Casual",-35.237949,149.064862,"",FALSE
-"","Hungry Jacks Belconnen","108ï¿½Emu Bank Road","Belconnen","14/08/2021 - Saturday","8:00am","3:15pm","Close",-35.2363112,149.0704104,"",FALSE
-"","First Choice Liquor Braddon","48 Mort Street","Braddon","14/08/2021 - Saturday","7:45pm","8:05pm","Monitor",-35.2716667,149.1319444,"",FALSE
-"","Hungry Jacks Belconnen","108ï¿½Emu Bank Road","Belconnen","14/08/2021 - Saturday","8:00am","3:15pm","Close",-35.2363112,149.0704104,"",FALSE
-"","Hungry Jacks Gungahlin","Gibberson Street","Gungahlin","14/08/2021 - Saturday","7:20pm","7:40pm","Casual",-35.1834112,149.1267535,"",FALSE
-"","IGA Lyneham","1 Wattle Place","Lyneham","14/08/2021 - Saturday","4:15pm","5:00pm","Casual",-35.2520717,149.1249094,"",FALSE
-"","LDK Greenway Views","260 Soward Way","Greenway","14/08/2021 - Saturday","12:00am","11:59pm","Close",-35.4197317,149.0633275,"",FALSE
-"","McDonalds Dickson","Corner Badham Street and Dickson Place","Dickson","14/08/2021 - Saturday","7:00am","10:30am","Casual",-35.2498103,149.1381879,"",FALSE
-"","Meatways Kambah Butcher","Marconi Crescent","Kambah","14/08/2021 - Saturday","1:20pm","2:00pm","Monitor",-35.380305,149.057822,"",FALSE
-"","Oriental Kitchen Charnwood","Charnwood Place","Charnwood","14/08/2021 - Saturday","6:55pm","7:35pm","Monitor",-35.2041918,149.0330466,"",FALSE
-"","Spence Grocer","1 Glassey Place","Spence","14/08/2021 - Saturday","12:40pm","1:10pm","Casual",-35.1947447,149.0615483,"",FALSE
-"","The Source Bulk Foods","Shop 7/7/30 Dickson Place","Dickson","14/08/2021 - Saturday","2:45pm","3:10pm","Casual",-35.2506133,149.1397664,"",FALSE
-"","Woolworths Charnwood","25-30 Charnwood Place","Charnwood","14/08/2021 - Saturday","1:00pm","3:00pm","Casual",-35.2045295,149.0328828,"",FALSE
-"","Woolworths Dickson","1 Dickson Place","Dickson","14/08/2021 - Saturday","11:20am","11:50am","Casual",-35.249974,149.1386751,"",FALSE
-"","Woolworths Dickson","1 Dickson Place","Dickson","14/08/2021 - Saturday","2:50pm","3:40pm","Casual",-35.249974,149.1386251,"",FALSE
-"","Woolworths Kambah","2 Primmer Court","Kambah","14/08/2021 - Saturday","2:00pm","2:30pm","Casual",-35.3801801,149.0572697,"",FALSE
-"","7-Eleven Phillip","86 Parramatta Street","Phillip","13/08/2021 - Friday","10:55am","11:10am","Monitor",-35.3550615,149.0911059,"",FALSE
-"","ALDI Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","13/08/2021 - Friday","8:45am","9:20am","Casual",-35.2380765,149.0650672,"",FALSE
-"","ALDI Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","13/08/2021 - Friday","2:00pm","2:25pm","Casual",-35.2380765,149.0650172,"",FALSE
-"","ALDI Weston Creek","Brierly Street","Weston","13/08/2021 - Friday","6:00pm","6:30pm","Casual",-35.3414467,149.0525899,"",FALSE
-"","Bus Route 66 Transport Canberra Code BUS643","Coombs to Woden Intechange","Public Transport","13/08/2021 - Friday","12:21pm","12:33pm","Casual",-35.3444429,149.0873192,"",FALSE
-"","Bus Route 70 Transport Canberra Code BUS321","Woden Interchange to Kambah","Public Transport","13/08/2021 - Friday","12:57pm","1:15pm","Casual",-35.3444429,149.0872692,"",FALSE
-"","Capital Chemist Oï¿½Connor","9 Sargood Street","O'Connor","13/08/2021 - Friday","9:35am","10:00am","Casual",-35.2639132,149.122586,"",FALSE
-"","Coles Amaroo","Horse Park Drive","Amaroo","13/08/2021 - Friday","11:30am","1:00pm","Casual",-35.1646128,149.1318066,"",FALSE
-"","Coles Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","13/08/2021 - Friday","9:35am","10:00am","Casual",-35.237949,149.064812,"",FALSE
-"","Coles Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","13/08/2021 - Friday","2:15pm","2:45pm","Casual",-35.237949,149.064762,"",FALSE
-"","Coles Canberra Centre","Canberra Centre, 148 Bunda Street","Canberra City","13/08/2021 - Friday","6:55pm","7:30pm","Casual",-35.2802271,149.1332309,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"","Coles Express Charnwood","Lhotsky Street and Charnwood Place","Charnwood","13/08/2021 - Friday","2:30pm","3:10pm","Monitor",-35.2056325,149.0332572,"",FALSE
-"","Costco Majura Park","39-41 Mustang Avenue","Majura Park","13/08/2021 - Friday","12:00pm","1:00pm","Casual",-35.2972375,149.1905839,"",FALSE
-"","Crust Pizza Braddon","28 Mort Street","Braddon","13/08/2021 - Friday","5:30pm","5:45pm","Casual",-35.2746249,149.1314767,"",FALSE
-"","Elite Supplements Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","13/08/2021 - Friday","2:30pm","2:45pm","Casual",-35.2383723,149.0649988,"",FALSE
-"","Food Works Weston Creek","40 Holder Place","Holder","13/08/2021 - Friday","5:00pm","5:10pm","Monitor",-35.3365862,149.0440993,"",FALSE
-"","Ginninderra Medical & Dental Centre - The general practice section ONLY","Corner Nettlefold Street and Coulter Drive","Belconnen","13/08/2021 - Friday","3:10pm","3:40pm","Close",-35.2395175,149.0576203,"",FALSE
-"","Hungry Jacks Belconnen","108ï¿½Emu Bank Road","Belconnen","13/08/2021 - Friday","3:45pm","11:30pm","Close",-35.2363112,149.0703604,"",FALSE
-"","Hawker Drive In Bottle Shop","Belconnen Way and Springvale Drive","Hawker","13/08/2021 - Friday","4:45pm","5:00pm","Monitor",-35.2426147,149.0449504,"",FALSE
-"","Hungry Jacks Belconnen","108ï¿½Emu Bank Road","Belconnen","13/08/2021 - Friday","3:45pm","11:30pm","Close",-35.2363112,149.0703604,"",FALSE
-"","IGA Evatt","Heydon Place","Evatt","13/08/2021 - Friday","11:45am","8:15pm","Casual",-35.2090949,149.0738421,"",FALSE
-"","IGA Lyneham","1 Wattle Place","Lyneham","13/08/2021 - Friday","11:00am","11:45am","Monitor",-35.2520717,149.1248594,"",FALSE
-"","Kopiku","1/5 Sargood Street","Oï¿½Connor","13/08/2021 - Friday","9:45am","10:15am","Casual",-35.2640694,149.1224283,"",FALSE
+"","Kopiku","1/5 Sargood Street","O’Connor","13/08/2021 - Friday","9:45am","10:15am","Casual",-35.2640694,149.1224283,"",FALSE
 "","LDK Greenway Views","260 Soward Way","Greenway","13/08/2021 - Friday","12:00am","11:59pm","Close",-35.4197317,149.0632775,"",FALSE
 "","Lennock Jaguar Land Rover","126 Melrose Drive","Phillip","13/08/2021 - Friday","8:30am","5:30pm","Close",-35.356842,149.0892491,"",FALSE
 "","Liquorland Amaroo","Horse Park Drive","Amaroo","13/08/2021 - Friday","12:00pm","12:30pm","Casual",-35.1647474,149.1320463,"",FALSE
@@ -119,7 +44,7 @@
 "","Capital Chemist O'Connor","9 Sargood Street","O'Connor","14/08/2021 - Saturday","7:55pm","8:10pm","Monitor",-35.2639132,149.122611,"",FALSE
 "","Coles Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","14/08/2021 - Saturday","9:20am","10:00am","Casual",-35.237949,149.064862,"",FALSE
 "","First Choice Liquor Braddon","48 Mort Street","Braddon","14/08/2021 - Saturday","7:45pm","8:05pm","Monitor",-35.2716667,149.1319444,"",FALSE
-"","Hungry Jacks Belconnen","108ï¿½Emu Bank Road","Belconnen","14/08/2021 - Saturday","8:00am","3:15pm","Close",-35.2363112,149.0704104,"",FALSE
+"","Hungry Jacks Belconnen","108 Emu Bank Road","Belconnen","14/08/2021 - Saturday","8:00am","3:15pm","Close",-35.2363112,149.0704104,"",FALSE
 "","Hungry Jacks Gungahlin","Gibberson Street","Gungahlin","14/08/2021 - Saturday","7:20pm","7:40pm","Casual",-35.1834112,149.1267535,"",FALSE
 "","IGA Lyneham","1 Wattle Place","Lyneham","14/08/2021 - Saturday","4:15pm","5:00pm","Casual",-35.2520717,149.1249094,"",FALSE
 "","LDK Greenway Views","260 Soward Way","Greenway","14/08/2021 - Saturday","12:00am","11:59pm","Close",-35.4197317,149.0633275,"",FALSE
