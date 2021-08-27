@@ -28,12 +28,12 @@ library(DT)
 library(rgdal)
 library(crosstalk)
 #latest dataset
-tab3 <- read.csv("data/last.csv")
+tab3 <- read.csv("https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/last.csv")
 # Aggregate method
 
 cols <- c( "red", "yellow","blue")
 
-addBuses <- TRUE
+addBuses <- FALSE
 
 tab3$Contact <- factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") )
 cc <- as.numeric( tab3$Contact)
@@ -56,7 +56,7 @@ m <- leaflet(df_shared) %>% addTiles()
 
 if (addBuses) {
 #read from shape file
-busses <- readOGR(dsn = "c:/bernd/r/covid_canberra/bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca", verbose = FALSE )
+busses <- readOGR(dsn = "./bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca", verbose = FALSE)
 
 #search all bus lines that are mentioned
 
@@ -162,6 +162,7 @@ Column {data-width=100}
 ------------------------------------------------------------
 
 ### Filter
+
 ```{r}
 
 bscols(
