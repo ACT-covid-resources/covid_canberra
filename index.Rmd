@@ -8,7 +8,10 @@ output:
 
 
 ```{r setup, include=FALSE}
+>>>>>>> dfdc6a2 (all mucked up)
 title: "unoffical-ACT covid19 resources"
+title: ""
+>>>>>>> 168f783 (all mucked up)
 date: "`r Sys.Date()`"
 author:  "[Anthony Davidson](https://github.com/davan690)"
 ---
@@ -225,7 +228,6 @@ labs <- paste(plotsumms$Exposure.Location, plotsumms$Date,plotsumms$Arrival.Time
 
 # write.csv(x = plotsumms, "data/outSubs.csv")
 ```
-
 ### Map of Exposure sites
 
 ```{r}
