@@ -14,3 +14,9 @@ forcats
 plotly
 ggplotlyExtra
 leaflet
+ggmap
+flexdashboard
+DT
+sp
+rgdal
+crosstalk
