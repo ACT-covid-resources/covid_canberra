@@ -66,6 +66,7 @@ remDr <- rD[["client"]]
 remDr$navigate("https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations")
 
 Sys.sleep(5) # give the page time to fully load
+<<<<<<< HEAD
 
 
 #click the archived button
@@ -73,6 +74,8 @@ Sys.sleep(5) # give the page time to fully load
 #html <- remDr$getPageSource()[[1]]
 
 
+=======
+>>>>>>> 2cffe91 (Squashed commit of the following:)
 html <- remDr$getPageSource()[[1]]
 
 remDr$close()
