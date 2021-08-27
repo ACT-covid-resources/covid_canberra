@@ -27,6 +27,16 @@ library(flexdashboard)
 library(DT)
 library(rgdal)
 library(crosstalk)
+<<<<<<< HEAD
+#latest dataset
+tab3 <- read.csv("data/last.csv")
+# Aggregate method
+
+cols <- c( "red", "yellow","blue")
+
+addBuses <- TRUE
+
+=======
 
 #variables needed
 addBuses <- TRUE
@@ -39,12 +49,31 @@ tab3 <- read.csv("https://raw.githubusercontent.com/green-striped-gecko/covid_ca
 
 # Aggregate method
 cols <- c( "red", "yellow","blue")
+>>>>>>> refs/remotes/origin/feature1
 tab3$Contact <- factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") )
 cc <- as.numeric( tab3$Contact)
 ncols <- c("black","cyan")
 nn <- as.numeric(factor(tab3$Status))
 nn2 <- ifelse(nn==1,nn, 3)
 
+<<<<<<< HEAD
+
+
+tab3$Date <- substr(tab3$Date,1,10) #ditch day of the week
+labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
+
+###############################################
+##plot the map
+df_shared <- crosstalk::SharedData$new(tab3[,c(1,8,2:7)])
+
+
+m <- leaflet(df_shared) %>% addTiles()
+
+
+if (addBuses) {
+#read from shape file
+busses <- readOGR(dsn = "c:/bernd/r/covid_canberra/bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca", verbose = FALSE )
+=======
 ###############################################
 ##plot the map
 df_shared <- crosstalk::SharedData$new(tab3[,c(1,8,2:7)])
@@ -53,6 +82,7 @@ m <- leaflet(df_shared) %>% addTiles()
 if (addBuses) {
 #read from shape file
 busses <- readOGR(dsn = "C://Code/covid_canberra/bus", layer = "geo_export_69c76e06-1d3f-4619-be3b-b4e5789be8ca", verbose = TRUE)
+>>>>>>> refs/remotes/origin/feature1
 
 #search all bus lines that are mentioned
 
@@ -156,8 +186,13 @@ dtt
 
 Column {data-width=100}
 ------------------------------------------------------------
+<<<<<<< HEAD
+
+### Filter
+=======
 ### Filter
 
+>>>>>>> refs/remotes/origin/feature1
 ```{r}
 
 bscols(

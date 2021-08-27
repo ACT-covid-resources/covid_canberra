@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# covid_canberra
+=======
 # covid_canberra
 
 This repository is an extend of a small project to create a map contact locations in the ACT. A collection of R code for accessing and working with the public github projects avaliable for supporting community responses to covid-19 outbreaks. The overall output is inspired by the "Indiana COVID-19 Website" and the open source code they have published.
@@ -27,3 +30,4 @@ To decide how to manage the interactive web apps that can be developed around th
 ### Tutorial on the basics
 
 [coming]
+>>>>>>> refs/remotes/origin/feature1
