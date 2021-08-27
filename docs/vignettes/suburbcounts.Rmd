@@ -106,8 +106,8 @@ levels(plotsumms$locName)
 plotsumms <- b
 plotsumms$Suburb[35] <- "O'Connor" 
 plotsumms$locName[35] <- "O'Connor"
-plotsumms$Suburb <- droplevels(plotsumms$Suburb)
-plotsumms$locName <- droplevels(plotsumms$locName)
+# plotsumms$Suburb <- droplevels(plotsumms$Suburb)
+# plotsumms$locName <- droplevels(plotsumms$locName)
 
 clean <- plotsumms$Exposure.Location[4] <- "Assembly The People Pub"
 
