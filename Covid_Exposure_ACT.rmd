@@ -35,7 +35,7 @@ addBuses <- TRUE
 #tab3 <- read.csv("C://Code/covid_canberra/data/last.csv")
 # https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/table_25_Aug_2021_227pm.csv
 #tab3 <- read.csv("data/last.csv")
-tab3 <- read.csv("https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/table_25_Aug_2021_227pm.csv")
+tab3 <- read.csv("https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/last.csv")
 
 # Aggregate method
 cols <- c( "red", "yellow","blue")
@@ -163,11 +163,22 @@ Column {data-width=100}
 bscols(
   filter_checkbox(
     id = "contact",
-    label = "",
+    label = "Contact",
     sharedData = df_shared,
     group = ~Contact,
     columns = 1
   ))
 
+bscols(
+  filter_checkbox(
+    id = "status",
+    label = "Status",
+    sharedData = df_shared,
+    group = ~Status,
+    columns = 1
+  ))
+
 bscols(  filter_select(id="dates", label="Date",sharedData = df_shared, group=~Date))
+bscols(  filter_select(id="suburb", label="Suburb",sharedData = df_shared, group=~Suburb))
+
 ```
