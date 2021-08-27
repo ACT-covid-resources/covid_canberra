@@ -30,7 +30,8 @@ library(plotly)
 library(flexdashboard)
 library(DT)
 #latest dataset
-tab3 <- read_csv("https://raw.githubusercontent.com/ACT-covid-resources/covid_canberra/main/data/last.csv")
+# https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/last.csv
+tab3 <- read_csv("https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/last.csv")
 # str(tab3)
 # Aggregate method
 
@@ -45,7 +46,7 @@ labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab
 m <- leaflet() %>% addTiles()
 
 m <- m %>% addCircleMarkers(lat=tab3$lat, lng=tab3$lon,popup = labs, weight=0.5, color = cols[cc], radius = 5 , fillOpacity = 0.8) 
-m <- m %>% addLegend("bottomright", labels = levels(factor(tab3$Contact)), colors = cols, opacity = 1)
+# m <- m %>% addLegend("bottomright", labels = levels(factor(tab3$Contact)), colors = cols, opacity = 1)
 ```
 
 <!-- # ```{r title, results='asis'} -->
@@ -56,7 +57,7 @@ m <- m %>% addLegend("bottomright", labels = levels(factor(tab3$Contact)), color
 library(lubridate)
 library(tidyverse)
 library(plotly)
-tab3 <- read_csv("https://raw.githubusercontent.com/ACT-covid-resources/covid_canberra/main/data/last.csv")
+tab3 <- read_csv("https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/last.csv")
 str(tab3)
 #latest dataset
 # tab3 <- ltab
@@ -195,19 +196,6 @@ labs <- paste(plotsumms$Exposure.Location, plotsumms$Date,plotsumms$Arrival.Time
 #               caseCount = sum(unique(Place)))
 
 # write.csv(x = plotsumms, "data/outSubs.csv")
-
-# options(max.print="75")
-knitr::opts_chunk$set(
-	echo = FALSE,
-	message = FALSE,
-	warning = FALSE,
-	cache = FALSE,
-	cache.path = "docs/",
-	# width=75,
-	comment = NA,
-	prompt = FALSE,
-	tidy = TRUE
-)
 ```
 
 <!-- This data is collected using code that accesses twitter, act govt site, nsw govt site, vic govt site...? -->
