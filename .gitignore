@@ -47,7 +47,6 @@ vignettes/
 vignettes/*.html
 vignettes/*.pdf
 
-
 # OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
 .httr-oauth
 
@@ -67,7 +66,7 @@ README.Rmd
 # R Environment Variables
 .Renviron
 gapi.txt
-rsconnect
+rsconnect/
 Covid_Exposure_ACT.html
 Covid_Exposure_ACT_test.Rmd
 Covid_Exposure_ACT_test.html
