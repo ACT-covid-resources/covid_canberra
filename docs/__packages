@@ -15,6 +15,7 @@ plotly
 ggplotlyExtra
 leaflet
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ggmap
 flexdashboard
@@ -23,3 +24,5 @@ sp
 rgdal
 crosstalk
 >>>>>>> 42f5241 (building site and having issues with draft RMDs)
+=======
+>>>>>>> 52f770c (site build)
