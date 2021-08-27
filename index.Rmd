@@ -1,19 +1,5 @@
 ---
-title: ""
-date: "`r Sys.Date()`"
-output:
-  rmdformats::readthedown:
-    highlight: kate
----
-
-
-```{r setup, include=FALSE}
->>>>>>> dfdc6a2 (all mucked up)
-title: "unoffical-ACT covid19 resources"
-title: ""
->>>>>>> 168f783 (all mucked up)
-date: "`r Sys.Date()`"
-author:  "[Anthony Davidson](https://github.com/davan690)"
+title: "Covid19 case locations"
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
@@ -28,21 +14,8 @@ opts_chunk$set(echo=FALSE,
                tidy=TRUE,
                comment=NA,
                message=FALSE,
-               warning=FALSE)
-opts_knit$set(width=75)
-```
-# options(max.print="75")
-knitr::opts_chunk$set(
-	echo = FALSE,
-	message = FALSE,
-	warning = FALSE,
-	cache = FALSE,
-	cache.path = "docs/",
-	# width=75,
-	comment = NA,
-	prompt = FALSE,
-	tidy = TRUE
-)
+               warning=FALSE,
+               cache.path = "docs/")
 ```
 
 <!-- This data is collected using code that accesses twitter, act govt site, nsw govt site, vic govt site...? -->
@@ -76,10 +49,8 @@ m <- m %>% addCircleMarkers(lat=tab3$lat, lng=tab3$lon,popup = labs, weight=0.5,
 m <- m %>% addLegend("bottomright", labels = levels(factor(tab3$Contact)), colors = cols, opacity = 1)
 ```
 
-<!-- # ```{r title, results='asis'}  -->
-<!-- #  -->
+<!-- # ```{r title, results='asis'} -->
 <!-- # cat(paste0("# ", params$lup)) -->
-<!-- #  -->
 <!-- # ``` -->
 
 ```{r include  = FALSE}
@@ -228,6 +199,8 @@ labs <- paste(plotsumms$Exposure.Location, plotsumms$Date,plotsumms$Arrival.Time
 
 # write.csv(x = plotsumms, "data/outSubs.csv")
 ```
+
+
 ### Map of Exposure sites
 
 ```{r}
@@ -254,6 +227,7 @@ leaflet(plotsumms) %>% addTiles() %>%
 
 This website tracks COVID-19 data and mobility information for the ACT and Canberra using code and data developed in the open source community. This information is only a guide. Please refer to official reports and press releases from government certified resources.
 
-### Data sources
+
+## Data sources
 
 [coming]
