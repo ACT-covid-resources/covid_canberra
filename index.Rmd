@@ -1,5 +1,13 @@
 ---
-<<<<<<< HEAD
+title: ""
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+---
+
+
+```{r setup, include=FALSE}
 title: "unoffical-ACT covid19 resources"
 =======
 <<<<<<< HEAD
@@ -14,6 +22,16 @@ library(knitr)
 library(rmdformats)
 
 ## Global options
+options(max.print="75")
+opts_chunk$set(echo=FALSE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
 # options(max.print="75")
 knitr::opts_chunk$set(
 	echo = FALSE,
@@ -51,7 +69,6 @@ cc <- as.numeric(factor(tab3$Contact))
 labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
 
 ##plot the map
-
 
 m <- leaflet() %>% addTiles()
 
@@ -197,8 +214,6 @@ plotsumms$Exposure.Location <-
 
 
 labs <- paste(plotsumms$Exposure.Location, plotsumms$Date,plotsumms$Arrival.Time, plotsumms$Departure.Time, sep="<br/>") 
-
-
 
 # %>%
 #     group_by(locName) %>%
@@ -262,8 +277,6 @@ m <- m %>% addLegend("bottomright", labels = levels(factor(tab3$Contact)), color
 <!-- #  -->
 <!-- # ``` -->
 
-
-
 ```{r include  = FALSE}
 library(lubridate)
 library(tidyverse)
@@ -396,9 +409,6 @@ plotsumms$Exposure.Location <-
 
 
 labs <- paste(plotsumms$Exposure.Location, plotsumms$Date,plotsumms$Arrival.Time, plotsumms$Departure.Time, sep="<br/>") 
-
-
-
 # %>%
 #     group_by(locName) %>%
 #       summarise(countPlace = count(Place))
