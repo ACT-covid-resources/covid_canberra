@@ -1,0 +1,56 @@
+name: "Covid19 contact cases for the ACT"
+navbar:
+  title: "CBR covid-info"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "NEW locations and hotspots"
+      href: Covid_Exposure_ACT.html
+    - text: "ACT Covid-19 cases, locations and hotspots"
+      href: VacinneRollout.html
+    # - text: "ACT mobility data"
+    #   href: 01-act-mobility.html
+    # - text: "Neighbouring states"
+    #   href: 03-nsw-vic-covid.html
+    # - text: "Australian covid trends"
+    #   href: 04-aus_covid_info.html
+    # - text: "Reproducible framework"
+    #   href: 05-about_rmdsites.html
+output_dir: "docs"
+output:
+  html_document:
+    theme: yeti
+    highlight: textmate
+    include:
+      after_body: _footer.html
+      
+####should use
+#   includes:
+#      in_header: header.html
+#    include:
+#      after_body: _footer.html
+
+
+
+####extra no use i think
+#left:
+#    - text: "About"
+#      icon: fa-question-circle
+#      href: index.html
+#    - text: "Static Charts"
+#      icon: fa-images
+#      href: static.html
+#    - text: "Demographics"
+#      icon: fa-users
+#      href: demographics.html
+#    - text: "Hospitals"
+#      icon: fa-briefcase-medical
+#      href: hospitals.html
+#    - text: "COVIDcast Dashboard"
+#      icon: glyphicon-stats
+#      href: https://ercbk.github.io/Indiana-COVIDcast-Dashboard/#dashboard
+#  right:
+#    - icon: fab fa-twitter
+#      href: https://twitter.com/erc_bk
+#    - icon: fab fa-github
+#      href: https://github.com/ercbk/Indiana-COVID-19-Website
