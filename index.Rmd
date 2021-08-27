@@ -1,5 +1,4 @@
 ---
-<<<<<<< HEAD
 title: ""
 date: "`r Sys.Date()`"
 output:
@@ -9,19 +8,16 @@ output:
 
 
 ```{r setup, include=FALSE}
-=======
 title: "unoffical-ACT covid19 resources"
 date: "`r Sys.Date()`"
 author:  "[Anthony Davidson](https://github.com/davan690)"
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
->>>>>>> b809f0a9fdafd9a5885816a91b056a4ab92ea163
 library(knitr)
 library(rmdformats)
 
 ## Global options
-<<<<<<< HEAD
 options(max.print="75")
 opts_chunk$set(echo=FALSE,
 	             cache=TRUE,
@@ -32,8 +28,6 @@ opts_chunk$set(echo=FALSE,
                warning=FALSE)
 opts_knit$set(width=75)
 ```
-
-=======
 # options(max.print="75")
 knitr::opts_chunk$set(
 	echo = FALSE,
@@ -85,8 +79,6 @@ m <- m %>% addLegend("bottomright", labels = levels(factor(tab3$Contact)), color
 <!-- # cat(paste0("# ", params$lup)) -->
 <!-- #  -->
 <!-- # ``` -->
-
-
 
 ```{r include  = FALSE}
 library(lubridate)
@@ -264,4 +256,3 @@ This website tracks COVID-19 data and mobility information for the ACT and Canbe
 ### Data sources
 
 [coming]
->>>>>>> b809f0a9fdafd9a5885816a91b056a4ab92ea163
