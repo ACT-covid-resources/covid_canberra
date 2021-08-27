@@ -64,7 +64,6 @@ cc <- as.numeric(factor(tab3$Contact))
 
 labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
 
-###############################################
 ##plot the map
 
 
