@@ -14,3 +14,12 @@ forcats
 plotly
 ggplotlyExtra
 leaflet
+<<<<<<< HEAD
+=======
+ggmap
+flexdashboard
+DT
+sp
+rgdal
+crosstalk
+>>>>>>> 42f5241 (building site and having issues with draft RMDs)
