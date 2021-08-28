@@ -7,7 +7,7 @@ navbar:
     - text: "Cases, contacts and locations"
       href: Covid_Exposure_ACT.html
     - text: "About"
-      href: VacinneRollout.html
+      href: about.html
     # - text: "ACT mobility data"
     #   href: 01-act-mobility.html
     # - text: "Neighbouring states"

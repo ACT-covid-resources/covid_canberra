@@ -1,6 +1,18 @@
 ---
 title: "Covid19 case locations"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+    social: menu
+    source_code: embed
+    includes:
+      after_body: _footer.html
 ---
+
+form{
+   text-align: center;
+}
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 library(knitr)
