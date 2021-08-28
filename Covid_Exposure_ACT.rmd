@@ -7,8 +7,8 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
-params:
-    lup: "unknown"
+# params:
+#     lup: "unknown"
 ---
 
 <style>
@@ -18,7 +18,7 @@ params:
 }
 </style>
 
-```{r setup, include=TRUE}
+```{r}
 library(tidyverse)
 library(ggmap)
 library(leaflet)
@@ -104,13 +104,7 @@ m <- m %>%  addLegend("bottomright", labels = levels(tab3$Contact), colors = col
 
 ```
 
-```{r title, results='asis'} 
-
-cat(paste0("# ", params$lup))
-
-```
 <sup>Disclaimer: This map shows the covid exposure locations in the ACT and is an **unofficial website** based on [official sources](https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations). So if in doubt, refer to the [offical website](https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations), which has now also an [**official map**](https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations/map#Map-of-ACT-exposure-locations) included. Supported by Volunteers from the University of Canberra. Contacts: Bernd Gruber [bernd.gruber@canberra.edu.au] & Anthony Davidson [anthony.davidson@canberra.edu.au]</sup>
-
 
 
 Column {data-width=500}

@@ -1,14 +1,11 @@
 ---
 title: "About the project"
-date: "`r Sys.Date()`"
-author:  "[Anthony Davidson](https://github.com/davan690)"
-output:
-  html_document:
-    output_dir: "docs"
-    css: index-style.css
 ---
 
-```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+Column {data-width=400}
+------------------------------------------------------------
+
+```{r setupabout, include=FALSE, message=FALSE, warning=FALSE}
 library(knitr)
 library(rmdformats)
 
@@ -27,152 +24,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-This website tracks COVID-19 data and mobility information for the ACT and Canberra using code and data developed in the open source community. This information is only a guide. Please refer to official reports and press releases from government certified resources.
-
-<!-- <!-- Row {data-width=150} --> -->
-<!-- <!-- ------------------------------------ --> -->
-
-<!-- ### New cases: `r Sys.Date()` -->
-
-<!-- ```{r} -->
-<!-- # names(plotsumms) -->
-<!-- # glimpse(plotsumms) -->
-<!-- # ggplot(plotsumms) -->
-<!-- # ggplot(sum1) +  -->
-<!-- #   geom_point(aes(x = time, y = as.numeric(casecount), group = Contact, col = Status), size = 4) +  -->
-<!-- #   theme_bw() -->
-
-<!-- p1 <- ggplot(filter(sum1, Status == "New")) +  -->
-<!--   geom_point(aes(x = time, y = Suburb, shape = Contact), size = 3) +  -->
-<!--   # geom_point(data = filter(sum1, Suburb == "Fyshwick"), aes(x = time, y = Suburb, shape = Contact), size = 1) +  -->
-<!--   facet_wrap(~Contact, scales = "free", ncol = 1) + -->
-<!--   theme_bw() -->
-
-<!-- library(ggplotlyExtra) -->
-
-<!-- ggplotly(p1) -->
-
-
-<!-- ##by location address -->
-<!-- sum2 <- tab5 %>% -->
-<!--   dplyr::group_by(Exposure.Location, conDate) %>% -->
-<!--     dplyr::summarise(casecount = length(unique(Date))) -->
-
-<!-- ##total more than 3 cases -->
-<!-- # sum2 %>% -->
-<!-- #       filter(casecount >= ) -->
-
-<!-- # table(sum2$Status, sum2$Contact) -->
-<!-- library(DT) -->
-<!-- library(kableExtra) -->
-
-
-<!-- ``` -->
-
-
-<!-- ```{r include = TRUE} -->
-<!-- plotsumms %>% -->
-<!--   filter(Status == "New") %>% -->
-<!--   select("Exposure.Location",	"Street",	"Suburb",	"Date",	"Arrival.Time",	"Departure.Time",	"Contact") %>% -->
-<!--   kbl() %>% -->
-<!--   kable_paper("hover", full_width = F) -->
-<!-- # # Use it with sparkline -->
-<!-- # Well, this is not a feature but rather a documentation of how to use the sparkline package together with this package. The easiest way is sort of a hack. You can call  sparkline::sparkline(0) somewhere on your document where no one would mind so its dependencies could be loaded without any hurdles. Then you use  sparkline::spk_chr() to generate the text. For a working example, see: Chinese names in US babynames -->
-<!-- #  -->
-<!-- # # Not evaluated -->
-<!-- # library(sparkline) -->
-<!-- # sparkline(0) -->
-<!-- #  spk_dt <- data.frame( -->
-<!-- #   var = c("mpg", "wt"), -->
-<!-- #   sparkline = c(spk_chr(mtcars$mpg), spk_chr(mtcars$wt)) -->
-<!-- # ) -->
-<!-- #  -->
-<!-- # kbl(spk_dt, escape = F) %>% -->
-<!-- #   kable_paper(full_width = F) -->
-<!-- # vignette(package = "kableExtra", topic = "awesome_table_in_html") -->
-<!-- # dtt <-DT::datatable(plotsumms[,c(1,8,2:7)], -->
-<!-- #   rownames = FALSE, options = list(pageLength = 50, ausoHideNavigation=TRUE,  -->
-<!-- #   initComplete = JS( -->
-<!-- #         "function(settings, json) {", -->
-<!-- #         "$(this.api().table().header()).css({'font-size': '50%'});", -->
-<!-- #  -->
-<!-- #         "}")))  %>% DT::formatStyle(columns = 1:8, fontSize='70%')  -->
-<!-- #  -->
-<!-- # dtt -->
-
-<!-- ``` -->
-
-<!-- ### Timeline -->
-
-<!-- Break down information into the following figure of contact times and locations: -->
-
-<!-- ```{r} -->
-<!-- fullDatdf <- as.data.frame(tab5) -->
-<!-- # names(fullDatdf) -->
-
-
-<!-- p2 <- ggplot(fullDatdf) +  -->
-<!--   geom_point(aes(x = Date, y = Suburb, col = Contact), size = 2) +  -->
-<!--   geom_vline(xintercept = 7, size = 1, col = "red", lty = 1, alpha= 0.5) + -->
-<!--   geom_line(aes(x = Date, y = Suburb)) +  -->
-<!--   # geom_point(data = filter(sum1, Suburb == "Fyshwick"), aes(x = time, y = Suburb, shape = Contact), size = 1) +  -->
-<!--   # facet_wrap(~Contact, scales = "free", ncol = 2) + -->
-<!--   theme_bw() + -->
-<!--   theme(axis.text.x = element_text(angle = 90)) -->
-
-<!-- ggplotly(p2) -->
-<!-- ``` -->
-
-<!-- As of `5pm of Thursday 12th August 2021` the ACT went into a 7-day lockdown. This is due to a case in Canberra being active in the community for some days. Here is the current location data released on Thursday evening... -->
-
-<!-- UPDATE coming.... -->
-
-<!-- ```{r include = FALSE} -->
-<!-- library(plotly) -->
-
-<!-- df <- read.csv("https://cdn.rawgit.com/plotly/datasets/master/GanttChart-updated.csv",  -->
-<!--                stringsAsFactors = F) -->
-
-<!-- df$Start  <- as.Date(df$Start, format = "%m/%d/%Y") -->
-<!-- client    <- "Sample Client" -->
-<!-- cols      <- RColorBrewer::brewer.pal(length(unique(df$Resource)), name = "Set3") -->
-<!-- df$color  <- factor(df$Resource, labels = cols) -->
-
-<!-- p <- plot_ly() -->
-<!-- for(i in 1:(nrow(df) - 1)){ -->
-<!--   p <- add_trace(p, -->
-<!--                  x = c(df$Start[i], df$Start[i] + df$Duration[i]),  -->
-<!--                  y = c(i, i),  -->
-<!--                  mode = "lines", -->
-<!--                  line = list(color = df$color[i], width = 20), -->
-<!--                  showlegend = F, -->
-<!--                  hoverinfo = "text", -->
-<!--                  text = paste("Task: ", df$Task[i], "<br>", -->
-<!--                               "Duration: ", df$Duration[i], "days<br>", -->
-<!--                               "Resource: ", df$Resource[i]), -->
-<!--                  evaluate = T -->
-<!--   ) -->
-<!-- } -->
-
-<!-- p -->
-<!-- ``` -->
-
-## Data accessed to generate maps
-
+This website tracks COVID-19 data and mobility information for the ACT and Canberra using code and data developed in the open source community. This information is only a guide. Please refer to official reports and press releases from government certified resources. <br>
 - Government page: [ACT.govt.au](https://www.covid19.act.gov.au/)<br>
 - Data: [ACT govt data](https://app.powerbi.com/view?r=eyJrIjoiZTY4NTI1NzQtYTBhYy00ZTY4LTk3NmQtYjBjNzdiOGMzZjM3IiwidCI6ImI0NmMxOTA4LTAzMzQtNDIzNi1iOTc4LTU4NWVlODhlNDE5OSJ9)<br>
 
-```{r}
-#imbed storymap
-knitr::include_url("https://storymaps.arcgis.com/stories/7886a3c0b4b9413f82019b60e21d02db")
-
-# knitr::include_graphics("https://www.covid19.act.gov.au/__data/assets/image/0005/1820273/PICC0347-Exposure-locations_ACT_Aug-2021.png")
-# https://ourworldindata.org/grapher/covid-confirmed-cases-since-100th-case?country=NZL+KOR+DNK
-```
-
-## Current ACT covid data
-
-```{r}
+```{r fig.align='center', fig.height=10, fig.width=8}
 # ACT raw map
 knitr::include_url("https://app.powerbi.com/view?r=eyJrIjoiZTY4NTI1NzQtYTBhYy00ZTY4LTk3NmQtYjBjNzdiOGMzZjM3IiwidCI6ImI0NmMxOTA4LTAzMzQtNDIzNi1iOTc4LTU4NWVlODhlNDE5OSJ9")
 
@@ -187,14 +43,14 @@ knitr::include_url("https://app.powerbi.com/view?r=eyJrIjoiZTY4NTI1NzQtYTBhYy00Z
 #interactive map in the future
 ```
 
-## ACT vaccine rollout
+#### ACT vaccine rollout
 
 BRAND NEW and amazing app :) all abc top notch journalism (reproducible and transparent)
 
-```{r}
+```{r fig.height=4, fig.width=8}
 knitr::include_url("https://markusmannheim.github.io/act-coronavirus-teaser/")
 ```
 
-## Join mail list
+#### Join mail list
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdw-QWPpUsD6eH59kFJC5zJCXD6bExu7lmLboKdixR6iXJhAg/viewform?embedded=true" width="640" height="931" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
