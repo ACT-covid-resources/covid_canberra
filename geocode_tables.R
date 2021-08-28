@@ -69,6 +69,13 @@ remDr <- rD[["client"]]
 remDr$navigate("https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations")
 
 Sys.sleep(5) # give the page time to fully load
+
+
+#click the archived button
+#arch$clickElement()
+#html <- remDr$getPageSource()[[1]]
+
+
 html <- remDr$getPageSource()[[1]]
 
 remDr$close()
@@ -161,7 +168,7 @@ tab3$doubles[index]<- "<strong/>!Location has more than<br> one entry. Zoom in a
 
 index <- which(tab3$doubles!="")
 tab3$moved <-FALSE
-
+if(length(index)>0) {
 for ( i in 1:length(index))
 {
   
@@ -175,7 +182,7 @@ for ( i in 1:length(index))
     tab3$moved[dbs]<- TRUE
   }
 }
-
+}
 cols <- c( "red", "yellow","blue")
 
 labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
@@ -210,13 +217,14 @@ if (addBuses) {
   bb <- (busses[blineindex,])
   coo <- coordinates(bb)
   bcols <- colorRampPalette(c("purple", "green"))( length(coo))
-  
+  if (length(coo)>0)
+  {
   for (ib in 1:length(coo))
   {
     cood <- data.frame(coo[[ib]])
     m <- m %>% addPolylines(lng=cood[,1], lat=cood[,2], color = bcols[ib], weight   = 3, opacity = 0.4, popup  = blabs[ib])
   }
-  
+  }
 }
 
 
