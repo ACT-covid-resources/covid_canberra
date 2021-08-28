@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# covid_canberra
-=======
 # covid_canberra
 
 This repository is an extend of a small project to create a map contact locations in the ACT. A collection of R code for accessing and working with the public github projects avaliable for supporting community responses to covid-19 outbreaks. The overall output is inspired by the "Indiana COVID-19 Website" and the open source code they have published.
@@ -14,7 +11,7 @@ This would not be possible without the open source community and code that is ma
 This website tracks COVID-19 data statewide and by county. The Static Charts page shows COVID-19 positive tests and deaths, and various rates are calculated to track spread. Proxy metrics for estimating social distancing are also included along with data on hospital admissions and resources. The Demographics page has charts that show various case and death statistics calculated for each age group. The Hospitals page tracks additional data that might indicate strain on hospital resources. The COVIDcast dashboard follows a metric, combined indicator, that might be predictive of virus spread. Metropolitan Statistical Area statistics for cases and positivity rates are also provided.
 
 > Please contact me if you find any issues with the site. My contact information and the code used to generate the site can be found on my github [page](https://github.com/ercbk). Data used to generate the charts can be downloaded through the R package, [indianacovid19data](https://ercbk.github.io/indianacovid19data/), [github](https://github.com/ercbk/indianacovid19data), or [zenodo](https://zenodo.org/record/4685381)  Website for [Indiana COVID-19 Tracker](https://github.com/ercbk/Indiana-COVID-19-Tracker)</br>
->
+
 > ![Noon Update](https://github.com/ercbk/Indiana-COVID-19-Website/workflows/Noon%20Update/badge.svg)![Evening Update](https://github.com/ercbk/Indiana-COVID-19-Website/workflows/Evening%20Update/badge.svg)
 
 ## rmarkdown-website-tutorial
@@ -30,4 +27,3 @@ To decide how to manage the interactive web apps that can be developed around th
 ### Tutorial on the basics
 
 [coming]
->>>>>>> refs/remotes/origin/feature1
