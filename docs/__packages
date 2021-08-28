@@ -12,3 +12,17 @@ dplyr
 stringr
 forcats
 plotly
+ggplotlyExtra
+leaflet
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+ggmap
+flexdashboard
+DT
+sp
+rgdal
+crosstalk
+>>>>>>> 42f5241 (building site and having issues with draft RMDs)
+=======
+>>>>>>> 52f770c (site build)
