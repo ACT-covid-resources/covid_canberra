@@ -104,15 +104,11 @@ m <- m %>%  addLegend("bottomright", labels = levels(tab3$Contact), colors = col
 
 ```
 
-<<<<<<< HEAD
-=======
-```{r title, results='asis'} 
 
-cat(paste0("# ", params$lup))
+<!-- # ```{r title, results='asis'}  -->
+<!-- # cat(paste0("# ", params$lup)) -->
+<!-- # ``` -->
 
-
-```
->>>>>>> b4aac04b905a725e2a328b388caecc8062069150
 <sup>Disclaimer: This map shows the covid exposure locations in the ACT and is an **unofficial website** based on [official sources](https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations). So if in doubt, refer to the [offical website](https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations), which has now also an [**official map**](https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations/map#Map-of-ACT-exposure-locations) included. Supported by Volunteers from the University of Canberra. Contacts: Bernd Gruber [bernd.gruber@canberra.edu.au] & Anthony Davidson [anthony.davidson@canberra.edu.au]</sup>
 
 
@@ -191,13 +187,10 @@ bscols(  filter_select(id="suburb", label="Suburb",sharedData = df_shared, group
 
 ```
 
-
 # Exposure sites per Update
 
-``` {r}
-
-
-allfiles <- list.files("./data/", pattern="table_")
+``` {r eval = FALSE}
+allfiles <- list.files("data/", pattern="table_")
 fo <- allfiles[order(file.mtime(file.path("data",allfiles)), decreasing = FALSE)]
 res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
 cc<-1
