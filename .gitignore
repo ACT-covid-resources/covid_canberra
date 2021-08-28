@@ -41,7 +41,7 @@
 data/
 
 #vig folder
-vignettes/
+#vignettes/
 
 # produced vignettes
 vignettes/*.html
