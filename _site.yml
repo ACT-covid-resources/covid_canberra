@@ -4,9 +4,9 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "NEW locations and hotspots"
+    - text: "Cases, contacts and locations"
       href: Covid_Exposure_ACT.html
-    - text: "ACT Covid-19 cases, locations and hotspots"
+    - text: "About"
       href: VacinneRollout.html
     # - text: "ACT mobility data"
     #   href: 01-act-mobility.html

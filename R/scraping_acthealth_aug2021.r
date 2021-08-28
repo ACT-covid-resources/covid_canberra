@@ -27,15 +27,18 @@ lu <- substr(strsplit(dummy,"updated:")[[1]][2],2,100)
 lu <- gsub(" ", "_",lu)
 lu <- gsub(":","",lu)
 lu
+#"27_Aug_2021_723pm"
+# lu <- "table_23_Aug_2021_919am.csv"
 
-lu <- "table_23_Aug_2021_919am.csv"
 #check if there was an update....
-ff <- list.files("data/")
+ff <- list.files("data/", pattern = ".csv")
+
 wu <- grep(lu, ff)
 
 if(wu == 0){
 
- site_checks_ACT <- read.csv()
+ site_checks_ACT <- read.csv("data/datruns.csv")
+
  
  ##add run
  #folder path needs to change          
@@ -46,8 +49,10 @@ if(wu == 0){
 
 if(wu >= 0){
   
-  site_checks_ACT <- read.csv()
-  
+  site_checks_ACT <- read.csv("data/datruns.csv")
+  varsneeded <- colnames(site_checks_ACT)
+
+  colnames(varsneeded[1], varsneeded[2], varsneeded[3]))
   ##add run
   #folder path needs to change          
   write_csv(site_checks_ACT,paste0('data/',Sys.Date(),'_top_gainers','.csv'))    
