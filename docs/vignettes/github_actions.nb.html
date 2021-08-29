@@ -218,8 +218,11 @@ pre code {
 <div id="overall" class="section level1">
 <h1>Overall</h1>
 <p>This vignette includes the key notes for creating github actions for R scripts.</p>
-<div id="clean-up-dev-branch" class="section level2">
-<h2>Clean up dev branch</h2>
+<div id="git-scripts" class="section level2">
+<h2>git scripts</h2>
+<p>The construction and running of git commands drive the ability for these github actions to work. Git is super versatile but this also means you can easily make a real mess when the projects get bigger.</p>
+<div id="clean-up-dev-branch" class="section level3">
+<h3>Clean up dev branch</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyAjIFJlYmFzZSBhbGwgY29tbWl0cyBvbiB5b3VyIGRldmVsb3BtZW50IGJyYW5jaFxuIyBnaXQgY2hlY2tvdXQgXG4jIGdpdCByZWJhc2UgLWkgbWFpbiAjbWFzdGVyIGlzIG5vIGxvbmdlciBkZWZhdWx0IHJlcG8/XG5gYGAifQ== -->
@@ -229,14 +232,19 @@ pre code {
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Ctrl+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
+</div>
+<div id="create-new-dev-branch" class="section level3">
+<h3>Create new dev branch</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 </div>
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkdpdGh1YiBhY3Rpb24gc3RlcHMiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIE92ZXJhbGwNCg0KVGhpcyB2aWduZXR0ZSBpbmNsdWRlcyB0aGUga2V5IG5vdGVzIGZvciBjcmVhdGluZyBnaXRodWIgYWN0aW9ucyBmb3IgUiBzY3JpcHRzLg0KDQojIyBDbGVhbiB1cCBkZXYgYnJhbmNoDQoNCmBgYHtyfQ0KIyAjIFJlYmFzZSBhbGwgY29tbWl0cyBvbiB5b3VyIGRldmVsb3BtZW50IGJyYW5jaA0KIyBnaXQgY2hlY2tvdXQgDQojIGdpdCByZWJhc2UgLWkgbWFpbiAjbWFzdGVyIGlzIG5vIGxvbmdlciBkZWZhdWx0IHJlcG8/DQpgYGANCg0KQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkN0cmwrQWx0K0kqLg0KDQpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkN0cmwrU2hpZnQrSyogdG8gcHJldmlldyB0aGUgSFRNTCBmaWxlKS4NCg0KVGhlIHByZXZpZXcgc2hvd3MgeW91IGEgcmVuZGVyZWQgSFRNTCBjb3B5IG9mIHRoZSBjb250ZW50cyBvZiB0aGUgZWRpdG9yLiBDb25zZXF1ZW50bHksIHVubGlrZSAqS25pdCosICpQcmV2aWV3KiBkb2VzIG5vdCBydW4gYW55IFIgY29kZSBjaHVua3MuIEluc3RlYWQsIHRoZSBvdXRwdXQgb2YgdGhlIGNodW5rIHdoZW4gaXQgd2FzIGxhc3QgcnVuIGluIHRoZSBlZGl0b3IgaXMgZGlzcGxheWVkLg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkdpdGh1YiBhY3Rpb24gc3RlcHMiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIE92ZXJhbGwNCg0KVGhpcyB2aWduZXR0ZSBpbmNsdWRlcyB0aGUga2V5IG5vdGVzIGZvciBjcmVhdGluZyBnaXRodWIgYWN0aW9ucyBmb3IgUiBzY3JpcHRzLg0KDQojIyBnaXQgc2NyaXB0cw0KDQpUaGUgY29uc3RydWN0aW9uIGFuZCBydW5uaW5nIG9mIGdpdCBjb21tYW5kcyBkcml2ZSB0aGUgYWJpbGl0eSBmb3IgdGhlc2UgZ2l0aHViIGFjdGlvbnMgdG8gd29yay4gR2l0IGlzIHN1cGVyIHZlcnNhdGlsZSBidXQgdGhpcyBhbHNvIG1lYW5zIHlvdSBjYW4gZWFzaWx5IG1ha2UgYSByZWFsIG1lc3Mgd2hlbiB0aGUgcHJvamVjdHMgZ2V0IGJpZ2dlci4NCg0KIyMjIENsZWFuIHVwIGRldiBicmFuY2gNCg0KYGBge3J9DQojICMgUmViYXNlIGFsbCBjb21taXRzIG9uIHlvdXIgZGV2ZWxvcG1lbnQgYnJhbmNoDQojIGdpdCBjaGVja291dCANCiMgZ2l0IHJlYmFzZSAtaSBtYWluICNtYXN0ZXIgaXMgbm8gbG9uZ2VyIGRlZmF1bHQgcmVwbz8NCmBgYA0KDQojIyMgQ3JlYXRlIG5ldyBkZXYgYnJhbmNoDQoNCmBgYHtyfQ0KDQpgYGANCg0K</div>
 
 
 

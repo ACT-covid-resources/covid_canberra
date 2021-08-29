@@ -7,7 +7,11 @@ output: html_notebook
 
 This vignette includes the key notes for creating github actions for R scripts.
 
-## Clean up dev branch
+## git scripts
+
+The construction and running of git commands drive the ability for these github actions to work. Git is super versatile but this also means you can easily make a real mess when the projects get bigger.
+
+### Clean up dev branch
 
 ```{r}
 # # Rebase all commits on your development branch
@@ -15,8 +19,75 @@ This vignette includes the key notes for creating github actions for R scripts.
 # git rebase -i main #master is no longer default repo?
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+### Create new dev branch
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+```{r}
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```
+
+## Always Squash and Rebase Git Commits 
+
+from [Anna Sherman · August 28th, 2017](https://blog.carbonfive.com/always-squash-and-rebase-your-git-commits/)
+
+Using git for version control allows for powerful collaboration in tech teams. Like any tool, if misused, it can also cause some serious headaches. After working with a wide variety of team sizes and dynamics, I’ve found that the squash and rebase workflow helps make the collaboration process more efficient and a hell of a lot less painful.
+
+### What is the squash rebase workflow?
+
+It’s simple – before you merge a feature branch back into your main branch (often master or develop), your feature branch should be squashed down to a single buildable commit, and then rebased from the up-to-date main branch. Here’s a breakdown.
+
+
+Pull master branch
+
+git pull origin master
+
+Create bug/feature branch
+
+git checkout -b branchName
+
+Make changes as needed with as many commits that you need to. Make sure the final commit is buildable and all tests pass.
+
+Get the number of commits from the start of your branch. There are a couple of ways to get this. You can simply git log and count your commits, or
+
+git log --graph --decorate --pretty=oneline --abbrev-commit
+
+which will show a graph of your commit log history and may be easier to visualize your commits. Sometimes you will have large enough number of commits that counting can become troublesome. In that case grab the SHA from the last commit that your branch branches from.
+
+Squash to 1 commit.
+
+git rebase -i HEAD~[NUMBER OF COMMITS]
+
+OR
+
+git rebase -i [SHA]
+
+If you have previously pushed your code to a remote branch, you will need to force push.
+
+git push origin branchName --force
+
+Checkout master branch
+
+git checkout master
+
+Pull master branch
+
+git pull origin master
+
+Checkout bug/feature branch
+
+git checkout branchName
+
+Rebase from master
+
+git rebase master
+
+Handle any conflicts and make sure your code builds and all tests pass. Force push branch to remote.
+
+git push origin branchName --force
+
+Checkout, merge, and push into master
+
+git checkout master
+
+git merge branchName
+
+git push origin master
