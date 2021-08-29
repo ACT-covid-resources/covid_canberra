@@ -7,6 +7,36 @@ output: html_notebook
 
 This vignette includes the key notes for creating github actions for R scripts.
 
+## Current site build steps
+
+These manual steps can all be done automatically with the correct SHH keys (HEAD needs to be correct too I think). I have written these steps out so I can then write a github actions file around these steps.
+
+> Can we make this easier?
+
+1. Create pull request from remote upstream branch (`green-striped-gecko main`)
+
+2. checkout `green-striped-gecko-main` repo (my fork)
+
+3. stage and commit changes
+  - currently just last.csv (check for changes manually)
+  - clash with `index.html` that removes maps
+  
+4. checkout `main` branch (my fork)
+
+5. merge `green-striped-gecko main` to `main`
+
+6. git commit
+
+7. build site in RStudio again with new data
+
+8. git commment changes from upstream `green-striped-gecko main` and site build
+
+9. git push to main
+
+10. reset head
+
+DONE!
+
 ## git scripts
 
 The construction and running of git commands drive the ability for these github actions to work. Git is super versatile but this also means you can easily make a real mess when the projects get bigger.

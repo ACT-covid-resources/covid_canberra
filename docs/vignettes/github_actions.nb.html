@@ -218,6 +218,32 @@ pre code {
 <div id="overall" class="section level1">
 <h1>Overall</h1>
 <p>This vignette includes the key notes for creating github actions for R scripts.</p>
+<div id="current-site-build-steps" class="section level2">
+<h2>Current site build steps</h2>
+<p>These manual steps can all be done automatically with the correct SHH keys (HEAD needs to be correct too I think). I have written these steps out so I can then write a github actions file around these steps.</p>
+<blockquote>
+<p>Can we make this easier?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><p>Create pull request from remote upstream branch (<code>green-striped-gecko main</code>)</p></li>
+<li><p>checkout <code>green-striped-gecko-main</code> repo (my fork)</p></li>
+<li><p>stage and commit changes</p></li>
+</ol>
+<ul>
+<li>currently just last.csv (check for changes manually)</li>
+<li>clash with <code>index.html</code> that removes maps</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li><p>checkout <code>main</code> branch (my fork)</p></li>
+<li><p>merge <code>green-striped-gecko main</code> to <code>main</code></p></li>
+<li><p>git commit</p></li>
+<li><p>build site in RStudio again with new data</p></li>
+<li><p>git commment changes from upstream <code>green-striped-gecko main</code> and site build</p></li>
+<li><p>git push to main</p></li>
+<li><p>reset head</p></li>
+</ol>
+<p>DONE!</p>
+</div>
 <div id="git-scripts" class="section level2">
 <h2>git scripts</h2>
 <p>The construction and running of git commands drive the ability for these github actions to work. Git is super versatile but this also means you can easily make a real mess when the projects get bigger.</p>
@@ -239,12 +265,49 @@ pre code {
 <!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+</div>
+<div id="always-squash-and-rebase-git-commits" class="section level2">
+<h2>Always Squash and Rebase Git Commits</h2>
+<p>from <a href="https://blog.carbonfive.com/always-squash-and-rebase-your-git-commits/">Anna Sherman · August 28th, 2017</a></p>
+<p>Using git for version control allows for powerful collaboration in tech teams. Like any tool, if misused, it can also cause some serious headaches. After working with a wide variety of team sizes and dynamics, I’ve found that the squash and rebase workflow helps make the collaboration process more efficient and a hell of a lot less painful.</p>
+<div id="what-is-the-squash-rebase-workflow" class="section level3">
+<h3>What is the squash rebase workflow?</h3>
+<p>It’s simple – before you merge a feature branch back into your main branch (often master or develop), your feature branch should be squashed down to a single buildable commit, and then rebased from the up-to-date main branch. Here’s a breakdown.</p>
+<p>Pull master branch</p>
+<p>git pull origin master</p>
+<p>Create bug/feature branch</p>
+<p>git checkout -b branchName</p>
+<p>Make changes as needed with as many commits that you need to. Make sure the final commit is buildable and all tests pass.</p>
+<p>Get the number of commits from the start of your branch. There are a couple of ways to get this. You can simply git log and count your commits, or</p>
+<p>git log –graph –decorate –pretty=oneline –abbrev-commit</p>
+<p>which will show a graph of your commit log history and may be easier to visualize your commits. Sometimes you will have large enough number of commits that counting can become troublesome. In that case grab the SHA from the last commit that your branch branches from.</p>
+<p>Squash to 1 commit.</p>
+<p>git rebase -i HEAD~[NUMBER OF COMMITS]</p>
+<p>OR</p>
+<p>git rebase -i [SHA]</p>
+<p>If you have previously pushed your code to a remote branch, you will need to force push.</p>
+<p>git push origin branchName –force</p>
+<p>Checkout master branch</p>
+<p>git checkout master</p>
+<p>Pull master branch</p>
+<p>git pull origin master</p>
+<p>Checkout bug/feature branch</p>
+<p>git checkout branchName</p>
+<p>Rebase from master</p>
+<p>git rebase master</p>
+<p>Handle any conflicts and make sure your code builds and all tests pass. Force push branch to remote.</p>
+<p>git push origin branchName –force</p>
+<p>Checkout, merge, and push into master</p>
+<p>git checkout master</p>
+<p>git merge branchName</p>
+<p>git push origin master</p>
 <!-- rnb-text-end -->
 </div>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkdpdGh1YiBhY3Rpb24gc3RlcHMiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIE92ZXJhbGwNCg0KVGhpcyB2aWduZXR0ZSBpbmNsdWRlcyB0aGUga2V5IG5vdGVzIGZvciBjcmVhdGluZyBnaXRodWIgYWN0aW9ucyBmb3IgUiBzY3JpcHRzLg0KDQojIyBnaXQgc2NyaXB0cw0KDQpUaGUgY29uc3RydWN0aW9uIGFuZCBydW5uaW5nIG9mIGdpdCBjb21tYW5kcyBkcml2ZSB0aGUgYWJpbGl0eSBmb3IgdGhlc2UgZ2l0aHViIGFjdGlvbnMgdG8gd29yay4gR2l0IGlzIHN1cGVyIHZlcnNhdGlsZSBidXQgdGhpcyBhbHNvIG1lYW5zIHlvdSBjYW4gZWFzaWx5IG1ha2UgYSByZWFsIG1lc3Mgd2hlbiB0aGUgcHJvamVjdHMgZ2V0IGJpZ2dlci4NCg0KIyMjIENsZWFuIHVwIGRldiBicmFuY2gNCg0KYGBge3J9DQojICMgUmViYXNlIGFsbCBjb21taXRzIG9uIHlvdXIgZGV2ZWxvcG1lbnQgYnJhbmNoDQojIGdpdCBjaGVja291dCANCiMgZ2l0IHJlYmFzZSAtaSBtYWluICNtYXN0ZXIgaXMgbm8gbG9uZ2VyIGRlZmF1bHQgcmVwbz8NCmBgYA0KDQojIyMgQ3JlYXRlIG5ldyBkZXYgYnJhbmNoDQoNCmBgYHtyfQ0KDQpgYGANCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkdpdGh1YiBhY3Rpb24gc3RlcHMiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIE92ZXJhbGwNCg0KVGhpcyB2aWduZXR0ZSBpbmNsdWRlcyB0aGUga2V5IG5vdGVzIGZvciBjcmVhdGluZyBnaXRodWIgYWN0aW9ucyBmb3IgUiBzY3JpcHRzLg0KDQojIyBDdXJyZW50IHNpdGUgYnVpbGQgc3RlcHMNCg0KVGhlc2UgbWFudWFsIHN0ZXBzIGNhbiBhbGwgYmUgZG9uZSBhdXRvbWF0aWNhbGx5IHdpdGggdGhlIGNvcnJlY3QgU0hIIGtleXMgKEhFQUQgbmVlZHMgdG8gYmUgY29ycmVjdCB0b28gSSB0aGluaykuIEkgaGF2ZSB3cml0dGVuIHRoZXNlIHN0ZXBzIG91dCBzbyBJIGNhbiB0aGVuIHdyaXRlIGEgZ2l0aHViIGFjdGlvbnMgZmlsZSBhcm91bmQgdGhlc2Ugc3RlcHMuDQoNCj4gQ2FuIHdlIG1ha2UgdGhpcyBlYXNpZXI/DQoNCjEuIENyZWF0ZSBwdWxsIHJlcXVlc3QgZnJvbSByZW1vdGUgdXBzdHJlYW0gYnJhbmNoIChgZ3JlZW4tc3RyaXBlZC1nZWNrbyBtYWluYCkNCg0KMi4gY2hlY2tvdXQgYGdyZWVuLXN0cmlwZWQtZ2Vja28tbWFpbmAgcmVwbyAobXkgZm9yaykNCg0KMy4gc3RhZ2UgYW5kIGNvbW1pdCBjaGFuZ2VzDQogIC0gY3VycmVudGx5IGp1c3QgbGFzdC5jc3YgKGNoZWNrIGZvciBjaGFuZ2VzIG1hbnVhbGx5KQ0KICAtIGNsYXNoIHdpdGggYGluZGV4Lmh0bWxgIHRoYXQgcmVtb3ZlcyBtYXBzDQogIA0KNC4gY2hlY2tvdXQgYG1haW5gIGJyYW5jaCAobXkgZm9yaykNCg0KNS4gbWVyZ2UgYGdyZWVuLXN0cmlwZWQtZ2Vja28gbWFpbmAgdG8gYG1haW5gDQoNCjYuIGdpdCBjb21taXQNCg0KNy4gYnVpbGQgc2l0ZSBpbiBSU3R1ZGlvIGFnYWluIHdpdGggbmV3IGRhdGENCg0KOC4gZ2l0IGNvbW1tZW50IGNoYW5nZXMgZnJvbSB1cHN0cmVhbSBgZ3JlZW4tc3RyaXBlZC1nZWNrbyBtYWluYCBhbmQgc2l0ZSBidWlsZA0KDQo5LiBnaXQgcHVzaCB0byBtYWluDQoNCjEwLiByZXNldCBoZWFkDQoNCkRPTkUhDQoNCiMjIGdpdCBzY3JpcHRzDQoNClRoZSBjb25zdHJ1Y3Rpb24gYW5kIHJ1bm5pbmcgb2YgZ2l0IGNvbW1hbmRzIGRyaXZlIHRoZSBhYmlsaXR5IGZvciB0aGVzZSBnaXRodWIgYWN0aW9ucyB0byB3b3JrLiBHaXQgaXMgc3VwZXIgdmVyc2F0aWxlIGJ1dCB0aGlzIGFsc28gbWVhbnMgeW91IGNhbiBlYXNpbHkgbWFrZSBhIHJlYWwgbWVzcyB3aGVuIHRoZSBwcm9qZWN0cyBnZXQgYmlnZ2VyLg0KDQojIyMgQ2xlYW4gdXAgZGV2IGJyYW5jaA0KDQpgYGB7cn0NCiMgIyBSZWJhc2UgYWxsIGNvbW1pdHMgb24geW91ciBkZXZlbG9wbWVudCBicmFuY2gNCiMgZ2l0IGNoZWNrb3V0IA0KIyBnaXQgcmViYXNlIC1pIG1haW4gI21hc3RlciBpcyBubyBsb25nZXIgZGVmYXVsdCByZXBvPw0KYGBgDQoNCiMjIyBDcmVhdGUgbmV3IGRldiBicmFuY2gNCg0KYGBge3J9DQoNCmBgYA0KDQojIyBBbHdheXMgU3F1YXNoIGFuZCBSZWJhc2UgR2l0IENvbW1pdHMgDQoNCmZyb20gW0FubmEgU2hlcm1hbiDCtyBBdWd1c3QgMjh0aCwgMjAxN10oaHR0cHM6Ly9ibG9nLmNhcmJvbmZpdmUuY29tL2Fsd2F5cy1zcXVhc2gtYW5kLXJlYmFzZS15b3VyLWdpdC1jb21taXRzLykNCg0KVXNpbmcgZ2l0IGZvciB2ZXJzaW9uIGNvbnRyb2wgYWxsb3dzIGZvciBwb3dlcmZ1bCBjb2xsYWJvcmF0aW9uIGluIHRlY2ggdGVhbXMuIExpa2UgYW55IHRvb2wsIGlmIG1pc3VzZWQsIGl0IGNhbiBhbHNvIGNhdXNlIHNvbWUgc2VyaW91cyBoZWFkYWNoZXMuIEFmdGVyIHdvcmtpbmcgd2l0aCBhIHdpZGUgdmFyaWV0eSBvZiB0ZWFtIHNpemVzIGFuZCBkeW5hbWljcywgSeKAmXZlIGZvdW5kIHRoYXQgdGhlIHNxdWFzaCBhbmQgcmViYXNlIHdvcmtmbG93IGhlbHBzIG1ha2UgdGhlIGNvbGxhYm9yYXRpb24gcHJvY2VzcyBtb3JlIGVmZmljaWVudCBhbmQgYSBoZWxsIG9mIGEgbG90IGxlc3MgcGFpbmZ1bC4NCg0KIyMjIFdoYXQgaXMgdGhlIHNxdWFzaCByZWJhc2Ugd29ya2Zsb3c/DQoNCkl04oCZcyBzaW1wbGUg4oCTIGJlZm9yZSB5b3UgbWVyZ2UgYSBmZWF0dXJlIGJyYW5jaCBiYWNrIGludG8geW91ciBtYWluIGJyYW5jaCAob2Z0ZW4gbWFzdGVyIG9yIGRldmVsb3ApLCB5b3VyIGZlYXR1cmUgYnJhbmNoIHNob3VsZCBiZSBzcXVhc2hlZCBkb3duIHRvIGEgc2luZ2xlIGJ1aWxkYWJsZSBjb21taXQsIGFuZCB0aGVuIHJlYmFzZWQgZnJvbSB0aGUgdXAtdG8tZGF0ZSBtYWluIGJyYW5jaC4gSGVyZeKAmXMgYSBicmVha2Rvd24uDQoNCg0KUHVsbCBtYXN0ZXIgYnJhbmNoDQoNCmdpdCBwdWxsIG9yaWdpbiBtYXN0ZXINCg0KQ3JlYXRlIGJ1Zy9mZWF0dXJlIGJyYW5jaA0KDQpnaXQgY2hlY2tvdXQgLWIgYnJhbmNoTmFtZQ0KDQpNYWtlIGNoYW5nZXMgYXMgbmVlZGVkIHdpdGggYXMgbWFueSBjb21taXRzIHRoYXQgeW91IG5lZWQgdG8uIE1ha2Ugc3VyZSB0aGUgZmluYWwgY29tbWl0IGlzIGJ1aWxkYWJsZSBhbmQgYWxsIHRlc3RzIHBhc3MuDQoNCkdldCB0aGUgbnVtYmVyIG9mIGNvbW1pdHMgZnJvbSB0aGUgc3RhcnQgb2YgeW91ciBicmFuY2guIFRoZXJlIGFyZSBhIGNvdXBsZSBvZiB3YXlzIHRvIGdldCB0aGlzLiBZb3UgY2FuIHNpbXBseSBnaXQgbG9nIGFuZCBjb3VudCB5b3VyIGNvbW1pdHMsIG9yDQoNCmdpdCBsb2cgLS1ncmFwaCAtLWRlY29yYXRlIC0tcHJldHR5PW9uZWxpbmUgLS1hYmJyZXYtY29tbWl0DQoNCndoaWNoIHdpbGwgc2hvdyBhIGdyYXBoIG9mIHlvdXIgY29tbWl0IGxvZyBoaXN0b3J5IGFuZCBtYXkgYmUgZWFzaWVyIHRvIHZpc3VhbGl6ZSB5b3VyIGNvbW1pdHMuIFNvbWV0aW1lcyB5b3Ugd2lsbCBoYXZlIGxhcmdlIGVub3VnaCBudW1iZXIgb2YgY29tbWl0cyB0aGF0IGNvdW50aW5nIGNhbiBiZWNvbWUgdHJvdWJsZXNvbWUuIEluIHRoYXQgY2FzZSBncmFiIHRoZSBTSEEgZnJvbSB0aGUgbGFzdCBjb21taXQgdGhhdCB5b3VyIGJyYW5jaCBicmFuY2hlcyBmcm9tLg0KDQpTcXVhc2ggdG8gMSBjb21taXQuDQoNCmdpdCByZWJhc2UgLWkgSEVBRH5bTlVNQkVSIE9GIENPTU1JVFNdDQoNCk9SDQoNCmdpdCByZWJhc2UgLWkgW1NIQV0NCg0KSWYgeW91IGhhdmUgcHJldmlvdXNseSBwdXNoZWQgeW91ciBjb2RlIHRvIGEgcmVtb3RlIGJyYW5jaCwgeW91IHdpbGwgbmVlZCB0byBmb3JjZSBwdXNoLg0KDQpnaXQgcHVzaCBvcmlnaW4gYnJhbmNoTmFtZSAtLWZvcmNlDQoNCkNoZWNrb3V0IG1hc3RlciBicmFuY2gNCg0KZ2l0IGNoZWNrb3V0IG1hc3Rlcg0KDQpQdWxsIG1hc3RlciBicmFuY2gNCg0KZ2l0IHB1bGwgb3JpZ2luIG1hc3Rlcg0KDQpDaGVja291dCBidWcvZmVhdHVyZSBicmFuY2gNCg0KZ2l0IGNoZWNrb3V0IGJyYW5jaE5hbWUNCg0KUmViYXNlIGZyb20gbWFzdGVyDQoNCmdpdCByZWJhc2UgbWFzdGVyDQoNCkhhbmRsZSBhbnkgY29uZmxpY3RzIGFuZCBtYWtlIHN1cmUgeW91ciBjb2RlIGJ1aWxkcyBhbmQgYWxsIHRlc3RzIHBhc3MuIEZvcmNlIHB1c2ggYnJhbmNoIHRvIHJlbW90ZS4NCg0KZ2l0IHB1c2ggb3JpZ2luIGJyYW5jaE5hbWUgLS1mb3JjZQ0KDQpDaGVja291dCwgbWVyZ2UsIGFuZCBwdXNoIGludG8gbWFzdGVyDQoNCmdpdCBjaGVja291dCBtYXN0ZXINCg0KZ2l0IG1lcmdlIGJyYW5jaE5hbWUNCg0KZ2l0IHB1c2ggb3JpZ2luIG1hc3Rlcg0K</div>
 
 
 
