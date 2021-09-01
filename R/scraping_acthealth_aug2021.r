@@ -39,7 +39,6 @@ if(wu == 0){
 
  site_checks_ACT <- read.csv("data/datruns.csv")
 
- 
  ##add run
  #folder path needs to change          
  write_csv(site_checks_ACT,paste0('data/',Sys.Date(),'_top_gainers','.csv'))    
