@@ -11,6 +11,8 @@ output:
 #runtime: shiny
 # params:
 #     lup: "unknown"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=TRUE}

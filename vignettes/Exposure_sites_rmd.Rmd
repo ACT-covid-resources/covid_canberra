@@ -1,0 +1,96 @@
+### Exposure sites per update
+
+```{r}
+# Exposure sites per Update
+allfiles <- list.files("data/allfiles/", pattern=c("table_", ".csv"))
+
+## filter out nonconformers for now
+# Cleaned up using code below
+# allfiles <- allfiles[-c(13,15,17,19,21)]
+# file.copy(paste0("data/", allfiles), "data/allfiles/")
+
+# ##rename if needed
+# namesallfiles <- as.data.frame(allfiles) %>%
+# mutate(allfiles = str_remove(string = allfiles, pattern  = c("_AEDT.csv", ".csv"))) %>%
+#  mutate(allfiles = str_remove(string = allfiles, pattern  = c(".csv")))%>%
+#  mutate(allfiles = paste0(allfiles,".csv"))
+#   # mutate(paste0())
+
+##issue files
+# "table_31_Aug_2021_1238pm.csv"
+# [49] "table_31_Aug_2021_255pm.csv"  
+# "table_31_Aug_2021_713pm.csv"  
+# "table_31_Aug_2021_910am.csv"
+
+fo <- allfiles[order(file.mtime(file.path("data/allfiles",allfiles)), decreasing = FALSE)]
+
+res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
+cc<-1
+# i = 1
+# for (i in 1:length(fo))
+# {
+  
+# Exposure sites per Update
+allfiles <- list.files("data/allfiles/", pattern=c("table_", ".csv"))
+
+allfiles <- paste0('data/allfiles/', allfiles[30:50])
+
+  # create a list to store info
+
+
+countsperupdate <- function(allfiles){
+  
+allfiledat <- list() #<- list() MUST BE OUTSIDE
+
+  for(i in 1:length(allfiles)) {
+    
+    tib <- read_csv(allfiles[i]) %>%
+            dplyr::select(Contact, Date)
+    
+    allfiledat[[i]] <- as.data.frame(tib)
+  }
+
+    # allfiledat  #%>%
+              # dplyr::mutate(Contact = factor(Contact, levels = c('Casual', 'Close', 'Monitor'))) %>%
+              # dplyr::group_by(Contact) %>%
+              #   summarise(count = n())
+    return(allfiledat)
+  }
+
+allfiledat <- list()
+# allfiles <- paste0('data/allfiles/', allfiles[1])
+allfiledat <- countsperupdate(allfiles = allfiles[1:2])
+
+glimpse(allfiledat)
+
+        dd <- read.csv(file.path("data/allfiles") %>%
+          dplyr::select(Contact, Date)
+          
+          
+          
+  tt <- table(dd$Contact)
+  if (length(tt)>0) {
+  for (ii in 1:length(tt))
+    {
+    res[cc, 1] <- i
+    res[cc,2] <- (substr(dd$Date[i], 1,10))
+    res[cc,3] <- nrow(dd)
+    res[cc,4] <- names(tt)[ii]
+    res[cc,5] <- tt[ii]
+    cc <- cc+1
+    }
+  }
+}
+
+
+res <- res[!res$contact=="Investigation information",]
+res <- res[!res$contact=="Investigation location",]
+res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor"))
+
+
+res <- res[order(res$contact),]
+cols <- c( "red", "yellow","blue")[as.numeric(res$contact)]
+
+ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+xlab("update #")+ylab("# exposure sites")+ggtitle("Exposure sites over updates")
+
+```
