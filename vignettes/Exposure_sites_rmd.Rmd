@@ -1,8 +1,9 @@
 ### Exposure sites per update
 
 ```{r}
+library(tidyverse)
 # Exposure sites per Update
-allfiles <- list.files("data/allfiles/", pattern=c("table_", ".csv"))
+allfiles <- list.files("../data/allfiles/September/", pattern=c("table_", ".csv"), full.names = TRUE)
 
 ## filter out nonconformers for now
 # Cleaned up using code below
@@ -22,22 +23,22 @@ allfiles <- list.files("data/allfiles/", pattern=c("table_", ".csv"))
 # "table_31_Aug_2021_713pm.csv"  
 # "table_31_Aug_2021_910am.csv"
 
-fo <- allfiles[order(file.mtime(file.path("data/allfiles",allfiles)), decreasing = FALSE)]
-
-res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
-cc<-1
+# fo <- allfiles[order(file.mtime(file.path("data/allfiles",allfiles)), decreasing = FALSE)]
+# 
+# res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
+# cc<-1
 # i = 1
 # for (i in 1:length(fo))
 # {
   
 # Exposure sites per Update
-allfiles <- list.files("data/allfiles/", pattern=c("table_", ".csv"))
+# allfiles <- list.files("data/allfiles/", pattern=c("table_", ".csv"))
 
-allfiles <- paste0('data/allfiles/', allfiles[30:50])
+allfiles <- paste0('data/allfiles/September', allfiles)
 
   # create a list to store info
 
-
+library(here)
 countsperupdate <- function(allfiles){
   
 allfiledat <- list() #<- list() MUST BE OUTSIDE
@@ -59,7 +60,11 @@ allfiledat <- list() #<- list() MUST BE OUTSIDE
 
 allfiledat <- list()
 # allfiles <- paste0('data/allfiles/', allfiles[1])
-allfiledat <- countsperupdate(allfiles = allfiles[1:2])
+allfiledat <- countsperupdate(allfiles = allfiles)
+
+
+
+
 
 glimpse(allfiledat)
 
