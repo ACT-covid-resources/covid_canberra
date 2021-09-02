@@ -1,0 +1,19 @@
+#git commit process
+#1st sept 2021
+#ARD
+
+#get onto the branch to merge with (local here)
+git checkout main
+git pull git://github.com/green-striped-gecko/covid_canberra.git main
+
+#maybe it should be a forced merge here?
+git merge --no-ff green-striped-gecko-main
+
+#build site
+# source("R/")
+
+#add changes (into staged area)
+git add .
+
+#commit changes
+git push origin main
