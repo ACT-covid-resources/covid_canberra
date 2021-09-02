@@ -250,6 +250,15 @@ map
 
 ### SA1 statistical Areas
 
+#### Table
+
+```{r}
+DT::datatable(sa12016 %>%
+  filter(gcc_name_2016 == "Australian Capital Territory"))
+```
+
+#### Plot
+
 ```{r}
 # sa32016
 
@@ -265,18 +274,29 @@ map
 
 ### SA2 statistical Areas
 
+### Table
+
+```{r}
+DT::datatable(sa22016 %>%
+  filter(gcc_name_2016 == "Australian Capital Territory"))
+
+```
+
+### Plot
+
 ```{r}
 # sa32016
 library(plotly)
 map <- sa22016 %>%
   filter(gcc_name_2016 == "Australian Capital Territory") %>%   # let's just look Melbourne
   ggplot() +   
-  ggspatial::annotation_map_tile() +
+  ggspatial::annotation_map_tile(zoom = 8) +
   geom_sf(aes(geometry = geometry, fill  = areasqkm_2016)) #   # use the geometry variable
   # geom_point(aes(cent_long, cent_lat))  # use the centroid long (x) and lats (y)
 map
 
-ggplotly(map)
+
+# ggplotly(map)
 ```
 
 ###  Total ACT Census data
@@ -297,14 +317,11 @@ map <- lga2018 %>%
   coord_sf()
 
 map
+```
 
+
+```{r}
 DT::datatable(lga2018 %>%
   filter(state_name_2016 == "Australian Capital Territory"))
-
-DT::datatable(sa22016 %>%
-  filter(gcc_name_2016 == "Australian Capital Territory"))
-
-DT::datatable(sa12016 %>%
-  filter(gcc_name_2016 == "Australian Capital Territory"))
 ```
 
