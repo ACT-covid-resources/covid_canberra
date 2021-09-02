@@ -149,8 +149,8 @@ last_five_days_new <- function(dataList){
 p1 <- last_five_days_new(dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv")
 
 
-dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv"
-lapply(dataList, last_five_days_new)
+# dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv"
+# lapply(dataList, last_five_days_new)
 
 p1
 

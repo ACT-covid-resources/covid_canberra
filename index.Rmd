@@ -159,7 +159,7 @@ bscols(  filter_select(id="suburb", label="Suburb",sharedData = df_shared, group
 
 ```
 
-Column {data-width=500}
+Column {data-width=500}{.tabset}
 ------------------------------------------------------------
 
 ### Map of Exposure sites and exposed bus routes
@@ -167,6 +167,86 @@ Column {data-width=500}
 ```{r}
 m
 ```
+
+### New Cases today
+
+```{r eval = TRUE}
+##current dataset.. 
+#import now
+library(tidyverse)
+library(ggmap)
+library(leaflet)
+library(plotly)
+library(flexdashboard)
+library(DT)
+library(rgdal)
+library(crosstalk)
+library(absmapsdata)
+library(sf)
+
+
+
+############very ugly function But should work.....
+##ARD sep2021
+last_five_days_new <- function(dataList){
+
+    #no new sites test
+  tab3 <- read.csv(dataList)
+  
+  
+  
+  cols <- c( "red", "yellow","blue")
+
+  tab3$Contact <- factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") )
+  cc <- as.numeric( tab3$Contact)
+  ncols <- c("black","cyan")
+  nn <- as.numeric(factor(tab3$Status))
+  nn2 <- ifelse(nn==1,nn, 3)
+  
+  # glimpse(tab3)
+  
+  tab3$Date <- substr(tab3$Date,1,10) #ditch day of the week
+  labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
+
+  dataJoin <- absmapsdata::sa12016 %>%
+    filter(gcc_name_2016 == "Australian Capital Territory") %>%
+    mutate(Suburb = sa2_name_2016) %>%
+    left_join(tab3, by = c("Suburb")) %>%
+    select(Suburb, lat, lon, Exposure.Location, geometry,Status, Contact) %>%
+    na.omit() %>%
+    mutate(Status = ifelse(Status == "New", "New", "Previous")) %>%
+    st_as_sf
+  
+  glimpse(dataJoin)
+  # <NA> and NA
+  
+  # remove_missing(vars = c("Exposure.Location"))%>%  # let's just look Melbourne
+  plot1 <-  ggplot(dataJoin,aes(y=lat, x=lon)) +
+    ggspatial::annotation_map_tile() +
+    geom_sf(aes(geometry = geometry, fill = Status), 
+            col = c("red"), 
+            lty = 1, alpha =0.1)+ 
+    scale_fill_manual(values = c("red", "yellow","blue")) + 
+    geom_point(data = dataJoin, aes(y=lat, x=lon, fill = Status,alpha = 0.7), size = 2 ) #+ 
+  # scale_fill_manual(values = c("red", "yellow","blue","black", "white")) +
+  # scale_color_manual(values = c("red", "yellow","blue","black", "white")) 
+  
+  return(plot1)  
+  
+}  #function end
+
+
+#lapply
+p1 <- last_five_days_new(dataList = "./data/last.csv")
+
+
+# dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv"
+# lapply(dataList, last_five_days_new)
+
+p1
+
+```
+
 
 Column {data-width=350}
 ------------------------------------------------------------
@@ -253,26 +333,98 @@ leaflet(plotsumms) %>% addTiles() %>%
 
 This website tracks COVID-19 data and mobility information for the ACT and Canberra using code and data developed in the open source community. This information is only a guide. Please refer to official reports and press releases from government certified resources.
 
-### Case numbers
+### Yesterdays case numbers
 
-[in development]
+```{r eval = TRUE}
+##current dataset.. 
+#import now
+library(tidyverse)
+library(ggmap)
+library(leaflet)
+library(plotly)
+library(flexdashboard)
+library(DT)
+library(rgdal)
+library(crosstalk)
+library(absmapsdata)
+library(sf)
 
 
-```{r fig.align='center', fig.height=10, fig.width=8, eval = FALSE}
-# ACT raw map
-knitr::include_url("https://app.powerbi.com/view?r=eyJrIjoiZTY4NTI1NzQtYTBhYy00ZTY4LTk3NmQtYjBjNzdiOGMzZjM3IiwidCI6ImI0NmMxOTA4LTAzMzQtNDIzNi1iOTc4LTU4NWVlODhlNDE5OSJ9")
 
-##html to data here
+############very ugly function But should work.....
+##ARD sep2021
+last_five_days_new <- function(dataList){
+
+    #no new sites test
+  tab3 <- read.csv(dataList)
+  
+  
+  
+  cols <- c( "red", "yellow","blue")
+
+  tab3$Contact <- factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") )
+  cc <- as.numeric( tab3$Contact)
+  ncols <- c("black","cyan")
+  nn <- as.numeric(factor(tab3$Status))
+  nn2 <- ifelse(nn==1,nn, 3)
+  
+  # glimpse(tab3)
+  
+  tab3$Date <- substr(tab3$Date,1,10) #ditch day of the week
+  labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
+
+  dataJoin <- absmapsdata::sa12016 %>%
+    filter(gcc_name_2016 == "Australian Capital Territory") %>%
+    mutate(Suburb = sa2_name_2016) %>%
+    left_join(tab3, by = c("Suburb")) %>%
+    select(Suburb, lat, lon, Exposure.Location, geometry,Status, Contact) %>%
+    na.omit() %>%
+    mutate(Status = ifelse(Status == "New", "New", "Previous")) %>%
+    st_as_sf
+  
+  glimpse(dataJoin)
+  # <NA> and NA
+  
+  # remove_missing(vars = c("Exposure.Location"))%>%  # let's just look Melbourne
+  plot1 <-  ggplot(dataJoin,aes(y=lat, x=lon)) +
+    ggspatial::annotation_map_tile() +
+    geom_sf(aes(geometry = geometry, fill = Status), 
+            col = c("red"), 
+            lty = 1, alpha =0.5)+ 
+    scale_fill_manual(values = c("red", "yellow","blue")) + 
+    geom_point(data = dataJoin, aes(y=lat, x=lon), size = 4, alpha = 0.3) #+ 
+  # scale_fill_manual(values = c("red", "yellow","blue","black", "white")) +
+  # scale_color_manual(values = c("red", "yellow","blue","black", "white")) 
+  
+  return(plot1)  
+  
+}  #function end
 
 
-#save baseline
+#lapply
+p1 <- last_five_days_new(dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv")
 
-##check dayly
 
+# dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv"
+# lapply(dataList, last_five_days_new)
 
-#interactive map in the future
+p1
+
 ```
 
+
+### TODAY 
+
+```{r echo = FALSE}
+#lapply
+p1 <- last_five_days_new(dataList = "./data/allfiles/September/table_02_Sep_2021_704pm.csv")
+
+
+# dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv"
+# lapply(dataList, last_five_days_new)
+
+p1
+```
 
 ```{r child = "about.Rmd"}
 
