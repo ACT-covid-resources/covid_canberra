@@ -1,7 +1,9 @@
 ---
 title: "Report on current update patterns"
 author: "Anthony Davidson"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 ---
 
 # Overview
@@ -16,79 +18,31 @@ library(tidyverse)
 ## "New" Exposure sites per update August
 
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
-# Exposure sites per Update for august
-allfiles <- list.files("../data/allfiles/August/", pattern=c("table_", ".csv"), full.names = TRUE)
+resA <- read.csv('../data/resAugust.csv')
+resS <- read.csv('../data/resSeptember.csv')
 
-countsperupdate <- function(allfiles){
-  
-  allfiledat <- list() #<- list() MUST BE OUTSIDE
+resS<- resS %>%
+  mutate(update = max(resA$update)+ update)
 
-    for(i in 1:length(allfiles)) {
-      tib <- read_csv(allfiles[i]) %>%
-            dplyr::select(Contact, Date, Suburb, Status) %>%
-              filter(Status == "New")
-      
-    allfiledat[[i]] <- as.data.frame(tib)
-  } #end loop
-  
-  return(allfiledat)
-  
-} #end function
-
-##setup list of data
-allfiledat <- list()
-
-#run function
-allfiledat <- countsperupdate(allfiles = allfiles)
-
-# bind_rows(allfiledat, allfiledat1)
-
-res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
-cc<-1         
-
-for(i in 1:length(allfiles)){
-  
-  dd <- allfiledat[[i]]         
-  tt <- table(dd$Contact)
-  
-  if (length(tt)>0) {
-  for (ii in 1:length(tt))
-    {
-    res[cc, 1] <- i
-    res[cc,2] <- (substr(dd$Date[i], 1,10))
-    res[cc,3] <- nrow(dd)
-    res[cc,4] <- names(tt)[ii]
-    res[cc,5] <- tt[ii]
-    cc <- cc+1
-    }
-  }
-}
-  
-
-res <- res[!res$contact=="Investigation information",]
-res <- res[!res$contact=="Investigation location",]
-res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor"))
-
-
-res <- res[order(res$contact),]
-cols <- c( "red", "yellow","blue")[as.numeric(res$contact)]
+res <- bind_rows(resA, resS)
 
 ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
   xlab("update #")+
   ylab("# exposure sites")+
   ggtitle("`New` Exposure sites over updates")
 ```
+
 ### Worse suburbs
 
+We can take a dynamic snapshot of the hot spots by taking this curated dataset and running the following analysis:
+
 ```{r eval = FALSE}
-
-
 for(i in 1:length(allfiles)){
   
   dd <- allfiledat[[i]]         
   tt <- table(dd$Contact)
   
-  if (length(tt)>0) {
+  if (length(tt)>10) {
   for (ii in 1:length(tt))
     {
     res[cc, 1] <- i
@@ -103,11 +57,9 @@ for(i in 1:length(allfiles)){
 
 glimpse(allfiledat)
 # allfiledat
+
 res1 <- filter(res,  nsites > 10)
 ```
-
-
-
 
 ## "New" Exposure sites for Dickson
 
