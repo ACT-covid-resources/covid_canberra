@@ -1,0 +1,192 @@
+---
+title: "Grouping Canberra suburbs"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+```{r echo = FALSE,	message = FALSE,	warning = FALSE}
+
+## Global options
+# options(max.print="75")
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	cache = FALSE,
+	cache.path = "docs/",
+	# width=75,
+	comment = NA,
+	prompt = FALSE,
+	tidy = TRUE
+)
+#stat zones from SA3
+library(tidyverse)
+#and suburbs
+# devtools::install_github("wfmackey/absmapsdata")
+library(absmapsdata)
+```
+
+Overall we can group locations and other attributes into different spatial areas. Here I have created for groups: North Canberra, Central Canberra,.....
+
+Manual grouping into four general areas....
+
+```{r}
+# e.g
+subsNorth <- c("Watson", "Hackett")
+subsEast <- c("Bruce")
+subsCentral <- c("Canberra")
+subsSouth <- c("Woden")
+```
+
+## From ABS package
+
+This package allows aspects of this data to be linked with census and other data resources associated with this level of geo-spatial identification.
+
+### LGA_2016 equates to total of ACT
+
+```{r}
+dat <- as.data.frame(absmapsdata::lga2016)
+
+datArea <- as.data.frame(absmapsdata::lga2016) %>%
+          dplyr::select(state_name_2016, lga_name_2016,areasqkm_2016)
+
+str(dat)
+table(dat$lga_name_2016)
+
+dat2 <- datArea %>%
+  dplyr::filter(state_name_2016 == "Australian Capital Territory")
+
+DT::datatable(dat2)
+
+ACTlga <- dat[558, ]
+
+#ACT multipoly
+ACTpoly <- ACTlga$geometry[[1]]
+
+ACTpolyGG <- 
+ACTpoly %>%
+fortify() 
+
+# ACTpolyGG
+# %>%
+# mutate(aux = c("1"))
+
+# ACTpolyGG$geometry[[1]]
+# 
+# %>%
+# fortify()  %>%
+# mutate(aux = c("1"))
+# 
+# ggplot() +
+# geom_polygon(data = ACTpolyGG)
+# 
+# 
+# sf_transform_xy(ACTpoly)
+```
+
+```{r echo = FALSE}
+# attr(,"class")
+# [1] "XY"           "MULTIPOLYGON" "sfg" 
+# ggspatial::geom_spatial_polygon(ACTlga)
+library(plotly)
+library(ggplotlyExtra)
+library(leaflet)
+
+# allfiles <- list.files("../data/allfiles/August/", pattern=c("table_", ".csv"), full.names = TRUE)
+
+# countsperupdate <- function(allfiles){
+#   
+#   allfiledat <- list() #<- list() MUST BE OUTSIDE
+# 
+#     for(i in 1:length(allfiles)) {
+#       tib <- read_csv(allfiles[i]) %>%
+#             dplyr::select(Contact, Date, Suburb, Status) %>%
+#               filter(Status == "New")
+#       
+#     allfiledat[[i]] <- as.data.frame(tib)
+#   } #end loop
+#   
+#   return(allfiledat, w)
+#   
+# } #end function
+# 
+# ##setup list of data
+# allfiledat <- list()
+# 
+# #run function
+# allfiledat <- countsperupdate(allfiles = allfiles)
+
+# shape_areas <- shape_df %>%
+#   st_as_sf(coords = c("lon", "lat")) %>%
+#   group_by(var) %>%
+#   summarise(do_union = F) %>%
+#   st_cast("POLYGON") %>%
+#   st_cast("MULTIPOLYGON") %>%
+#   mutate(area = st_area(geometry)) %>% 
+#   mutate(var = as.factor(var)) 
+
+##plot the map
+m <- leaflet() %>% addTiles()
+
+# head(ACTlga$geometry)
+# m %>%
+  # addPolygons(ACTlga[[]])
+```
+### Another abs level
+
+```{r fig.align="c"}
+# absmapsdata::postcode2016
+#downloaded csv
+postcodesACT <- read.csv("../data/au_postcodes.csv") %>%
+  dplyr::filter(state_name == "Australian Capital Territory")
+# glimpse(postcodesACT)
+
+#standard baseline
+# ggmap()
+p1 <- ggplot(postcodesACT) +
+  geom_point(aes(y = latitude, x = longitude)) +
+  geom_text(aes(y = latitude, x = longitude, label=place_name),hjust=10, vjust=10) + 
+  geom_abline(intercept = (max(postcodesACT$latitude)- min(postcodesACT$latitude))/2 + min(postcodesACT$latitude), slope = 0) + 
+  geom_vline(xintercept = (max(postcodesACT$longitude)- min(postcodesACT$longitude))/2 + min(postcodesACT$longitude), linetype="dotted", 
+                color = "blue", size=1.5)
+  theme_minimal()
+  # geom_line(aes(x = (max(postcodesACT$longitude)- min(postcodesACT$longitude))/2 + min(postcodesACT$longitude), y = 0)
+  # geom_label(aes(y = latitude, x = longitude))
+
+mw <- plotly::ggplotly(p1)
+
+mw
+            # plotly::add_annotations(p =mw, text = postcodesACT$place_name)
+
+```
+
+All current locations in cases
+
+```{r}
+    for(i in 1:length(allfiles)) {
+      tib <- read_csv(allfiles[i]) %>%
+            dplyr::select(Contact, Date, Suburb, Status) %>%
+              filter(Status == "New")
+      
+    allfiledat[[i]] <- as.data.frame(tib)
+  } #end loop
+
+postcodesACT1 <- postcodesACT %>%
+                  mutate(Suburb = place_name)
+
+singledatpostcode <- allfiledat[[1]] %>%
+  left_join(postcodesACT1, by = c('Suburb'))
+
+
+m1 <- m %>%
+  addCircleMarkers(lat=singledatpostcode$latitude,
+                   lng=singledatpostcode$longitude)
+
+m1
+```
+
+
