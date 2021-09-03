@@ -136,7 +136,7 @@ last_five_days_new <- function(dataList){
             col = c("red"), 
             lty = 1, alpha =0.5)+ 
     scale_fill_manual(values = c("red", "yellow","blue")) + 
-    geom_point(data = dataJoin, aes(y=lat, x=lon), size = 4, alpha = 1) #+ 
+    geom_point(data = dataJoin, aes(y=lat, x=lon), size = 2, alpha = 0.7) #+ 
   # scale_fill_manual(values = c("red", "yellow","blue","black", "white")) +
   # scale_color_manual(values = c("red", "yellow","blue","black", "white")) 
   
