@@ -33,6 +33,8 @@ register_google(gapi)
 #grab from website
 es <- read_html("https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations", )
 
+https://www.waze.com/en-GB/live-map
+
 #check update
 ll <- es %>%
   html_nodes("strong") %>%
