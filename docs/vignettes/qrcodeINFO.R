@@ -2,6 +2,7 @@
 ##new and pop
 #ARD aug 2021
 
+#for each suburb  
 library(qrcode)
 
 png("qrplot.png")

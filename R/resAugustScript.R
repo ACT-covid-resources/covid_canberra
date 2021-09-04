@@ -1,7 +1,13 @@
 # Exposure sites per Update for august
-allfiles <- list.files("./data/allfiles/September/", pattern=c("table_", ".csv"), full.names = TRUE)
+allfiles <- list.files("./data/allfiles/August/", pattern=c("table_", ".csv"), full.names = TRUE)
 
-countsperupdate <- function(allfiles){
+##########################################function 1 #######################################
+################miniSpice function
+#turns a list of csvs into a structured list in R
+#because our datasets are similar 
+#we can then run functions 
+#across all aspects of each element of the list
+miniSpice <- function(allfiles){
   
   allfiledat <- list() #<- list() MUST BE OUTSIDE
   
@@ -21,13 +27,15 @@ countsperupdate <- function(allfiles){
 allfiledat <- list()
 
 #run function
-allfiledat <- countsperupdate(allfiles = allfiles)
+allfiledat <- miniSpice(allfiles = allfiles)
 
 # bind_rows(allfiledat, allfiledat1)
 
+##creates summary output from all data used in function above
 res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
 cc<-1         
 
+##loop links the above function output with the desired summary csv
 for(i in 1:length(allfiles)){
   
   dd <- allfiledat[[i]]         
@@ -46,16 +54,15 @@ for(i in 1:length(allfiles)){
   }
 }
 
-
+##clean up summary csv for plotting easily
 res <- res[!res$contact=="Investigation information",]
 res <- res[!res$contact=="Investigation location",]
 res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor"))
-
-
 res <- res[order(res$contact),]
+
+##figure colours
 cols <- c( "red", "yellow","blue")[as.numeric(res$contact)]
 
 # Save csv
-write.csv(res, './data/resSeptember.csv')
-
-res <- read.csv('./data/resSeptember.csv')
+write.csv(res, paste0('./data/', Sys.Date(),'lastupdate_resAugust.csv'))
+res <- read.csv(paste0('./data/', Sys.Date(),'lastupdate_resAugust.csv'))
