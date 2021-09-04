@@ -1,0 +1,416 @@
+---
+title: "Timeline"
+author: "Anthony Davidson"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Sorting out times and datas
+
+This is a nasty task in any project however it is important to understand how much data we have and how that might be changing as we are developing and publishing the results. To check this we can recreate the date folder and run a set of functions over this until we get a useable variable.
+
+```{r  echo = FALSE, message = FALSE, warning = FALSE}
+library(here)
+library(tidyverse)
+```
+
+## Looks like?
+
+Data stored as list of csvs in rds file called raw_rds
+
+```{r  echo = FALSE, message = FALSE, warning = FALSE}
+#########function 1 ####################
+fileFiles_function <- function(filesiwant){
+  allfiles <- list.files(filesiwant, pattern=c("table_", ".csv"), full.names = TRUE)
+  return(allfiles)
+}
+# Exposure sites per Update for august amd sept
+filesiwant <- c("../data/allfiles/August/", "../data/allfiles/September/")
+
+allfiles <- suppressWarnings(fileFiles_function(filesiwant = filesiwant))
+
+
+
+############function 2 ######################
+##function to link all files into a list[[i]]
+countsperupdate <- function(allfiles){
+  
+  allfiledat <- list() #<- list() MUST BE OUTSIDE
+
+    for(i in 1:length(allfiles)) {
+      tib <- read_csv(allfiles[i]) %>%
+            dplyr::select(Contact, Date, Suburb, Status) #%>%
+              #filter(Status == "New" & Suburb == "Gungahlin")
+      
+    allfiledat[[i]] <- as.data.frame(tib)
+  } #end loop
+  
+  return(allfiledat)
+  
+} #end function
+
+##setup list of data
+allfiledat <- list()
+#run function
+allfiledat <- suppressWarnings(countsperupdate(allfiles = allfiles))
+```
+
+# Summarised outcome {.tabset}
+
+This report captures the ...
+
+```{r}
+res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
+cc<-1         
+
+for(i in 1:length(allfiles)){
+  
+  dd <- allfiledat[[i]]         
+  tt <- table(dd$Contact)
+  
+  if (length(tt)>0) {
+  for (ii in 1:length(tt))
+    {
+    res[cc, 1] <- i
+    res[cc,2] <- (substr(dd$Date[i], 1,10))
+    res[cc,3] <- nrow(dd)
+    res[cc,4] <- names(tt)[ii]
+    res[cc,5] <- tt[ii]
+    cc <- cc+1
+    }
+  }
+}
+  
+
+res <- res[!res$contact=="Investigation information",]
+res <- res[!res$contact=="Investigation location",]
+res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor"))
+
+
+res <- res[order(res$contact),]
+cols <- c( "red", "yellow","blue")[as.numeric(res$contact)]
+
+ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
+  xlab("update #")+
+  ylab("# exposure sites")+
+  ggtitle("`New` Exposure sites over updates")
+```
+
+
+<!-- ## "New" Exposure sites per update (since outbreak) -->
+
+<!-- ```{r echo = FALSE, message = FALSE, warning = FALSE} -->
+<!-- #csvs generated from -->
+<!-- # source("R/resAugustScript.R") -->
+<!-- # and -->
+<!-- # source("R/resSeptemberscript.R") -->
+
+<!-- #new entries rather than accumulation of cases held by ACT -->
+<!-- resA <- read.csv('../data/resAugust.csv') -->
+<!-- resS <- read.csv('../data/resSeptember.csv') -->
+
+<!-- resS<- resS %>% -->
+<!--   mutate(update = max(resA$update )+ update) -->
+
+<!-- res <- bind_rows(resA, resS) -->
+
+<!-- ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+ -->
+<!--   xlab("update #")+ -->
+<!--   ylab("# exposure sites")+ -->
+<!--   ggtitle("`New` Exposure sites over updates") -->
+<!-- ``` -->
+
+<!-- ## September -->
+
+<!-- ```{r echo = FALSE, message = FALSE, warning = FALSE} -->
+<!-- # Exposure sites per Update -->
+<!-- allfiles <- list.files("../data/allfiles/September/", pattern=c("table_", ".csv"), full.names = TRUE) -->
+
+<!-- # allfilesA <- list.files("../data/allfiles/August/", pattern=c("table_", ".csv"), full.names = TRUE) -->
+
+
+<!-- countsperupdate <- function(allfiles){ -->
+
+<!--   allfiledat <- list() #<- list() MUST BE OUTSIDE -->
+
+<!--     for(i in 1:length(allfiles)) { -->
+<!--       tib <- read_csv(allfiles[i]) %>% -->
+<!--             dplyr::select(Contact, Date, Suburb, Status) %>% -->
+<!--               filter(Status == "New") -->
+<!--       #add status = new or previous -->
+
+<!--     allfiledat[[i]] <- as.data.frame(tib) -->
+<!--   } #end loop -->
+
+<!--   return(allfiledat) -->
+
+<!-- } #end function -->
+
+<!-- ##setup list of data -->
+<!-- allfiledat <- list() -->
+
+<!-- #run function -->
+<!-- allfiledat <- countsperupdate(allfiles = allfiles) -->
+
+<!-- res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA ) -->
+<!-- cc<-1          -->
+
+<!-- for(i in 1:length(allfiles)){ -->
+
+<!--   dd <- allfiledat[[i]]          -->
+<!--   tt <- table(dd$Contact) -->
+
+<!--   if (length(tt)>0) { -->
+<!--   for (ii in 1:length(tt)) -->
+<!--     { -->
+<!--     res[cc, 1] <- i -->
+<!--     res[cc,2] <- (substr(dd$Date[i], 1,10)) -->
+<!--     res[cc,3] <- nrow(dd) -->
+<!--     res[cc,4] <- names(tt)[ii] -->
+<!--     res[cc,5] <- tt[ii] -->
+<!--     cc <- cc+1 -->
+<!--     } -->
+<!--   } -->
+<!-- } -->
+
+
+
+<!-- res <- res[!res$contact=="Investigation information",] -->
+<!-- res <- res[!res$contact=="Investigation location",] -->
+<!-- res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor")) -->
+
+
+<!-- res <- res[order(res$contact),] -->
+<!-- cols <- c( "red", "yellow","blue")[as.numeric(res$contact)] -->
+
+<!-- ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+xlab("update #")+ylab("# exposure sites")+ggtitle("Exposure sites over updates") -->
+
+<!-- ``` -->
+
+<!-- ## Days in outbreak and contact counts (only new entries) -->
+
+<!-- Hot days in current dataset (only new entries)?  -->
+
+<!-- This information is for visual understanding only and may not represent the true risk or prevalence in the community or areas defined below. -->
+
+<!-- We can take a dynamic snapshot of the hot spots by taking this curated dataset and running the following analysis: -->
+
+<!-- ```{r eval = TRUE , message = FALSE, warning = FALSE} -->
+<!-- ############function 2 ###################### -->
+<!-- ##function to link all files into a list[[i]] -->
+<!-- countsperupdate <- function(allfiles){ -->
+
+<!--   allfiledat <- list() #<- list() MUST BE OUTSIDE -->
+
+<!--     for(i in 1:length(allfiles)) { -->
+<!--       tib <- read_csv(allfiles[i]) %>% -->
+<!--             dplyr::select(Contact, Date, Suburb, Status) #%>% -->
+<!--               # filter(Status == "New") -->
+
+<!--     allfiledat[[i]] <- as.data.frame(tib) -->
+<!--   } #end loop -->
+
+<!--   return(allfiledat) -->
+
+<!-- } #end function -->
+
+<!-- ##setup list of data -->
+<!-- allfiledat <- list() -->
+<!-- #run function -->
+<!-- allfiledat <- countsperupdate(allfiles = allfiles) -->
+
+<!-- #write this as  -->
+<!-- for(i in 1:length(allfiles)){ -->
+
+<!--   dd <- allfiledat[[i]]          -->
+<!--   tt <- table(dd$Contact) -->
+
+<!--   if (length(tt)>10) { -->
+<!--   for (ii in 1:length(tt)) -->
+<!--     { -->
+<!--     res[cc, 1] <- i -->
+<!--     res[cc,2] <- (substr(dd$Date[i], 1,10)) -->
+<!--     res[cc,3] <- nrow(dd) -->
+<!--     res[cc,4] <- names(tt)[ii] -->
+<!--     res[cc,5] <- tt[ii] -->
+<!--     cc <- cc+1 -->
+<!--     } -->
+<!--   } -->
+<!-- } -->
+
+<!-- glimpse(allfiledat) -->
+<!-- # allfiledat -->
+
+<!-- res1 <- filter(res,  nsites > 10) -->
+
+<!-- res1 <- res1[!res1$contact=="Investigation information",] -->
+<!-- res1 <- res1[!res1$contact=="Investigation location",] -->
+<!-- res1$contact <- factor(res1$contact, levels=c("Close", "Casual","Monitor")) -->
+
+
+<!-- res1 <- res1[order(res1$contact),] -->
+<!-- cols <- c( "red", "yellow","blue")[as.numeric(res1$contact)] -->
+
+<!-- ggplot(res1, aes(x=date,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+ -->
+<!--   xlab("update #")+ -->
+<!--   ylab("# exposure sites")+ -->
+<!--   ggtitle("Hotspots days (based on contact day)") -->
+
+<!-- ``` -->
+
+<!-- ## "New" Exposure sites for September (Dickson) -->
+
+<!-- ```{r echo = FALSE, message = FALSE, warning = FALSE} -->
+<!-- # Exposure sites per Update for august -->
+<!-- allfiles <- list.files("../data/allfiles/September/", pattern=c("table_", ".csv"), full.names = TRUE) -->
+
+<!-- countsperupdate <- function(allfiles){ -->
+
+<!--   allfiledat <- list() #<- list() MUST BE OUTSIDE -->
+
+<!--     for(i in 1:length(allfiles)) { -->
+<!--       tib <- read_csv(allfiles[i]) %>% -->
+<!--             dplyr::select(Contact, Date, Suburb, Status) %>% -->
+<!--               filter(Status == "New" & Suburb == "Dickson") -->
+
+<!--     allfiledat[[i]] <- as.data.frame(tib) -->
+<!--   } #end loop -->
+
+<!--   return(allfiledat) -->
+
+<!-- } #end function -->
+
+<!-- ##setup list of data -->
+<!-- allfiledat <- list() -->
+
+<!-- #run function -->
+<!-- allfiledat <- countsperupdate(allfiles = allfiles) -->
+
+<!-- res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA ) -->
+<!-- cc<-1          -->
+
+<!-- for(i in 1:length(allfiles)){ -->
+
+<!--   dd <- allfiledat[[i]]          -->
+<!--   tt <- table(dd$Contact) -->
+
+<!--   if (length(tt)>0) { -->
+<!--   for (ii in 1:length(tt)) -->
+<!--     { -->
+<!--     res[cc, 1] <- i -->
+<!--     res[cc,2] <- (substr(dd$Date[i], 1,10)) -->
+<!--     res[cc,3] <- nrow(dd) -->
+<!--     res[cc,4] <- names(tt)[ii] -->
+<!--     res[cc,5] <- tt[ii] -->
+<!--     cc <- cc+1 -->
+<!--     } -->
+<!--   } -->
+<!-- } -->
+
+
+<!-- res <- res[!res$contact=="Investigation information",] -->
+<!-- res <- res[!res$contact=="Investigation location",] -->
+<!-- res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor")) -->
+
+
+<!-- res <- res[order(res$contact),] -->
+<!-- cols <- c( "red", "yellow","blue")[as.numeric(res$contact)] -->
+
+<!-- ggplot(res, aes(x=Date,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+ -->
+<!--   xlab("update #")+ -->
+<!--   ylab("# exposure sites")+ -->
+<!--   ggtitle("`New` Exposure sites over updates") -->
+
+<!-- ``` -->
+
+## "New" Exposure sites for September (Gungahlin)
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+#########function 1 ####################
+fileFiles_function <- function(filesiwant){
+  allfiles <- list.files(filesiwant, pattern=c("table_", ".csv"), full.names = TRUE)
+  return(allfiles)
+}
+# Exposure sites per Update for august amd sept
+filesiwant <- c("../data/allfiles/August/", "../data/allfiles/September/")
+
+allfiles <- fileFiles_function(filesiwant = filesiwant)
+
+
+
+############function 2 ######################
+##function to link all files into a list[[i]]
+countsperupdate <- function(allfiles){
+  
+  allfiledat <- list() #<- list() MUST BE OUTSIDE
+
+    for(i in 1:length(allfiles)) {
+      tib <- read_csv(allfiles[i]) %>%
+            dplyr::select(Contact, Date, Suburb, Status) %>%
+              filter(Suburb == "Gungahlin")
+      #Status == "New" & 
+    allfiledat[[i]] <- as.data.frame(tib)
+  } #end loop
+  
+  return(allfiledat)
+  
+} #end function
+
+##setup list of data
+allfiledat <- list()
+#run function
+allfiledat <- countsperupdate(allfiles = allfiles)
+
+res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
+cc<-1         
+
+for(i in 1:length(allfiles)){
+  
+  dd <- allfiledat[[i]]         
+  tt <- table(dd$Contact)
+  
+  if (length(tt)>0) {
+  for (ii in 1:length(tt))
+    {
+    res[cc, 1] <- i
+    res[cc,2] <- (substr(dd$Date[i], 1,10))
+    res[cc,3] <- nrow(dd)
+    res[cc,4] <- names(tt)[ii]
+    res[cc,5] <- tt[ii]
+    cc <- cc+1
+    }
+  }
+}
+  
+
+res <- res[!res$contact=="Investigation information",]
+res <- res[!res$contact=="Investigation location",]
+res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor"))
+
+
+res <- res[order(res$contact),]
+cols <- c( "red", "yellow","blue")[as.numeric(res$contact)]
+
+ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
+  xlab("update #")+
+  ylab("# exposure sites")+
+  ggtitle("`New` Exposure sites over updates")
+
+```
+
+
+
+## Time is interesting
+
+There are several aspects of this information that has been captures. To turn this into a meaningful figure I will need to understand how long the duration of contact times and levels looked like. To do this:
+
+length of time: start and end time 
+
+```{r}
+
+```
+
+
+
+
