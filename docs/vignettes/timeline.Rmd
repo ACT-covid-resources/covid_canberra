@@ -15,6 +15,82 @@ library(here)
 library(tidyverse)
 ```
 
+# Summarised outcome {.tabset}
+
+This report captures a Exposure.location and suburb. The location information needs to be added to this. We have done that in another process and this work takes the following variables and converts the outcome into a visualiable set of location variables:
+
+```{r}
+dat <- read.csv("../data/last.csv")
+
+glimpse(dat)
+dat$Date <- as.Date(lubridate::dmy(dat$Date))
+dat$caseS <- dat$Arrival.Time
+dat$caseE <- dat$Departure.Time
+
+# ampm <- ifelse(dat$caseS == str_detect("am"), dat$caseAM, dat$casePM)
+# 30/08/2021 - Monday
+library(tidyverse)
+# mutate(dat, 
+       dat$Dayall = str_split(dat$Date, " - ", n = 2)
+       for(i in 1:length(dat$Dayall)){
+         dat$DayDate[i] <-  dat$Dayall[[i]][2]
+         dat$dateCase[i] <-  dat$Dayall[[i]][1]
+       }
+       
+       # dat[22,]
+```
+
+- Exposure.location
+- Suburb
+- Date
+
+#### COntact time lengths
+
+```{r}
+timingList <- data.frame(dat$caseS, dat$caseE)
+# write.csv(timingList, "../data/testTIMS.csv")
+
+# , dat$caseS -dat$caseE)
+```
+
+```{r}
+res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
+cc<-1         
+
+for(i in 1:length(allfiles)){
+  
+  dd <- allfiledat[[i]]         
+  tt <- table(dd$Contact)
+  
+  if (length(tt)>0) {
+  for (ii in 1:length(tt))
+    {
+    res[cc, 1] <- i
+    res[cc,2] <- (substr(dd$Date[i], 1,10))
+    res[cc,3] <- nrow(dd)
+    res[cc,4] <- names(tt)[ii]
+    res[cc,5] <- tt[ii]
+    cc <- cc+1
+    }
+  }
+}
+  
+
+res <- res[!res$contact=="Investigation information",]
+res <- res[!res$contact=="Investigation location",]
+res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor"))
+
+
+res <- res[order(res$contact),]
+cols <- c( "red", "yellow","blue")[as.numeric(res$contact)]
+
+ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
+  xlab("update #")+
+  ylab("# exposure sites")+
+  ggtitle("`New` Exposure sites over updates")
+```
+
+
 ## Looks like?
 
 Data stored as list of csvs in rds file called raw_rds
@@ -56,46 +132,21 @@ allfiledat <- list()
 allfiledat <- suppressWarnings(countsperupdate(allfiles = allfiles))
 ```
 
-# Summarised outcome {.tabset}
-
-This report captures the ...
-
-```{r}
-res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
-cc<-1         
-
-for(i in 1:length(allfiles)){
-  
-  dd <- allfiledat[[i]]         
-  tt <- table(dd$Contact)
-  
-  if (length(tt)>0) {
-  for (ii in 1:length(tt))
-    {
-    res[cc, 1] <- i
-    res[cc,2] <- (substr(dd$Date[i], 1,10))
-    res[cc,3] <- nrow(dd)
-    res[cc,4] <- names(tt)[ii]
-    res[cc,5] <- tt[ii]
-    cc <- cc+1
-    }
-  }
-}
-  
-
-res <- res[!res$contact=="Investigation information",]
-res <- res[!res$contact=="Investigation location",]
-res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor"))
 
 
-res <- res[order(res$contact),]
-cols <- c( "red", "yellow","blue")[as.numeric(res$contact)]
 
-ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
-  xlab("update #")+
-  ylab("# exposure sites")+
-  ggtitle("`New` Exposure sites over updates")
-```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- ## "New" Exposure sites per update (since outbreak) -->

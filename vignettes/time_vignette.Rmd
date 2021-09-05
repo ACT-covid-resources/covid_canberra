@@ -90,6 +90,47 @@ ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack"
   ylab("# exposure sites")+
   ggtitle("`New` Exposure sites over updates")
 ```
+## nice plot
+
+```{r}
+# Library
+library(dygraphs)
+library(xts)          # To make the convertion data-frame / xts format
+ 
+  res <- res %>%
+          filter(contact == "Close")
+# Create data 
+# data <- data.frame(
+#   time=res$date[10:57], to=Sys.Date(), by=1 ), 
+#   value=res$nsites
+# )
+
+# Double check time is at the date format
+# str(data$time)
+times <- c("9:06am", "4:42 PM", "3:05 PM", "12:00 PM", "3:38 AM")
+
+print(as.POSIXct(dat$Arrival.Time, format='%I:%M %p'))
+
+lubridate::hm(as.character(dat$Arrival.Time))
+
+# end aim
+lubridate::ymd_hms("2016-07-08 12:34:56")
+
+# Switch to XTS format
+# data <- xts(x = res$nsites[10:57], order.by = as.Date(lubridate::dmy(res$date[10:57])))
+ 
+# Default = line plot --> See chart #316
+ 
+# # Add points
+# p <- dygraph(data) %>%
+#   dyOptions( drawPoints = TRUE, pointSize = 4 ,)
+# 
+# p
+# 
+# # save the widget
+# library(htmlwidgets)
+# saveWidget(p, file=paste0( getwd(), "/HtmlWidget/dygraphs317-1.html"))
+```
 
 # Summarised outcome {.tabset}
 
@@ -99,6 +140,7 @@ This report captures the ...
 
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
 #csvs generated from
+# £these need checking
 # source("R/resAugustScript.R")
 # and
 # source("R/resSeptemberscript.R")
@@ -108,14 +150,36 @@ resA <- read.csv('../data/resAugust.csv')
 resS <- read.csv('../data/resSeptember.csv')
 
 resS<- resS %>%
-  mutate(update = max(resA$update )+ update)
+  mutate(update = max(resA$update)+ update)
 
 res <- bind_rows(resA, resS)
 
-ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
+ggplot(res, aes(x=update,y=nsites))+
+  geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
   xlab("update #")+
   ylab("# exposure sites")+
   ggtitle("`New` Exposure sites over updates")
+
+ggplot(res,aes(x=update,y=nsites, group = contact,fill=contact, col = contact))+
+  geom_point(size=4)+
+  geom_line()+
+  xlab("update #")+
+  ylab("# exposure sites")+
+  ggtitle("`New` Exposure sites over updates")
+```
+ TIme
+
+```{r}
+  # dat$caseS <- as.difftime(as.Date(dat$Arrival.Time), as.Date(dat$Departure.Time))
+
+
+dat$Departure.Time <- format(strptime(dat$Departure.Time, "%I:%M %p"),format="%H:%M:%S")
+dat$Arrival.Time <- format(strptime(dat$Arrival.Time, "%I:%M %p"),format="%H:%M:%S")
+
+str(dat$Arrival.Time)
+# dat$Arrival.Time - as.numeric(as.character(dat$Departure.Time))
+
+as.difftime(dat$Arrival.Time, dat$Departure.Time)
 ```
 
 ## September
@@ -314,7 +378,7 @@ res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor"))
 res <- res[order(res$contact),]
 cols <- c( "red", "yellow","blue")[as.numeric(res$contact)]
 
-ggplot(res, aes(x=Date,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
+ggplot(res, aes(x=date,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
   xlab("update #")+
   ylab("# exposure sites")+
   ggtitle("`New` Exposure sites over updates")

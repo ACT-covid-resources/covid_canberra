@@ -40,6 +40,37 @@ Overall we can group locations and other attributes into different spatial areas
 # open source map data
 ```
 
+This constitues one of the challenges that is unique to a small collection of areas which are small and surrounded by much larger states and districts.
+
+### Levels of possible grouping{.tabset .tabpills}
+
+The raw data has the following location varibles of interest:
+
+```{r}
+dat <- read.csv("")
+
+
+```
+
+#### Suburb
+
+This is the grouping variable for location provided by the ACT website. This information is helpful but needs to be filtered to check that every Suburb matches a Postcode?
+
+```{r}
+
+```
+
+
+#### Postcode
+
+There are xx postcodes in the ACT. we can associate each one of these with a suburb?
+
+#### 
+
+```{r}
+
+```
+
 ### Manual postcode grouping
 
 

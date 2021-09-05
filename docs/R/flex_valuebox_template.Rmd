@@ -7,6 +7,8 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+
+# £from bernds repo
 # these computing functions are only toy examples
 computeArticles = function(...) return(45)
 computeComments = function(...) return(126)

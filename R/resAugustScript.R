@@ -15,6 +15,7 @@ miniSpice <- function(allfiles){
     tib <- read_csv(allfiles[i]) %>%
       dplyr::select(Contact, Date, Suburb, Status) %>%
       filter(Status == "New")
+    #or unique?
     
     allfiledat[[i]] <- as.data.frame(tib)
   } #end loop
