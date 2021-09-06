@@ -7,13 +7,32 @@ output:
     social: menu
     source_code: embed
     includes:
+      before_body: _header.html
       after_body: _footer.html
+      background_image: ".//assets/img/mod_petral.jpg"
 #runtime: shiny
 # params:
 #     lup: "unknown"
 editor_options: 
   chunk_output_type: console
 ---
+
+<!-- # ```{r, echo=FALSE} -->
+<!-- # htmltools::img(src = knitr::image_uri(file.path(R.home("doc"), "html", "logo.jpg")),  -->
+<!-- #                alt = 'logo',  -->
+<!-- #                style = 'position:absolute; top:0; right:0; padding:10px;') -->
+<!-- # ``` -->
+
+<!-- body { -->
+<!--   background-image: url('https://linesteppers.com/tutorials/RMarkdown/img/BannerImage_TreeBlossoms_4470x3024.jpg'); -->
+<!--   background-repeat: no-repeat; -->
+<!--   background-size: 100%; -->
+<!-- } -->
+
+<!-- div { -->
+<!--   background-color: rgba(255, 255, 255, 0.35)   /* 35% opaque white */; -->
+<!--   padding: 0.25em; -->
+<!-- } -->
 
 ```{r setup, include=TRUE}
 library(tidyverse)
@@ -24,6 +43,8 @@ library(flexdashboard)
 library(DT)
 library(rgdal)
 library(crosstalk)
+# devtools::install_github("r-spatial/leafem")
+# library(leafem)
 #latest dataset
 tab3 <- read.csv("https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/last.csv")
 # Aggregate method
@@ -70,7 +91,7 @@ bcols <- colorRampPalette(c("purple", "green"))( length(coo))
 for (ib in 1:length(coo))
 {
   cood <- data.frame(coo[[ib]])
-  m <- m %>% addPolylines(lng=cood[,1], lat=cood[,2], color = bcols[ib], weight   = 3, opacity = 0.4, popup  = blabs[ib])
+  m <- m %>% addPolylines(lng=cood[,1], lat=cood[,2], color = bcols[ib], weight   = 5, opacity = 0.7, popup  = blabs[ib])
 }
 
 }
@@ -96,8 +117,10 @@ m <- m %>%  addLegend("bottomright", labels = levels(tab3$Contact), colors = col
 ####################################################
 ### add bus lines mentioned
 
-
-
+# m + addLogo("./assets/img/Capture1.PNG", alpha = 1, src = c("remote", "local"), url,
+#   position = c("topleft", "topright", "bottomleft", "bottomright"),
+#   offset.x = 50, offset.y = 13, width = 60, height = 60)
+# 
 
 ```
 
@@ -165,7 +188,26 @@ Column {data-width=500}{.tabset}
 ### Map of Exposure sites and exposed bus routes
 
 ```{r}
-m
+m  %>%
+  addProviderTiles("Stamen.TonerLite")
+
+# %>%
+  # addPolygons(
+  #   # fill
+  #   fillColor   = ~pal(water_km2),
+  #   fillOpacity = 0.7,
+  #   # line
+  #   dashArray   = "3",
+  #   weight      = 2,
+  #   color       = "white",
+  #   opacity     = 1,
+  #   # interaction
+  #   highlight = highlightOptions(
+  #     weight = 5,
+  #     color = "#666",
+  #     dashArray = "",
+  #     fillOpacity = 0.7,
+  #     bringToFront = TRUE))
 ```
 
 ### New Cases today
@@ -352,13 +394,13 @@ library(sf)
 
 
 ############very ugly function But should work.....
+
+#dataList is a list...
 ##ARD sep2021
 last_five_days_new <- function(dataList){
 
     #no new sites test
   tab3 <- read.csv(dataList)
-  
-  
   
   cols <- c( "red", "yellow","blue")
 

@@ -13,6 +13,14 @@ This is a nasty task in any project however it is important to understand how mu
 ```{r  echo = FALSE, message = FALSE, warning = FALSE}
 library(here)
 library(tidyverse)
+
+# require(devtools)
+# install_github("Displayr/flipTime")
+library(flipTime)
+##as.Dat
+# seq(as.Date("2004-01-31"), by = "month", length = 10) e
+##around
+flipTime::AsDateTime("9/10/2010 10:20PM")
 ```
 
 # Summarised outcome {.tabset}
@@ -23,26 +31,190 @@ This report captures a Exposure.location and suburb. The location information ne
 dat <- read.csv("../data/last.csv")
 
 glimpse(dat)
-dat$Date <- as.Date(lubridate::dmy(dat$Date))
+# dat$Date <- as.Date(lubridate::dmy(dat$Date))
 dat$caseS <- dat$Arrival.Time
 dat$caseE <- dat$Departure.Time
 
 # ampm <- ifelse(dat$caseS == str_detect("am"), dat$caseAM, dat$casePM)
 # 30/08/2021 - Monday
-library(tidyverse)
-# mutate(dat, 
-       dat$Dayall = str_split(dat$Date, " - ", n = 2)
-       for(i in 1:length(dat$Dayall)){
-         dat$DayDate[i] <-  dat$Dayall[[i]][2]
-         dat$dateCase[i] <-  dat$Dayall[[i]][1]
-       }
+# library(tidyverse)
+# # mutate(dat, 
+#        dat$Dayall = str_split(dat$Date, " - ", n = 2)
+#        for(i in 1:length(dat$Dayall)){
+#          dat$DayDate[i] <-  dat$Dayall[[i]][2]
+#          dat$dateCase[i] <-  dat$Dayall[[i]][1]
+#        }
+#        
+#        
+       dat$dateonly <- as.Date(lubridate::dmy(dat$Date))
+#        
+    dat$datetimeS <- flipTime::AsDateTime(paste0(dat$dateonly," ", dat$Arrival.Time))
        
-       # dat[22,]
+      dat$datetimeE <- flipTime::AsDateTime(paste0(dat$dateonly," ", dat$Departure.Time))
+              
+              glimpse(dat)
+      # select time levedata()
+      
+  datTimeSumms <-   dat %>%
+        select(dateonly, datetimeS, datetimeE, Suburb, Status, Contact, lat, lon) %>%
+    mutate(monthF = lubridate::month(dateonly),
+           weekF = lubridate::week(dateonly), 
+           dayF = lubridate::day(dateonly),
+           daysteps = paste0(weekF, dayF))
+ 
+  
+  ggplot(datTimeSumms, aes(x= dateonly, y= Contact))+
+        geom_jitter(aes(fill=Contact, group = daysteps),height = 0, width=0.01)+
+    geom_smooth() + 
+  xlab("update #")+
+  ylab("# exposure sites")+
+  # facet_wrap(~weekF) + 
+  ggtitle("Exposure sites over updates since 16th August 2021")
+  
+  # ?geom_bar
+  
+    ggplot(datTimeSumms, aes(x= dateonly, y= Contact))+
+        geom_jitter(aes(fill=Contact, group = daysteps),height = 0, width=0.01)+
+    geom_smooth() + 
+  xlab("update #")+
+  ylab("# exposure sites")+
+  # facet_wrap(~Contact) + 
+  ggtitle("Exposure sites over updates since 16th August 2021")
+  
+      ggplot(datTimeSumms, aes(x= dateonly, y= Contact))+
+        geom_jitter(aes(fill=Contact, group = daysteps),height = 0.1, width=0.1)+
+    geom_smooth() + 
+  xlab("update #")+
+  ylab("# exposure sites")+
+  # facet_wrap(~weekF) + 
+  ggtitle("Exposure sites over updates since 16th August 2021")
+      
+      
+            ggplot(datTimeSumms, aes(x= dateonly, y= Contact))+
+        geom_jitter(aes(fill=Contact, group = daysteps),height = 0.2, width=0.5)+
+    geom_smooth(aes(fill=Contact, group = Contact)) + 
+  xlab("update #")+
+  ylab("# exposure sites")+
+  # facet_wrap(~weekF) + 
+  ggtitle("Exposure sites over updates since 16th August 2021")
+            
+            
+            
+                 ggplot(datTimeSumms, aes(x= dateonly, group= Contact))+
+        # geom_jitter(aes(fill=Contact, group = daysteps),height = 0.2, width=0.5)+
+                   geom_density(aes(group = Contact,fill=Contact)) + 
+    # geom_smooth() + 
+  xlab("update #")+
+  ylab("# exposure sites")+
+  # facet_wrap(~weekF) + 
+  ggtitle("Exposure sites over updates since 16th August 2021")
+            
+                
+                 
+                      ggplot(datTimeSumms, aes(x = dateonly, group = Contact))+
+        # geom_jitter(aes(fill=Contact, group = daysteps),height = 0.2, width=0.5)+
+                   geom_density(aes(group = Contact, fill = Contact), alpha = 0.3)+ 
+    # geom_smooth() + 
+  xlab("update #")+
+  ylab("Density exposure sites")+
+  facet_wrap(~weekF) + 
+  ggtitle("Density of updates since 16th August 2021")                  
+                      
+                      # datDY <- dygraphs::
+
+                        
+library(dygraphs)
+library(xts)          # To make the convertion data-frame / xts format
+library(tidyverse)
+library(lubridate)
+ 
+# Read the data (hosted on the gallery website)
+# data <- read.table("https://python-graph-gallery.com/wp-content/uploads/bike.csv", header=T, sep=",") %>% head(300)
+
+# Check type of variable
+
+ datTimeSumms1 <- datTimeSumms %>%
+   group_by(Contact, dateonly) %>%
+   tally() %>%
+   ungroup(.)
+ 
+ 
+ggplot(datTimeSumms1, aes(x=dateonly,y=n, group = Contact))+
+  geom_bar(stat="identity", position = "stack", width=1, aes(fill=Contact))+
+  xlab("update #")+
+  ylab("# exposure sites")+
+  ggtitle("`New` Exposure sites over updates")
+
+ggplot(datTimeSumms1, aes(x=dateonly,y=n, group = Contact))+
+  geom_point(aes(fill=Contact))+
+  xlab("update #")+
+  ylab("# exposure sites")+
+  ggtitle("`New` Exposure sites over updates")
+
 ```
 
 - Exposure.location
 - Suburb
 - Date
+
+
+```{r}
+#  datTimeSumms1$dateonly
+#  
+# # Since my time is currently a factor, I have to convert it to a date-time format!
+# datTimeSumms1$dateonly <- ymd_hms(datTimeSumms1$dateonly)
+# 
+# 
+#  # Then you can create the xts necessary to use dygraph
+#   don <- xts(x = datTimeSumms1$datetime, order.by = datTimeSumms1$datetime, factor(datTimeSumms1$Contact))
+# ?xts
+#   
+# Then you can create the xts necessary to use dygraph
+  don <- xts(x = datTimeSumms1$n, order.by = datTimeSumms1$dateonly, factor(datTimeSumms1$Contact))
+  
+?xts
+  
+  
+# Finally the plot
+p <- dygraph(don, group = datTimeSumms1$Contact) %>%
+  dyOptions(labelsUTC = TRUE, fillGraph=TRUE, fillAlpha=0.1, drawGrid = FALSE, colors="#D8AE5A") %>%
+  dyRangeSelector() %>%
+  dyCrosshair(direction = "vertical") %>%
+  dyHighlight(highlightCircleSize = 5, highlightSeriesBackgroundAlpha = 0.2, hideOnMouseOut = FALSE)  %>%
+  dyRoller(rollPeriod = 1)
+
+p
+# save the widget
+# library(htmlwidgets)
+# saveWidget(p, file=paste0( getwd(), "/HtmlWidget/dygraphs318.html"))
+# Examples
+# data(sample_matrix)
+# sample.xts <- as.xts(sample_matrix, descr='my new xts object')
+# 
+# class(sample.xts)
+# str(sample.xts)
+# 
+# head(sample.xts)  # attribute 'descr' hidden from view
+# attr(sample.xts,'descr')
+# 
+# sample.xts['2007']  # all of 2007
+# sample.xts['2007-03/']  # March 2007 to the end of the data set
+# sample.xts['2007-03/2007']  # March 2007 to the end of 2007
+# sample.xts['/'] # the whole data set
+# sample.xts['/2007'] # the beginning of the data through 2007
+# sample.xts['2007-01-03'] # just the 3rd of January 2007
+
+x <- xts(matrix(1:(9*6),nc=6),
+         order.by=as.Date(13000,origin="1970-01-01")+1:9,
+         a1='my attribute')
+
+xtsAttributes(x)
+xtsAttributes(x) <- list(a2=2020)
+
+xtsAttributes(x)
+xtsAttributes(x) <- list(a1=NULL)
+xtsAttributes(x)
+```
 
 #### COntact time lengths
 
@@ -53,7 +225,16 @@ timingList <- data.frame(dat$caseS, dat$caseE)
 # , dat$caseS -dat$caseE)
 ```
 
-```{r}
+```{r eval = FALSE}
+#########function 1 ####################
+fileFiles_function <- function(filesiwant){
+  allfiles <- list.files(filesiwant, pattern=c("table_", ".csv"), full.names = TRUE)
+  return(allfiles)
+}
+# Exposure sites per Update for august amd sept
+filesiwant <- c("./data/allfiles/August/", "../data/allfiles/September/")
+
+allfiles <- suppressWarnings(fileFiles_function(filesiwant = filesiwant))
 res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
 cc<-1         
 
@@ -90,7 +271,6 @@ ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack"
   ggtitle("`New` Exposure sites over updates")
 ```
 
-
 ## Looks like?
 
 Data stored as list of csvs in rds file called raw_rds
@@ -102,7 +282,7 @@ fileFiles_function <- function(filesiwant){
   return(allfiles)
 }
 # Exposure sites per Update for august amd sept
-filesiwant <- c("../data/allfiles/August/", "../data/allfiles/September/")
+filesiwant <- c("./data/allfiles/August/", "../data/allfiles/September/")
 
 allfiles <- suppressWarnings(fileFiles_function(filesiwant = filesiwant))
 
@@ -136,6 +316,37 @@ allfiledat <- suppressWarnings(countsperupdate(allfiles = allfiles))
 
 
 
+#### Basic points
+
+```{r}
+#csvs generated from
+# £these need checking
+# source("R/resAugustScript.R")
+# and
+# source("R/resSeptemberscript.R")
+
+#new entries rather than accumulation of cases held by ACT
+resA <- read.csv('../data/resAugust.csv')
+resS <- read.csv('../data/resSeptember.csv')
+
+resS<- resS %>%
+  mutate(update = max(resA$update)+ update)
+
+res <- bind_rows(resA, resS)
+
+ggplot(res, aes(x=update,y=nsites))+
+  geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
+  xlab("update #")+
+  ylab("# exposure sites")+
+  ggtitle("`New` Exposure sites over updates")
+
+ggplot(res,aes(x=update,y=nsites, group = contact,fill=contact, col = contact))+
+  geom_point(size=4)+
+  geom_line()+
+  xlab("update #")+
+  ylab("# exposure sites")+
+  ggtitle("`New` Exposure sites over updates")
+```
 
 
 

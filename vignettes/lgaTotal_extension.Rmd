@@ -28,29 +28,239 @@ knitr::opts_chunk$set(
 #stat zones from SA3
 library(tidyverse)
 library(absmapsdata)
+# dat <- read.csv("")
+##current dataset.. 
+#import now
+# library(tidyverse)
+library(ggmap)
+library(leaflet)
+library(plotly)
+library(flexdashboard)
+library(DT)
+library(rgdal)
+library(crosstalk)
+# library(absmapsdata)
+library(sf)
+
 ```
 
 Overall we can group locations and other attributes into different spatial areas. For mapping many projects the exact location is not know or is not needed/wanted for a range of obvious reasons. This set of functions takes the location information from each of the datasets and creates a uniform location entry that aligns with the desired spatial scale.
 
-## Existing datasets
+```{r}
+library(mapview)
+library(leafpop)
+
+pnt <- data.frame(x = 174.764474, y = -36.877245)
+pnt <- st_as_sf(pnt, coords = c("x", "y"), crs = 4326)
+img <- "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Mount_Eden.jpg/640px-Mount_Eden.jpg"
+
+mapview(pnt, map.types = "Esri.WorldImagery",
+        popup = popupImage(img, src = "remote"))
+# ??popupImage
+
+mapview(pnt, popup = leafpop:::popupIframe("https://www.youtube.com/embed/iApz08Bh53w?autoplay=1", width = 300, height = 225))
+```
+
+## Final selection figure
+
+```{r}
+allfiles <- list.files("../data/allfiles/August/", pattern=c("table_", ".csv"), full.names = TRUE)
+
+countsperupdate <- function(allfiles){
+  
+  allfiledat <- list() #<- list() MUST BE OUTSIDE
+
+    for(i in 1:length(allfiles)) {
+      tib <- read_csv(allfiles[i]) %>%
+            dplyr::select(Contact, Date, Suburb, Status) #%>%
+              # filter(Status == "New" & Suburb == "Dickson")
+      
+    allfiledat[[i]] <- as.data.frame(tib)
+  } #end loop
+  
+  return(allfiledat)
+  
+} #end function
+
+##setup list of data
+allfiledat <- list()
+
+#run function
+allfiledat <- countsperupdate(allfiles = allfiles)
+
+# ??addCircleMarkers
+##how to do this???
+# for(i in 1:length(allfiledat)){
+  # i=1
+ # singledatpostcode <- allfiledat[[10]] %>%
+ #  left_join(postcodesACT1, by = c('Suburb')) %>%
+ #  remove_missing() 
+ # i = 2
+ # singledat <- allfiledat[[20]] %>%
+ #  # left_join(postcodesACT1, by = c('Suburb')) %>%
+ #  remove_missing() 
+ 
+ # row_bind
+ 
+# }
+##plot the map
+m <- leaflet() %>% addTiles()
+m
+# #only fours match up :)
+# m1 <- m %>%
+#   addCircleMarkers(lat=singledatpostcode$latitude,
+#                    lng=singledatpostcode$longitude)
+# 
+# m1
+```
+
+This constitutes one of the challenges that is unique to a small collection of areas which are small and surrounded by much larger states and districts.
+
+```{r eval = FALSE}
+cols <- c( "red", "yellow","blue")
+datRaw$Contact <- factor(datRaw$Contact,levels=c(  "Close"  , "Casual", "Monitor") )
+  cc <- as.numeric( datRaw$Contact)
+  ncols <- c("black","cyan")
+  nn <- as.numeric(factor(datRaw$Status))
+  nn2 <- ifelse(nn==1,nn, 3)
+  
+  # glimpse(datRaw)
+  
+  datRaw$Date <- substr(datRaw$Date,1,10) #ditch day of the week
+  labs <- paste(datRaw$Contact, datRaw$Status,datRaw$Exposure.Location, datRaw$Street, datRaw$Suburb, datRaw$Date,datRaw$Arrival.Time, datRaw$Departure.Time, datRaw$doubles, sep="<br/>") 
+
+  dataJoin <- absmapsdata::sa12016 %>%
+    filter(gcc_name_2016 == "Australian Capital Territory") %>%
+    mutate(Suburb = sa2_name_2016) %>%
+    left_join(datRaw, by = c("Suburb")) %>%
+    select(Suburb, lat, lon, Exposure.Location, geometry,Status, Contact) %>%
+    na.omit() %>%
+    mutate(Status = ifelse(Status == "New", "New", "Previous")) %>%
+    st_as_sf
+  
+  glimpse(dataJoin)cols <- c( "red", "yellow","blue")
+
+  datRaw$Contact <- factor(datRaw$Contact,levels=c(  "Close"  , "Casual", "Monitor") )
+  cc <- as.numeric( datRaw$Contact)
+  ncols <- c("black","cyan")
+  nn <- as.numeric(factor(datRaw$Status))
+  nn2 <- ifelse(nn==1,nn, 3)
+  
+  # glimpse(datRaw)
+  
+  datRaw$Date <- substr(datRaw$Date,1,10) #ditch day of the week
+  labs <- paste(datRaw$Contact, datRaw$Status,datRaw$Exposure.Location, datRaw$Street, datRaw$Suburb, datRaw$Date,datRaw$Arrival.Time, datRaw$Departure.Time, datRaw$doubles, sep="<br/>") 
+
+  dataJoin <- absmapsdata::sa12016 %>%
+    filter(gcc_name_2016 == "Australian Capital Territory") %>%
+    mutate(Suburb = sa2_name_2016) %>%
+    left_join(datRaw, by = c("Suburb")) %>%
+    select(Suburb, lat, lon, Exposure.Location, geometry,Status, Contact) %>%
+    na.omit() %>%
+    mutate(Status = ifelse(Status == "New", "New", "Previous")) %>%
+    st_as_sf
+  
+  glimpse(dataJoin)
+```
+
+### Levels of possible grouping {.tabset .tabpills}
+
+The raw data has the following location variables of interest:
+
+```{r}
+############very ugly function But should work.....
+
+#dataList is a list...
+##ARD sep2021
+# last_five_days_new <- function(dataList){
+
+  # <NA> and NA
+  # 
+  # # remove_missing(vars = c("Exposure.Location"))%>%  # let's just look Melbourne
+  # plot1 <-  ggplot(dataJoin,aes(y=lat, x=lon)) +
+  #   ggspatial::annotation_map_tile() +
+  #   geom_sf(aes(geometry = geometry, fill = Status), 
+  #           col = c("red"), 
+  #           lty = 1, alpha =0.5)+ 
+  #   scale_fill_manual(values = c("red", "yellow","blue")) + 
+  #   geom_point(data = dataJoin, aes(y=lat, x=lon), size = 4, alpha = 0.3) #+ 
+  # scale_fill_manual(values = c("red", "yellow","blue","black", "white")) +
+  # scale_color_manual(values = c("red", "yellow","blue","black", "white")) 
+  
+  # return(plot1)  
+  
+# }  #function end
+
+
+#lapply
+# p1 <- last_five_days_new(dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv")
+
+
+# dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv"
+# lapply(dataList, last_five_days_new)
+
+# p1
+
+
+
+```
+
+#### Unique set of points
 
 ```{r}
 #census data
 #postcode data
 # open source map data
+    #no new sites test
+# dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv"
+dataList = "../data/last.csv"
+tab3 <- read.csv(dataList)
+# glimpse(tab3)
+
+#the uncleaned data is what we have to work with
+#here it is September 2021
+
+datRaw <- read.csv("../data/allfiles/September/table_01_Sep_2021_136pm.csv")
+glimpse(datRaw)
+
 ```
 
-This constitues one of the challenges that is unique to a small collection of areas which are small and surrounded by much larger states and districts.
 
-### Levels of possible grouping{.tabset .tabpills}
+#### Manual grouping into four general areas.... {.tabset .tabpills}
 
-The raw data has the following location varibles of interest:
+Here I have created for groups: North Canberra, Central Canberra,.....
 
 ```{r}
-dat <- read.csv("")
+# e.g
+subsNorth <- c("Watson", "Hackett")
+subsEast <- c("Bruce")
+subsCentral <- c("Canberra")
+subsSouth <- c("Woden")
+outsideACTregion <- c("Jervis Bay", "Wreck Bay", "Hmas Creswell", "Coree", "Mount Stromlo", "Uriarra")
 
-
+#     for(i in 1:length(allfiles)) {
+#       tib <- read_csv(allfiles[i]) %>%
+#             dplyr::select(Contact, Date, Suburb, Status) %>%
+#               filter(Status == "New")
+#       
+#     allfiledat[[i]] <- as.data.frame(tib)
+#   } #end loop
+# 
+# postcodesACT1 <- postcodesACT %>%
+#                   mutate(Suburb = place_name)
+# 
+# singledatpostcode <- allfiledat[[1]] %>%
+#   left_join(postcodesACT1, by = c('Suburb'))
+# 
+# 
+# m1 <- m %>%
+#   addCircleMarkers(lat=singledatpostcode$latitude,
+#                    lng=singledatpostcode$longitude) +
+#   addPolygons(datArea1)
+# 
+# m1
 ```
+
 
 #### Suburb
 
@@ -65,35 +275,82 @@ This is the grouping variable for location provided by the ACT website. This inf
 
 There are xx postcodes in the ACT. we can associate each one of these with a suburb?
 
-#### 
-
 ```{r}
+# absmapsdata::postcode2016
+#downloaded csv
+postcodesACT <- read.csv("../data/au_postcodes.csv") %>%
+  dplyr::filter(state_name == "Australian Capital Territory")
 
-```
+# str(postcodesACT$place_name)
 
-### Manual postcode grouping
-
-
-### My grouping 
-
-Here I have created for groups: North Canberra, Central Canberra,.....
-
-# Manual grouping into four general areas.... {.tabset .tabpills}
-
-```{r}
-# e.g
-subsNorth <- c("Watson", "Hackett")
-subsEast <- c("Bruce")
-subsCentral <- c("Canberra")
-subsSouth <- c("Woden")
 outsideACTregion <- c("Jervis Bay", "Wreck Bay", "Hmas Creswell", "Coree", "Mount Stromlo", "Uriarra")
+
+postcodesACT1 <- postcodesACT %>%
+                  mutate(Suburb = place_name)
+# glimpse(postcodesACT)
+
+#standard baseline
+# ggmap()
+
+p1 <- ggplot(postcodesACT1) +
+  geom_point(aes(y = latitude, x = longitude)) +
+  geom_text(aes(y = latitude, x = longitude, label=place_name),hjust=10, vjust=10) + 
+  geom_abline(intercept = (max(postcodesACT1$latitude)- min(postcodesACT1$latitude))/2 + min(postcodesACT1$latitude), slope = 0) + 
+  geom_vline(xintercept = (max(postcodesACT1$longitude)- min(postcodesACT1$longitude))/2 + min(postcodesACT1$longitude), linetype="dotted", 
+                color = "blue", size=1.5) + 
+  theme_minimal()
+  # geom_line(aes(x = (max(postcodesACT$longitude)- min(postcodesACT$longitude))/2 + min(postcodesACT$longitude), y = 0)
+  # geom_label(aes(y = latitude, x = longitude))
+
+mw <- plotly::ggplotly(p1)
+
+mw
 ```
 
-## From ABS package
+#### ACT Census data
+
+```{r}
+# load library
+library(OpenStreetMap)
+# extract map
+AustraliaMap <- openmap(c(-8,110),
+    c(-45,160),
+#   type = "osm",
+#   type = "esri",
+    type = "nps",
+    minNumTiles=7)
+# plot map
+plot(AustraliaMap)
+```
+
+*From ABS package*
+
+```{r}
+# sa32016 
+map <- lga2018 %>%
+  filter(state_name_2016 == "Australian Capital Territory") %>%   # let's just look Melbourne
+  ggplot() +
+  geom_sf(aes(geometry = geometry,  # use the geometry variable
+              fill = areasqkm_2018),     # fill by area size
+          lwd = 0,                  # remove borders
+          show.legend = FALSE) +    # remove legend
+  geom_point(aes(cent_long,
+                 cent_lat),        # use the centroid long (x) and lats (y)
+             colour = "white") +    # make the points white
+  theme_void() +                    # clears other plot elements
+  coord_sf()
+
+map
+```
+
+```{r}
+DT::datatable(lga2018 %>%
+  filter(state_name_2016 == "Australian Capital Territory"))
+```
 
 This package allows aspects of this data to be linked with census and other data resources associated with this level of geo-spatial identification.
 
-## LGA_2016 equates to total of ACT
+#### LGA_2016 equates to total of ACT
 
 ```{r}
 library(sf)
@@ -219,201 +476,7 @@ m <- leaflet() %>% addTiles()
   # addPolygons(ACTlga[[]])
 ```
 
-## Another abs level
-
-```{r fig.align="c"}
-# absmapsdata::postcode2016
-#downloaded csv
-postcodesACT <- read.csv("../data/au_postcodes.csv") %>%
-  dplyr::filter(state_name == "Australian Capital Territory")
-
-# str(postcodesACT$place_name)
-
-postcodesACT1 <- postcodesACT %>%
-            dplyr::filter(!place_name %in% outsideACTregion)
-# glimpse(postcodesACT)
-
-#standard baseline
-# ggmap()
-
-p1 <- ggplot(postcodesACT1) +
-  geom_point(aes(y = latitude, x = longitude)) +
-  geom_text(aes(y = latitude, x = longitude, label=place_name),hjust=10, vjust=10) + 
-  geom_abline(intercept = (max(postcodesACT1$latitude)- min(postcodesACT1$latitude))/2 + min(postcodesACT1$latitude), slope = 0) + 
-  geom_vline(xintercept = (max(postcodesACT1$longitude)- min(postcodesACT1$longitude))/2 + min(postcodesACT1$longitude), linetype="dotted", 
-                color = "blue", size=0.9, alpha = 0.7) + 
-  theme_minimal()
-  # geom_line(aes(x = (max(postcodesACT$longitude)- min(postcodesACT$longitude))/2 + min(postcodesACT$longitude), y = 0)
-  # geom_label(aes(y = latitude, x = longitude))
-
-mw <- plotly::ggplotly(p1)
-
-mw
-            # plotly::add_annotations(p =mw, text = postcodesACT$place_name)
-
-```
-
-## All current locations in cases
-
-```{r eval = FALSE}
-    for(i in 1:length(allfiles)) {
-      tib <- read_csv(allfiles[i]) %>%
-            dplyr::select(Contact, Date, Suburb, Status) %>%
-              filter(Status == "New")
-      
-    allfiledat[[i]] <- as.data.frame(tib)
-  } #end loop
-
-postcodesACT1 <- postcodesACT %>%
-                  mutate(Suburb = place_name)
-
-singledatpostcode <- allfiledat[[1]] %>%
-  left_join(postcodesACT1, by = c('Suburb'))
-
-
-m1 <- m %>%
-  addCircleMarkers(lat=singledatpostcode$latitude,
-                   lng=singledatpostcode$longitude) +
-  addPolygons(datArea1)
-
-m1
-```
-
-### SA3 statistical Areas
-
-```{r}
-
-# sa32016
-
-map <- sa32016 %>%
-  filter(gcc_name_2016 == "Australian Capital Territory") %>%   # let's just look Melbourne
-  ggplot() +
-  geom_sf(aes(geometry = geometry)) +   # use the geometry variable
-  geom_point(aes(cent_long, cent_lat))  # use the centroid long (x) and lats (y)
-
-map
-```
-
-### SA1 statistical Areas
-
-#### Table
-
-```{r}
-DT::datatable(sa12016 %>%
-  filter(gcc_name_2016 == "Australian Capital Territory"))
-```
-
-#### Plot
-
-```{r}
-# sa32016
-
-map <- sa12016 %>%
-  filter(gcc_name_2016 == "Australian Capital Territory") %>%   # let's just look Melbourne
-  ggplot() +
-  geom_sf(aes(geometry = geometry)) +   # use the geometry variable
-  geom_point(aes(cent_long, cent_lat))  # use the centroid long (x) and lats (y)
-
-map
-```
-
-
-### SA2 statistical Areas
-
-### Table
-
-```{r}
-DT::datatable(sa22016 %>%
-  filter(gcc_name_2016 == "Australian Capital Territory"))
-
-```
-
-### Plot
-
-```{r}
-# sa32016
-library(plotly)
-map <- sa22016 %>%
-  filter(gcc_name_2016 == "Australian Capital Territory") %>%   # let's just look Melbourne
-  ggplot() +   
-  ggspatial::annotation_map_tile(zoom = 8) +
-  geom_sf(aes(geometry = geometry, fill  = areasqkm_2016)) #   # use the geometry variable
-  # geom_point(aes(cent_long, cent_lat))  # use the centroid long (x) and lats (y)
-map
-
-
-# ggplotly(map)
-```
-
-###  Total ACT Census data
-
-```{r}
-# sa32016 
-map <- lga2018 %>%
-  filter(state_name_2016 == "Australian Capital Territory") %>%   # let's just look Melbourne
-  ggplot() +
-  geom_sf(aes(geometry = geometry,  # use the geometry variable
-              fill = areasqkm_2018),     # fill by area size
-          lwd = 0,                  # remove borders
-          show.legend = FALSE) +    # remove legend
-  geom_point(aes(cent_long,
-                 cent_lat),        # use the centroid long (x) and lats (y)
-             colour = "white") +    # make the points white
-  theme_void() +                    # clears other plot elements
-  coord_sf()
-
-map
-```
-
-
-```{r}
-DT::datatable(lga2018 %>%
-  filter(state_name_2016 == "Australian Capital Territory"))
-```
-
-# plotly
-
-
-```{r echo = FALSE,	message = FALSE,	warning = FALSE}
-
-## Global options
-# options(max.print="75")
-knitr::opts_chunk$set(
-	echo = FALSE,
-	message = FALSE,
-	warning = FALSE,
-	cache = FALSE,
-	cache.path = "docs/",
-	# width=75,
-	comment = NA,
-	prompt = FALSE,
-	tidy = TRUE
-)
-#stat zones from SA3
-library(tidyverse)
-#and suburbs
-# devtools::install_github("wfmackey/absmapsdata")
-library(absmapsdata)
-```
-
-Overall we can group locations and other attributes into different spatial areas. Here I have created for groups: North Canberra, Central Canberra,.....
-
-Manual grouping into four general areas....
-
-```{r}
-# e.g
-subsNorth <- c("Watson", "Hackett")
-subsEast <- c("Bruce")
-subsCentral <- c("Canberra")
-subsSouth <- c("Woden")
-outsideACTregion <- c("Jervis Bay", "Wreck Bay", "Hmas Creswell", "Coree", "Mount Stromlo", "Uriarra")
-```
-
-## From ABS package
-
-This package allows aspects of this data to be linked with census and other data resources associated with this level of geo-spatial identification.
-
-### LGA_2016 equates to total of ACT
+LGA_2016 equates to total of ACT
 
 ```{r}
 dat <- as.data.frame(absmapsdata::lga2016)
@@ -513,7 +576,7 @@ m <- leaflet() %>% addTiles()
   # addPolygons(ACTlga[[]])
 ```
 
-### Another abs level
+All current locations in cases
 
 ```{r fig.align="c"}
 # absmapsdata::postcode2016
@@ -523,10 +586,8 @@ postcodesACT <- read.csv("../data/au_postcodes.csv") %>%
 
 # str(postcodesACT$place_name)
 
-outsideACTregion <- c("Jervis Bay", "Wreck Bay", "Hmas Creswell", "Coree", "Mount Stromlo", "Uriarra")
-
 postcodesACT1 <- postcodesACT %>%
-                  mutate(Suburb = place_name)
+            dplyr::filter(!place_name %in% outsideACTregion)
 # glimpse(postcodesACT)
 
 #standard baseline
@@ -537,7 +598,7 @@ p1 <- ggplot(postcodesACT1) +
   geom_text(aes(y = latitude, x = longitude, label=place_name),hjust=10, vjust=10) + 
   geom_abline(intercept = (max(postcodesACT1$latitude)- min(postcodesACT1$latitude))/2 + min(postcodesACT1$latitude), slope = 0) + 
   geom_vline(xintercept = (max(postcodesACT1$longitude)- min(postcodesACT1$longitude))/2 + min(postcodesACT1$longitude), linetype="dotted", 
-                color = "blue", size=1.5) + 
+                color = "blue", size=0.9, alpha = 0.7) + 
   theme_minimal()
   # geom_line(aes(x = (max(postcodesACT$longitude)- min(postcodesACT$longitude))/2 + min(postcodesACT$longitude), y = 0)
   # geom_label(aes(y = latitude, x = longitude))
@@ -549,7 +610,54 @@ mw
 
 ```
 
-All current locations in cases
+#### SA3 statistical Areas
+
+```{r}
+# sa32016
+map <- sa32016 %>%
+  filter(gcc_name_2016 == "Australian Capital Territory") %>%   # let's just look Melbourne
+  ggplot() +
+  geom_sf(aes(geometry = geometry)) +   # use the geometry variable
+  geom_point(aes(cent_long, cent_lat))  # use the centroid long (x) and lats (y)
+
+map
+```
+
+#### SA2 statistical Areas
+
+```{r}
+DT::datatable(sa22016 %>%
+  filter(gcc_name_2016 == "Australian Capital Territory"))
+
+```
+
+```{r}
+# sa32016
+library(plotly)
+map <- sa22016 %>%
+  filter(gcc_name_2016 == "Australian Capital Territory") %>%   # let's just look Melbourne
+  ggplot() +   
+  ggspatial::annotation_map_tile(zoom = 8) +
+  geom_sf(aes(geometry = geometry, fill  = areasqkm_2016)) #   # use the geometry variable
+  # geom_point(aes(cent_long, cent_lat))  # use the centroid long (x) and lats (y)
+map
+
+
+# ggplotly(map)
+```
+
+Overall we can group locations and other attributes into different spatial areas. Here I have created for groups: North Canberra, Central Canberra,...Manual grouping into four general areas....
+
+```{r}
+# e.g
+subsNorth <- c("Watson", "Hackett")
+subsEast <- c("Bruce")
+subsCentral <- c("Canberra")
+subsSouth <- c("Woden")
+outsideACTregion <- c("Jervis Bay", "Wreck Bay", "Hmas Creswell", "Coree", "Mount Stromlo", "Uriarra")
+```
+
+This package allows aspects of this data to be linked with census and other data resources associated with this level of geo-spatial identification.
 
 ```{r eval = TRUE}
 library(plotly)
@@ -581,59 +689,18 @@ m1 <- m %>%
 m1
 ```
 
-
-
-### merged to our cases
+#### SA1 statistical Areas
 
 ```{r}
-allfiles <- list.files("../data/allfiles/August/", pattern=c("table_", ".csv"), full.names = TRUE)
+DT::datatable(sa12016 %>%
+  filter(gcc_name_2016 == "Australian Capital Territory"))
 
-countsperupdate <- function(allfiles){
-  
-  allfiledat <- list() #<- list() MUST BE OUTSIDE
+map <- sa12016 %>%
+  filter(gcc_name_2016 == "Australian Capital Territory") %>%   # let's just look Melbourne
+  ggplot() +
+  geom_sf(aes(geometry = geometry)) +   # use the geometry variable
+  geom_point(aes(cent_long, cent_lat))  # use the centroid long (x) and lats (y)
 
-    for(i in 1:length(allfiles)) {
-      tib <- read_csv(allfiles[i]) %>%
-            dplyr::select(Contact, Date, Suburb, Status) #%>%
-              # filter(Status == "New" & Suburb == "Dickson")
-      
-    allfiledat[[i]] <- as.data.frame(tib)
-  } #end loop
-  
-  return(allfiledat)
-  
-} #end function
-
-##setup list of data
-allfiledat <- list()
-
-#run function
-allfiledat <- countsperupdate(allfiles = allfiles)
-
-# ??addCircleMarkers
-##how to do this???
-# for(i in 1:length(allfiledat)){
-  i=1
- singledatpostcode <- allfiledat[[10]] %>%
-  left_join(postcodesACT1, by = c('Suburb')) %>%
-  remove_missing() 
- i = 2
- singledat <- allfiledat[[20]] %>%
-  left_join(postcodesACT1, by = c('Suburb')) %>%
-  remove_missing() 
- 
- # row_bind
- 
-# }
-##plot the map
-m <- leaflet() %>% addTiles()
-
-#only fours match up :)
-m1 <- m %>%
-  addCircleMarkers(lat=singledatpostcode$latitude,
-                   lng=singledatpostcode$longitude)
-
-m1
+map
 ```
-
 

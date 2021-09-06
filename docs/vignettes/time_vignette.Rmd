@@ -92,7 +92,7 @@ ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack"
 ```
 ## nice plot
 
-```{r}
+```{r eval = FALSE}
 # Library
 library(dygraphs)
 library(xts)          # To make the convertion data-frame / xts format
@@ -171,6 +171,8 @@ ggplot(res,aes(x=update,y=nsites, group = contact,fill=contact, col = contact))+
 
 ```{r}
   # dat$caseS <- as.difftime(as.Date(dat$Arrival.Time), as.Date(dat$Departure.Time))
+dat <- read.csv("https://raw.githubusercontent.com/green-striped-gecko/covid_canberra/main/data/last.csv")
+# Aggregate method
 
 
 dat$Departure.Time <- format(strptime(dat$Departure.Time, "%I:%M %p"),format="%H:%M:%S")

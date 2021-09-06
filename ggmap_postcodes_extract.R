@@ -22,6 +22,7 @@ data <- xts(x = data$value, order.by = data$time)
 # Add points
 p <- dygraph(data) %>%
   dyOptions( drawPoints = TRUE, pointSize = 4 )
+
 p
 
 # save the widget
