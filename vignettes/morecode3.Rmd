@@ -1,0 +1,262 @@
+
+
+
+### Overall locations by time?
+
+```{r}
+#timeline needs:
+```
+
+#### Start time...
+
+This needs to be a number in the form "24hr" as in lubridate package. After this is done we can extract the information about time we are interested in. As a list we can do this for all iterations of the data.
+
+```{r}
+
+```
+
+## "New" Exposure sites per update August
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+resA <- read.csv('../data/resAugust.csv')
+resS <- read.csv('../data/resSeptember.csv')
+
+resS<- resS %>%
+  mutate(update = max(resA$update)+ update)
+
+res <- bind_rows(resA, resS)
+
+ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
+  xlab("update #")+
+  ylab("# exposure sites")+
+  ggtitle("`New` Exposure sites over updates")
+```
+
+### Worse suburbs
+
+We can take a dynamic snapshot of the hot spots by taking this curated dataset and running the following analysis:
+
+```{r eval = FALSE}
+for(i in 1:length(allfiles)){
+  
+  dd <- allfiledat[[i]]         
+  tt <- table(dd$Contact)
+  
+  if (length(tt)>10) {
+  for (ii in 1:length(tt))
+    {
+    res[cc, 1] <- i
+    res[cc,2] <- (substr(dd$Date[i], 1,10))
+    res[cc,3] <- nrow(dd)
+    res[cc,4] <- names(tt)[ii]
+    res[cc,5] <- tt[ii]
+    cc <- cc+1
+    }
+  }
+}
+
+glimpse(allfiledat)
+# allfiledat
+
+res1 <- filter(res,  nsites > 10)
+```
+
+## "New" Exposure sites for Dickson
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+# Exposure sites per Update for august
+allfiles <- list.files("../data/allfiles/August/", pattern=c("table_", ".csv"), full.names = TRUE)
+
+countsperupdate <- function(allfiles){
+  
+  allfiledat <- list() #<- list() MUST BE OUTSIDE
+
+    for(i in 1:length(allfiles)) {
+      tib <- read_csv(allfiles[i]) %>%
+            dplyr::select(Contact, Date, Suburb, Status) %>%
+              filter(Status == "New" & Suburb == "Dickson")
+      
+    allfiledat[[i]] <- as.data.frame(tib)
+  } #end loop
+  
+  return(allfiledat)
+  
+} #end function
+
+##setup list of data
+allfiledat <- list()
+
+#run function
+allfiledat <- countsperupdate(allfiles = allfiles)
+
+res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA)
+cc<-1         
+
+for(i in 1:length(allfiles)){
+  
+  dd <- allfiledat[[i]]         
+  tt <- table(dd$Contact)
+  
+  if (length(tt)>0) {
+  for (ii in 1:length(tt))
+    {
+    res[cc, 1] <- i
+    res[cc,2] <- (substr(dd$Date[i], 1,10))
+    res[cc,3] <- nrow(dd)
+    res[cc,4] <- names(tt)[ii]
+    res[cc,5] <- tt[ii]
+    cc <- cc+1
+    }
+  }
+}
+  
+
+res <- res[!res$contact=="Investigation information",]
+res <- res[!res$contact=="Investigation location",]
+res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor"))
+
+
+res <- res[order(res$contact),]
+cols <- c( "red", "yellow","blue")[as.numeric(res$contact)]
+
+ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
+  xlab("update #")+
+  ylab("# exposure sites")+
+  ggtitle("`New` Exposure sites over updates")
+
+```
+
+## "New" Exposure sites for Gungahlin
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+# Exposure sites per Update for august
+allfiles <- list.files("../data/allfiles/August/", pattern=c("table_", ".csv"), full.names = TRUE)
+
+countsperupdate <- function(allfiles){
+  
+  allfiledat <- list() #<- list() MUST BE OUTSIDE
+
+    for(i in 1:length(allfiles)) {
+      tib <- read_csv(allfiles[i]) %>%
+            dplyr::select(Contact, Date, Suburb, Status) %>%
+              filter(Status == "New" & Suburb == "Gungahlin")
+      
+    allfiledat[[i]] <- as.data.frame(tib)
+  } #end loop
+  
+  return(allfiledat)
+  
+} #end function
+
+##setup list of data
+allfiledat <- list()
+
+#run function
+allfiledat <- countsperupdate(allfiles = allfiles)
+
+res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
+cc<-1         
+
+for(i in 1:length(allfiles)){
+  
+  dd <- allfiledat[[i]]         
+  tt <- table(dd$Contact)
+  
+  if (length(tt)>0) {
+  for (ii in 1:length(tt))
+    {
+    res[cc, 1] <- i
+    res[cc,2] <- (substr(dd$Date[i], 1,10))
+    res[cc,3] <- nrow(dd)
+    res[cc,4] <- names(tt)[ii]
+    res[cc,5] <- tt[ii]
+    cc <- cc+1
+    }
+  }
+}
+  
+
+res <- res[!res$contact=="Investigation information",]
+res <- res[!res$contact=="Investigation location",]
+res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor"))
+
+
+res <- res[order(res$contact),]
+cols <- c( "red", "yellow","blue")[as.numeric(res$contact)]
+
+ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+
+  xlab("update #")+
+  ylab("# exposure sites")+
+  ggtitle("`New` Exposure sites over updates")
+
+```
+
+### September
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+# Exposure sites per Update
+allfiles <- list.files("../data/allfiles/September/", pattern=c("table_", ".csv"), full.names = TRUE)
+
+# allfilesA <- list.files("../data/allfiles/August/", pattern=c("table_", ".csv"), full.names = TRUE)
+
+
+countsperupdate <- function(allfiles){
+  
+  allfiledat <- list() #<- list() MUST BE OUTSIDE
+
+    for(i in 1:length(allfiles)) {
+      tib <- read_csv(allfiles[i]) %>%
+            dplyr::select(Contact, Date, Suburb, Status) %>%
+              filter(Status == "New")
+      #add status = new or previous
+      
+    allfiledat[[i]] <- as.data.frame(tib)
+  } #end loop
+  
+  return(allfiledat)
+  
+} #end function
+
+##setup list of data
+allfiledat <- list()
+
+#run function
+allfiledat <- countsperupdate(allfiles = allfiles)
+
+res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
+cc<-1         
+
+for(i in 1:length(allfiles)){
+  
+  dd <- allfiledat[[i]]         
+  tt <- table(dd$Contact)
+  
+  if (length(tt)>0) {
+  for (ii in 1:length(tt))
+    {
+    res[cc, 1] <- i
+    res[cc,2] <- (substr(dd$Date[i], 1,10))
+    res[cc,3] <- nrow(dd)
+    res[cc,4] <- names(tt)[ii]
+    res[cc,5] <- tt[ii]
+    cc <- cc+1
+    }
+  }
+}
+  
+
+
+res <- res[!res$contact=="Investigation information",]
+res <- res[!res$contact=="Investigation location",]
+res$contact <- factor(res$contact, levels=c("Close", "Casual","Monitor"))
+
+
+res <- res[order(res$contact),]
+cols <- c( "red", "yellow","blue")[as.numeric(res$contact)]
+
+ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack", width=1, aes(fill=contact))+xlab("update #")+ylab("# exposure sites")+ggtitle("Exposure sites over updates")
+
+```
+
+
+
