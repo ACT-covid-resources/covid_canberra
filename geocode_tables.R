@@ -1,3 +1,6 @@
+#tidy web scrapping
+
+##allows for individual observations of the underlying observation
 library(leaflet)
 library(ggmap)
 library(rvest)
@@ -10,64 +13,85 @@ library(arsenal)
 library(rgdal)
 library(dplyr)
 
-
-addBuses = TRUE
-
+##############################function 1
 fixgeo <- function(search,  lat, lon, column="Exposure.Location",tt=tab3) {
   
   ii <- NA
   ii <- grep(search,tt[,which(column==colnames(tab3))])
   if(length(ii>0)) {
-  for (c in 1:length(ii)){
-    tt[ii[c],"lat"] <-lat
-    tt[ii[c],"lon"] <- lon
-  }
+    for (c in 1:length(ii)){
+      tt[ii[c],"lat"] <-lat
+      tt[ii[c],"lon"] <- lon
+    }
   }
   return(tt)
 }
 
+
+addBuses = TRUE
+# html == head and body
+# about tags within each of these
+
+
 #load google api
-gapi <- readLines("c:/bernd/r/covid_canberra/gapi.txt")
+# gapi <- readLines("c://Code/gapi.txt")
+# gapi <- readLines("c:/bernd/r/covid_canberra/gapi.txt")
 register_google(gapi)
 
 #grab from website
 es <- read_html("https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations", )
 
-https://www.waze.com/en-GB/live-map
+# https://www.waze.com/en-GB/live-map
+?html_nodes
 
 #check update
 ll <- es %>%
-  html_nodes("strong") %>%
-  html_text()
+  #strong makes finding tags possible through html file...
+  #static html?
+  rvest::html_nodes("strong"
+                    # xpath is the exact path
+                    ) %>%
+  #can be table node or other combo to
+  rvest::html_text()
+
+#finds exact data...
+#mini spice
+
 index <- grep("Page last updated:",ll)
 dummy <- ll[index]
 lup <- dummy
+
+#cleaning data
+#copy xpath as changing variable monitoring
 lu <- substr(strsplit(dummy,"updated:")[[1]][2],2,100)
 lu <- gsub(" ", "_",lu)
 lu <- gsub(":","",lu)
 lu
+
+##hard coded date to check hard coding
+#different waya a website is generated....
+# dynamic or static?
+# make these functions
+
 #check if there was an update....
-ff <- list.files("c:/Bernd/R/covid_canberra/data/")
+#cleaned data is over bernds data
+#ARD2021
+ff <- list.files("./data/allfiles/September/")
+# ff <- list.files("c:/Bernd/R/covid_canberra/data/")
 wu <- grep(lu, ff)
-
-
-
-
 
 if(length(wu)==0)
 {
 
-
-  
-  
-  
 ##### scrape covid exposure table from website
 
 rD <- rsDriver(browser="firefox", port=4545L, verbose=FALSE)
 remDr <- rD[["client"]]
 remDr$navigate("https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations")
 
-Sys.sleep(5) # give the page time to fully load
+#change this if TO WHAT?
+# SUCCESS: The process "java.exe" with PID 11780 has been terminated.
+Sys.sleep(15) # give the page time to fully load
 
 #click the archived button
 #arch$clickElement()
@@ -99,7 +123,8 @@ tab3$Status <- ifelse(tab3$Status=="New","New","")
 
 ###todo check only new sites and not the once we have data from
 #load last.csv
-ldata <- read.csv("c:/bernd/r/covid_canberra/data/last.csv")
+ff <- list.files("./data/")
+# ldata <- read.csv("c:/bernd/r/covid_canberra/data/last.csv")
 #check identical entries column Exposure.Location
 ldata$check <- paste(ldata$Exposure.Location, ldata$Street, ldata$Suburb, ldata$Date, ldata$Arrival.Time, ldata$Departure.Time)
 tab3$check <- paste(tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date, tab3$Arrival.Time, tab3$Departure.Time)
@@ -127,24 +152,14 @@ tab3$lon[toadd] <- address$lon
 ##errors (manual)
 #tab3 <- fixgeo("Franklin Street &, Flinders Way", column = "Street"  , lat =   -35.3210247, lon =149.1341946)
 #tab3 <- fixgeo("Franklin Street & Flinders Way", column = "Street"  , lat =   -35.3210247, lon =149.1341946)
-
-
 #tab3<- fixgeo("Basketball ACT", lat=-35.24185, lon=149.057)
-
 #tab3<- fixgeo("Flatheads Takeaway", lat=-35.264, lon=149.122)
-
-
 #tab3<- fixgeo("Flatheads Takeaway", lat=-35.264, lon=149.122)
-
 #tab3 <- fixgeo("Hawker Drive In Bottle Shop", lat =   -35.2426147, lon =149.0449504)
-
 #tab3 <- fixgeo("Westfield Belconnen Food Court", lat =   -35.23793, lon =149.0653)
-
 #tab3 <- fixgeo("U14 girls AFL Ainslie Red", lat =   -35.2536251, lon =149.0800225)
-
 #tab3 <- fixgeo("Golden Touch Kedmar", lat =   -35.1848509, lon =149.1331888)
 #tab3 <- fixgeo("Golden Touch Kedmar", lat =   -35.1848509, lon =149.1331888)
-
 #tab3 <- fixgeo("Coombs to City", column = "Street"  , lat =   -35.2933, lon =149.1269703)
 #tab3 <- fixgeo("Coombs to Woden", column = "Street"  , lat =   -35.3444429, lon =149.0872442)
 
@@ -178,6 +193,7 @@ for ( i in 1:length(index))
   }
 }
 }
+
 cols <- c( "red", "yellow","blue")
 
 labs <- paste(tab3$Contact, tab3$Status,tab3$Exposure.Location, tab3$Street, tab3$Suburb, tab3$Date,tab3$Arrival.Time, tab3$Departure.Time, tab3$doubles, sep="<br/>") 
@@ -185,9 +201,6 @@ cc <- as.numeric(factor(tab3$Contact,levels=c(  "Close"  , "Casual", "Monitor") 
 ncols <- c("black","cyan")
 nn <- as.numeric(factor(tab3$Status))
 nn2 <- ifelse(nn==1,nn, 3)
-
-
-
 
 ###############################################
 ##plot the map
@@ -344,3 +357,18 @@ mapshot(nm, file = "c:/Bernd/R/covid_canberra/comparison/newsites.png")
   
 lup 
 
+###finding tables on the fly 
+# save html as nodes how?
+#jopling?
+#more details 
+# table is just header
+html_text(html_node(es, "table"))
+
+############issues for this
+##traps
+
+##three table tags
+#instead of 1
+#html_node looks for tables
+#when not split hard...
+#table not in source code....
