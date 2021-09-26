@@ -190,6 +190,7 @@ bscols(  filter_select(id="suburb", label="Suburb",sharedData = df_shared, group
 
 ```
 
+<<<<<<< HEAD
 # Exposure sites per Update
 
 ``` {r eval = FALSE}
@@ -227,4 +228,6 @@ ggplot(res, aes(x=update,y=nsites))+geom_bar(stat="identity", position = "stack"
 
 
 ```
+=======
+>>>>>>> 8bab3ef28d72c1e589573ea230cc4597ca953aaf
 

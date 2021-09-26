@@ -162,6 +162,7 @@ tab3$lon[toadd] <- address$lon
 #tab3 <- fixgeo("Golden Touch Kedmar", lat =   -35.1848509, lon =149.1331888)
 #tab3 <- fixgeo("Coombs to City", column = "Street"  , lat =   -35.2933, lon =149.1269703)
 #tab3 <- fixgeo("Coombs to Woden", column = "Street"  , lat =   -35.3444429, lon =149.0872442)
+#tab3 <- fixgeo("Kippax to City Interchange", column = "Street"  , lat =   -35.2785115, lon =149.1303359)
 
 ######################################################
 
