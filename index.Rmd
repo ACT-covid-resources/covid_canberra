@@ -444,7 +444,7 @@ last_five_days_new <- function(dataList){
 
 
 #lapply
-p1 <- last_five_days_new(dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv")
+# p1 <- last_five_days_new(dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv")
 
 
 # dataList = "./data/allfiles/September/table_01_Sep_2021_136pm.csv"
@@ -457,7 +457,7 @@ p1
 
 ### TODAY 
 
-```{r echo = FALSE}
+```{r eval = FALSE}
 #lapply
 p1 <- last_five_days_new(dataList = "./data/allfiles/September/table_02_Sep_2021_704pm.csv")
 
