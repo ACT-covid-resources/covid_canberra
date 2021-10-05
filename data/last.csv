@@ -1,58 +1,83 @@
 "Status","Exposure.Location","Street","Suburb","Date","Arrival.Time","Departure.Time","Contact","lat","lon","doubles","moved"
 "New","Canberra International Golf Centre (Driving Range only)","Corner Narrabundah Avenue and Hindmarsh Drive","Narrabundah","03/10/2021 - Sunday","1:25pm","2:30pm","Casual",-35.3405956,149.1555069,"",FALSE
 "New","Trash and Treasure Market","Jamison Plaza, Bowman Street","Macquarie","03/10/2021 - Sunday","7:00am","8:00am","Monitor",-35.2521288,149.0710037,"",FALSE
-"New","Ainslie Takeaway","1/5 Edgar Street","Ainslie","02/10/2021 - Saturday","2:00pm","8:00pm","Casual",-35.262397,149.1451451,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Akiba","40 Bunda Street","Canberra City","02/10/2021 - Saturday","4:00pm","7:00pm","Casual",-35.2777742,149.1313395,"",FALSE
+"New","Woolworths Metro Hawker","Springvale Drive","Hawker","03/10/2021 - Sunday","10:00am","11:00am","Monitor",-35.2433647,149.0441742,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Ainslie Takeaway","1/5 Edgar Street","Ainslie","02/10/2021 - Saturday","2:00pm","8:00pm","Casual",-35.262397,149.1451451,"",FALSE
+"New","Akiba","40 Bunda Street","Canberra City","02/10/2021 - Saturday","4:00pm","7:00pm","Casual",-35.2777742,149.1313645,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "New","Capital Region Farmers Market","Exhibition Park in Canberra, Flemington Road","Mitchell","02/10/2021 - Saturday","7:00am","7:30am","Monitor",-35.2275602,149.1509233,"",FALSE
 "New","Coles Amaroo","11 Pioneer Street","Amaroo","02/10/2021 - Saturday","11:50am","12:30pm","Monitor",-35.1645604,149.1320725,"",FALSE
-"New","Woolworths Kippax","48 Hardwick Crescent","Holt","02/10/2021 - Saturday","6:15pm","7:00pm","Monitor",-35.2228703,149.0201727,"",FALSE
+"New","Woolworths Kippax","48 Hardwick Crescent","Holt","02/10/2021 - Saturday","6:15pm","7:00pm","Monitor",-35.2228703,149.0201977,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Al Manoosh","47 Mawson Place","Mawson","02/10/2021 - Saturday","12:55pm","1:45pm","Casual",-35.3654919,149.0949976,"",FALSE
+"New","ALDI Majura Park","Majura Park Shopping Centre, 18-26 Spitfire Avenue","Canberra Airport","02/10/2021 - Saturday","2:00pm","3:00pm","Casual",-35.3001906,149.1903758,"",FALSE
+"New","Anatolia Mediterranean Market","2/17 Iron Knob Street","Fyshwick","02/10/2021 - Saturday","11:35am","12:20pm","Monitor",-35.3360815,149.1801385,"",FALSE
+"New","Coles Gungahlin","Gungahlin Village, 46 Hibberson Street","Gungahlin","02/10/2021 - Saturday","8:10pm","9:00pm","Monitor",-35.1868916,149.1367644,"",FALSE
+"New","Costco Majura Park","39-41 Mustang Avenue","Canberra Airport","02/10/2021 - Saturday","1:30pm","2:30pm","Casual",-35.2972375,149.1905839,"",FALSE
+"New","Dumpling Social","9 Bradley Street","Phillip","02/10/2021 - Saturday","4:00pm","4:50pm","Monitor",-35.346657,149.0874845,"",FALSE
+"New","Coles Manuka","Manuka Terrace, Franklin Street and Flinders Way","Griffith","02/10/2021 - Saturday","2:30pm","3:15pm","Monitor",-35.3208333,149.1342167,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Ten Tops","6/17 Iron Knob Street","Fyshwick","02/10/2021 - Saturday","11:45am","12:40pm","Casual",-35.3362487,149.1807301,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Westfield Woden","Keltie Street","Phillip","02/10/2021 - Saturday","2:50pm","3:50pm","Monitor",-35.3463199,149.0860826,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Woolworths Gungahlin","30/33 Hibberson Street","Gungahlin","02/10/2021 - Saturday","7:20pm","8:10pm","Casual",-35.1846274,149.1339891,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Woolworths Kippax","48 Hardwick Crescent","Holt","02/10/2021 - Saturday","1:20pm","2:00pm","Monitor",-35.2228703,149.0201477,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Woolworths Mawson","15 Mawson Place","Mawson","02/10/2021 - Saturday","4:10pm","5:10pm","Monitor",-35.3661449,149.0946946,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Woolworths Woden","Westfield Woden, Keltie Street","Phillip","02/10/2021 - Saturday","2:55pm","3:55pm","Monitor",-35.3463199,149.0860326,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Baby Bunting Fyshwick","30 Iron Knob Street","Fyshwick","01/10/2021 - Friday","10:35am","11:30am","Casual",-35.338521,149.181084,"",FALSE
-"New","Florey School Holiday Program","57 Ratcliffe Crescent","Florey","01/10/2021 - Friday","7:50am","5:00pm","Close",-35.2265176,149.0528076,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","IGA Ainslie","9/11 Edgar Street","Ainslie","01/10/2021 - Friday","4:25pm","5:10pm","Monitor",-35.261979,149.144987,"",FALSE
-"New","Woolworths Gungahlin","30/33 Hibberson Street","Gungahlin","01/10/2021 - Friday","6:30pm","7:30pm","Monitor",-35.1846274,149.1340141,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Florey School Holiday Program","57 Ratcliffe Crescent","Florey","01/10/2021 - Friday","7:50am","5:00pm","Close",-35.2265176,149.0528076,"",FALSE
+"","IGA Ainslie","9/11 Edgar Street","Ainslie","01/10/2021 - Friday","4:25pm","5:10pm","Monitor",-35.261979,149.144987,"",FALSE
+"","Woolworths Gungahlin","30/33 Hibberson Street","Gungahlin","01/10/2021 - Friday","6:30pm","7:30pm","Monitor",-35.1846274,149.1340391,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "New","Ainslie Cellars","7 Edgar Street","Ainslie","01/10/2021 - Friday","4:10pm","4:45pm","Monitor",-35.2622298,149.1451538,"",FALSE
-"New","Ainslie Takeaway","1/5 Edgar Street","Ainslie","01/10/2021 - Friday","11:00am","8:00pm","Casual",-35.262397,149.1450951,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Bus Route 9 Transport Canberra Code BUS561","Watson to Dickson Interchange","Public Transport","01/10/2021 - Friday","10:20am","10:27am","Casual",-35.250558,149.133864,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Bus Route 9 Transport Canberra Code BUS660","Dickson Shops to Watson","Public Transport","01/10/2021 - Friday","11:04am","11:13am","Casual",-35.2809368,149.1300342,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Woolworths Mawson","15 Mawson Place","Mawson","01/10/2021 - Friday","6:30pm","7:15pm","Monitor",-35.3661449,149.0947196,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Woolworths Metro Franklin","51 Nullarbor Avenue","Franklin","01/10/2021 - Friday","10:10am","10:50am","Monitor",-35.2000983,149.1489268,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Ainslie Takeaway","1/5 Edgar Street","Ainslie","01/10/2021 - Friday","11:00am","8:00pm","Casual",-35.262397,149.1450951,"",FALSE
+"New","Bus Route 9 Transport Canberra Code BUS561","Watson to Dickson Interchange","Public Transport","01/10/2021 - Friday","10:20am","10:27am","Casual",-35.250558,149.133864,"",FALSE
+"New","Bus Route 9 Transport Canberra Code BUS660","Dickson Shops to Watson","Public Transport","01/10/2021 - Friday","11:04am","11:13am","Casual",-35.2809368,149.1300342,"",FALSE
+"New","Woolworths Mawson","15 Mawson Place","Mawson","01/10/2021 - Friday","6:30pm","7:15pm","Monitor",-35.3661449,149.0947196,"",FALSE
+"New","Woolworths Metro Franklin","51 Nullarbor Avenue","Franklin","01/10/2021 - Friday","10:10am","10:50am","Monitor",-35.2000983,149.1489518,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Akiba","40 Bunda Street","Canberra City","01/10/2021 - Friday","4:00pm","7:00pm","Casual",-35.2777742,149.1313145,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Ampol Foodary Weston Creek","1 Kirkpatrick Street","Weston","01/10/2021 - Friday","7:00pm","7:30pm","Monitor",-35.3222216,149.0569101,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Grill'd Woden","Westfield Woden, Bradley Street","Phillip","01/10/2021 - Friday","2:10pm","2:45pm","Monitor",-35.3473738,149.0872429,"",FALSE
+"New","Lendlease Building 4 Construction Site","Gladstone Street","Fyshwick","01/10/2021 - Friday","7:10am","1:30pm","Casual",-35.323893,149.182232,"",FALSE
+"New","Priceline Pharmacy Gungahlin Marketplace","30 Hibberson street","Gungahlin","01/10/2021 - Friday","4:20pm","5:00pm","Monitor",-35.1852332,149.1342642,"",FALSE
+"","ALDI Amaroo","12 Pioneer Street","Amaroo","30/09/2021 - Thursday","2:50pm","3:50pm","Monitor",-35.1652442,149.132432,"",FALSE
 "","ALDI Chisholm","36 Benham Street","Chisholm","30/09/2021 - Thursday","7:30pm","8:30pm","Casual",-35.4148128,149.1293436,"",FALSE
 "","Caltex (EG Fuel) Belconnen","4 Luxton Street","Belconnen","30/09/2021 - Thursday","11:40am","12:15pm","Monitor",-35.236451,149.0590295,"",FALSE
 "","Coles Express Belconnen","Lathlain Street and Wignall Place","Belconnen","30/09/2021 - Thursday","11:40am","12:15pm","Monitor",-35.242649,149.064011,"",FALSE
-"","Coles Manuka","Franklin Street and Flinders Way","Griffith","30/09/2021 - Thursday","5:15pm","6:00pm","Monitor",-35.3210247,149.1341946,"",FALSE
+"","Coles Express Gungahlin","1 Ginn Street","Gungahlin","30/09/2021 - Thursday","9:25am","10:15am","Monitor",-35.1834139,149.1267988,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Coles Manuka","Manuka Terrace, Franklin Street and Flinders Way","Griffith","30/09/2021 - Thursday","5:15pm","6:00pm","Monitor",-35.3208333,149.1341667,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Florey School Holiday Program","57 Ratcliffe Crescent","Florey","30/09/2021 - Thursday","7:50am","5:00pm","Close",-35.2265176,149.0527576,"",FALSE
 "","IGA Drakeford","9 Jenke Circuit","Kambah","30/09/2021 - Thursday","8:40am","9:20am","Monitor",-35.3930138,149.0684925,"",FALSE
 "","RSEA Safety Mitchell","2/101 Flemington Road","Mitchell","30/09/2021 - Thursday","9:05am","9:45am","Monitor",-35.2208598,149.1442737,"",FALSE
 "","Sage Education and Childcare Belconnen","14 Wales Street","Belconnen","30/09/2021 - Thursday","8:00am","1:30pm","Close",-35.2400662,149.0622518,"",FALSE
 "","Woolworths Metro Cameron Avenue","1/6 Grazier Lane","Belconnen","30/09/2021 - Thursday","3:40pm","4:20pm","Monitor",-35.2401725,149.0720563,"",FALSE
-"New","ALDI Amaroo","12 Pioneer Street","Amaroo","30/09/2021 - Thursday","2:50pm","3:50pm","Monitor",-35.1652442,149.132432,"",FALSE
-"New","Coles Express Gungahlin","1 Ginn Street","Gungahlin","30/09/2021 - Thursday","9:25am","10:15am","Monitor",-35.1834139,149.1267738,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Florey School Holiday Program","57 Ratcliffe Crescent","Florey","30/09/2021 - Thursday","7:50am","5:00pm","Close",-35.2265176,149.0527576,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "New","Gang Gang Cafe","2 Frencham Place","Downer","30/09/2021 - Thursday","12:15pm","1:00pm","Monitor",-35.2452262,149.1444147,"",FALSE
-"New","IGA Lyneham","1 Wattle Place","Lyneham","30/09/2021 - Thursday","3:15pm","4:00pm","Casual",-35.2520717,149.1248844,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"","IGA Lyneham","1 Wattle Place","Lyneham","30/09/2021 - Thursday","2:50pm","3:15pm","Monitor",-35.2520717,149.1248344,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","IGA Lyneham","1 Wattle Place","Lyneham","30/09/2021 - Thursday","3:15pm","4:00pm","Casual",-35.2520717,149.1248844,"",FALSE
+"","IGA Lyneham","1 Wattle Place","Lyneham","30/09/2021 - Thursday","2:50pm","3:15pm","Monitor",-35.2520717,149.1248344,"",FALSE
+"New","Australia Post - Calwell LPO","Calwell Shopping Centre, 7 Webber Crescent","Calwell","30/09/2021 - Thursday","4:25pm","5:00pm","Monitor",-35.4346546,149.1144008,"",FALSE
+"New","Downtown Duty Free","150 Carruthers Street","Curtin","30/09/2021 - Thursday","12:30pm","1:15pm","Monitor",-35.3247791,149.0824075,"",FALSE
+"New","IGA Isabella Plains","6/131 Ellerston Aveune","Isabella Plains","30/09/2021 - Thursday","8:15pm","9:00pm","Monitor",-35.4286142,149.0915802,"",FALSE
+"New","Tuggeranong College Basketball Courts","101 Cowlishaw Street","Greenway","30/09/2021 - Thursday","8:00pm","10:30pm","Casual",-35.4127805,149.0674852,"",FALSE
+"New","Woolworths Calwell","Calwell Shopping Centre, 7 Webber Crescent","Calwell","30/09/2021 - Thursday","4:30pm","5:15pm","Monitor",-35.4346893,149.114712,"",FALSE
 "","A Bite to Eat Cafe","8 Chifley Place","Chifley","29/09/2021 - Wednesday","8:55am","9:40am","Monitor",-35.3525355,149.0759351,"",FALSE
 "","A Bite to Eat Cafe","8 Chifley Place","Chifley","29/09/2021 - Wednesday","5:10pm","8:00pm","Casual",-35.3525355,149.0758851,"",FALSE
 "","Bunnings Gungahlin","10 Gribble Street","Gungahlin","29/09/2021 - Wednesday","6:00pm","11:30pm","Casual",-35.1838713,149.1303139,"",FALSE
 "","Capital Chemist Charnwood","Charnwood Shopping Centre, Lhotsky Street","Charnwood","29/09/2021 - Wednesday","4:15pm","5:10pm","Casual",-35.2045044,149.033623,"",FALSE
+"","Coles Canberra Centre","Canberra Centre, 148 Bunda Street","Canberra City","29/09/2021 - Wednesday","8:45pm","9:25pm","Monitor",-35.2802271,149.1333309,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Coles Express Fyshwick Wiluna","12 Wiluna Street","Fyshwick","29/09/2021 - Wednesday","2:30pm","3:15pm","Monitor",-35.3292044,149.1646996,"",FALSE
-"","Coles Wanniassa","12 Sangster Place","Wanniassa","29/09/2021 - Wednesday","5:50pm","7:00pm","Casual",-35.3912889,149.0855222,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Coles Wanniassa","12 Sangster Place","Wanniassa","29/09/2021 - Wednesday","5:50pm","7:00pm","Casual",-35.3912889,149.0855472,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Commonwealth Bank Canberra Centre","185 City Walk","Canberra City","29/09/2021 - Wednesday","9:25am","10:10am","Monitor",-35.2791971,149.132079,"",FALSE
+"","Florey School Holiday Program","57 Ratcliffe Crescent","Florey","29/09/2021 - Wednesday","7:50am","5:00pm","Close",-35.2265176,149.0527076,"",FALSE
 "","Guzman y Gomez Canberra Centre","Canberra Centre, 148 Bunda Street","Canberra City","29/09/2021 - Wednesday","11:30am","1:00pm","Monitor",-35.2786183,149.1331753,"",FALSE
 "","Narrabundah Friendly Grocer","6 Iluka Street","Narrabundah","29/09/2021 - Wednesday","4:15pm","5:00pm","Monitor",-35.3325783,149.1539484,"",FALSE
 "","Sage Education and Childcare Belconnen","14 Wales Street","Belconnen","29/09/2021 - Wednesday","8:25am","4:30pm","Close",-35.2400662,149.0622018,"",FALSE
-"","Scott's Crossing Construction Site","Canberra Centre, 148 Bunda Street","Canberra City","29/09/2021 - Wednesday","6:45am","4:30pm","Close",-35.2802271,149.1333059,"",FALSE
+"","Scott's Crossing Construction Site","Canberra Centre, 148 Bunda Street","Canberra City","29/09/2021 - Wednesday","6:45am","4:30pm","Close",-35.2802271,149.1332809,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","SUPAEXPRESS Florey","1/26 Kesteven Street","Florey","29/09/2021 - Wednesday","10:30am","11:00am","Monitor",-35.2263914,149.0545019,"",FALSE
 "","Vodafone Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","29/09/2021 - Wednesday","11:15am","12:30pm","Casual",-35.2382955,149.0653892,"",FALSE
-"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","29/09/2021 - Wednesday","9:20am","10:10am","Monitor",-35.2386596,149.0654012,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"","Woolworths Metro Franklin","Corner Flemington Road and Nullarbor Avenue","Franklin","29/09/2021 - Wednesday","12:50pm","1:45pm","Casual",-35.2000983,149.1488768,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Coles Canberra Centre","Canberra Centre, 148 Bunda Street","Canberra City","29/09/2021 - Wednesday","8:45pm","9:25pm","Monitor",-35.2802271,149.1333059,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Florey School Holiday Program","57 Ratcliffe Crescent","Florey","29/09/2021 - Wednesday","7:50am","5:00pm","Close",-35.2265176,149.0527076,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Woolworths Gungahlin","30/33 Hibberson Street","","29/09/2021 - Wednesday","7:50pm","8:50pm","Monitor",-35.1846274,149.1339641,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Bus Route 51 Transport Canberra Code BUS379","Dickson Interchange to O'Connor Shops","Public Transport","29/09/2021 - Wednesday","2:21pm","2:36pm","Casual",-35.250558,149.133814,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Bus Route 51 Transport Canberra Code BUS691","O'Connor Shops to Dickson Interchange","Public Transport","29/09/2021 - Wednesday","3:11pm","3:28pm","Casual",-35.250558,149.133764,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Bus Route 9 Transport Canberra Code BUS592","Dickson Interchange to Watson","Public Transport","29/09/2021 - Wednesday","3:28pm","3:38pm","Casual",-35.250558,149.133714,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","29/09/2021 - Wednesday","9:20am","10:10am","Monitor",-35.2386596,149.0654262,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Gungahlin","30/33 Hibberson Street","Gungahlin","29/09/2021 - Wednesday","7:50pm","8:50pm","Monitor",-35.1846274,149.1339391,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Metro Franklin","Corner Flemington Road and Nullarbor Avenue","Franklin","29/09/2021 - Wednesday","12:50pm","1:45pm","Casual",-35.2000983,149.1488768,"",FALSE
+"New","Bus Route 51 Transport Canberra Code BUS379","Dickson Interchange to O'Connor Shops","Public Transport","29/09/2021 - Wednesday","2:21pm","2:36pm","Casual",-35.250558,149.133814,"",FALSE
+"New","Bus Route 51 Transport Canberra Code BUS691","O'Connor Shops to Dickson Interchange","Public Transport","29/09/2021 - Wednesday","3:11pm","3:28pm","Casual",-35.250558,149.133764,"",FALSE
+"New","Bus Route 9 Transport Canberra Code BUS592","Dickson Interchange to Watson","Public Transport","29/09/2021 - Wednesday","3:28pm","3:38pm","Casual",-35.250558,149.133714,"",FALSE
 "New","Bus Route 9 Transport Canberra Code BUS695","Watson to Belconnen (Cohen Street)","Public Transport","29/09/2021 - Wednesday","9:50am","10:20am","Casual",-35.2396469,149.0649482,"",FALSE
-"New","Bus Route 9 Transport Canberra Code BUS713","Watson to Dickson Interchange","Public Transport","29/09/2021 - Wednesday","1:51pm","2:00pm","Casual",-35.250558,149.133664,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Bus Route 9 Transport Canberra Code BUS713","Watson to Dickson Interchange","Public Transport","29/09/2021 - Wednesday","1:51pm","2:00pm","Casual",-35.250558,149.133664,"",FALSE
+"New","ALDI Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","29/09/2021 - Wednesday","3:00pm","4:00pm","Casual",-35.3414467,149.0526149,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","7-Eleven Casey","10 Kingsland Parade","Casey","28/09/2021 - Tuesday","2:45pm","3:45pm","Monitor",-35.175773,149.0957326,"",FALSE
 "","7-Eleven Holt","88 Hardwick Crescent","Holt","28/09/2021 - Tuesday","8:30pm","9:00pm","Monitor",-35.2209147,149.0179193,"",FALSE
 "","7-Eleven Mawson","1 Mawson Place","Mawson","28/09/2021 - Tuesday","1:10pm","1:55pm","Monitor",-35.365172,149.0936873,"",FALSE
@@ -71,27 +96,27 @@
 "","Hawker Discount Drug store","72-74 Hawker Place","Hawker","28/09/2021 - Tuesday","11:15am","11:50am","Monitor",-35.2431655,149.043745,"",FALSE
 "","Magistrates Court Room 1","ACT Magistrates Court, 4-6 Knowles Place","Canberra City","28/09/2021 - Tuesday","10:40am","12:20pm","Casual",-35.2803475,149.1271913,"",FALSE
 "","Priceline Pharmacy Amaroo","6 Pioneer Street","Amaroo","28/09/2021 - Tuesday","2:20pm","3:05pm","Monitor",-35.164779,149.1324158,"",FALSE
-"","Scott's Crossing Construction Site","Canberra Centre, 148 Bunda Street","Canberra City","28/09/2021 - Tuesday","6:45am","4:30pm","Close",-35.2802271,149.1332559,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Scott's Crossing Construction Site","Canberra Centre, 148 Bunda Street","Canberra City","28/09/2021 - Tuesday","6:45am","4:30pm","Close",-35.2802271,149.1332559,"",FALSE
 "","Specfast Fyshwick","17 Cessnock Street","Fyshwick","28/09/2021 - Tuesday","2:20pm","3:00pm","Monitor",-35.3228797,149.1721191,"",FALSE
 "","Sydney Tools Fyshwick","163-165 Gladstone Street","Fyshwick","28/09/2021 - Tuesday","2:40pm","4:30pm","Monitor",-35.325756,149.1843872,"",FALSE
 "","The Food Forum","Westfield Belconnen, Benjamin Way","Belconnen","28/09/2021 - Tuesday","5:20pm","6:00pm","Monitor",-35.2385072,149.0644201,"",FALSE
 "","Total Tools Fyshwick","103 Gladstone Street","Fyshwick","28/09/2021 - Tuesday","2:30pm","3:10pm","Monitor",-35.3221611,149.1807051,"",FALSE
 "","Waiting Area Outside Magistrates Court Room 1","ACT Magistrates Court, 4-6 Knowles Place","Canberra City","28/09/2021 - Tuesday","9:25am","11:10am","Casual",-35.2803475,149.1271413,"",FALSE
-"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","28/09/2021 - Tuesday","7:30am","8:20am","Monitor",-35.2386596,149.0653512,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","28/09/2021 - Tuesday","4:55pm","5:50pm","Monitor",-35.2386596,149.0653262,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","28/09/2021 - Tuesday","7:30am","8:20am","Monitor",-35.2386596,149.0654012,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","28/09/2021 - Tuesday","4:55pm","5:50pm","Monitor",-35.2386596,149.0653262,"",FALSE
 "","Woolworths Kippax","Kippax Fair Shopping Centre, 26 Hardwick Crescent","Holt","28/09/2021 - Tuesday","8:30pm","9:15pm","Monitor",-35.2218013,149.0194363,"",FALSE
-"","Woolworths Mawson","15 Mawson Place","Mawson","28/09/2021 - Tuesday","3:40pm","4:30pm","Casual",-35.3661449,149.0946696,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"","Woolworths Metro Hawker","Springvale Drive","Hawker","28/09/2021 - Tuesday","10:50am","11:45am","Casual",-35.2433647,149.0441492,"",FALSE
-"New","Bus Route 9 Transport Canberra Code BUS395","Dickson Interchange to Watson","Public Transport","28/09/2021 - Tuesday","11:59am","12:06pm","Casual",-35.250558,149.133614,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Mawson","15 Mawson Place","Mawson","28/09/2021 - Tuesday","3:40pm","4:30pm","Casual",-35.3661449,149.0946446,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Metro Hawker","Springvale Drive","Hawker","28/09/2021 - Tuesday","10:50am","11:45am","Casual",-35.2433647,149.0441242,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Bus Route 9 Transport Canberra Code BUS395","Dickson Interchange to Watson","Public Transport","28/09/2021 - Tuesday","11:59am","12:06pm","Casual",-35.250558,149.133614,"",FALSE
 "New","Bus Route 9 Transport Canberra Code BUS544","Watson to Dickson Shops","Public Transport","28/09/2021 - Tuesday","4:24pm","4:31pm","Casual",-35.248948,149.140063,"",FALSE
-"New","Bus Route 9 Transport Canberra Code BUS631","Dickson to Watson","Public Transport","28/09/2021 - Tuesday","5:46pm","5:51pm","Casual",-35.2809368,149.1299842,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Coles Canberra Centre","Canberra Centre, 148 Bunda Street","Canberra City","28/09/2021 - Tuesday","9:30am","10:20am","Casual",-35.2802271,149.1332059,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Bus Route 9 Transport Canberra Code BUS631","Dickson to Watson","Public Transport","28/09/2021 - Tuesday","5:46pm","5:51pm","Casual",-35.2809368,149.1299842,"",FALSE
+"New","Coles Canberra Centre","Canberra Centre, 148 Bunda Street","Canberra City","28/09/2021 - Tuesday","9:30am","10:20am","Casual",-35.2802271,149.1332309,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "New","Light Rail Route 1 Transport Canberra Code LRV010","Alinga Street to Dickson Interchange","Public Transport","28/09/2021 - Tuesday","11:50am","11:56am","Casual",-35.2782991,149.1284604,"",FALSE
 "New","PharmaSave Woden","Westfield Woden, Keltie Street","Phillip","28/09/2021 - Tuesday","1:50pm","2:50pm","Casual",-35.3462586,149.0865234,"",FALSE
 "New","United Petroleum Amaroo","Corner Katherine Avenue and Horse Park Drive","Amaroo","28/09/2021 - Tuesday","10:50am","11:40am","Monitor",-35.1644054,149.131181,"",FALSE
-"New","Woolworths Metro Franklin","51 Nullarbor Avenue","Franklin","28/09/2021 - Tuesday","2:15pm","2:50pm","Monitor",-35.2000983,149.1488268,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Woolworths Metro Franklin","51 Nullarbor Avenue","Franklin","28/09/2021 - Tuesday","2:15pm","2:50pm","Monitor",-35.2000983,149.1488268,"",FALSE
 "","7-Eleven Holt","88 Hardwick Crescent","Holt","27/09/2021 - Monday","9:00pm","9:40pm","Monitor",-35.2209147,149.0179443,"",FALSE
-"","Ampol Foodary Weston Creek","1 Kirkpatrick Street","Weston","27/09/2021 - Monday","10:00am","10:35am","Monitor",-35.3222216,149.0568851,"",FALSE
+"","Ampol Foodary Weston Creek","1 Kirkpatrick Street","Weston","27/09/2021 - Monday","10:00am","10:35am","Monitor",-35.3222216,149.0568601,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Biteful Kebabs","South.Point Tuggeranong, Anketell Street and Reed Street","Greenway","27/09/2021 - Monday","3:30pm","4:30pm","Casual",-35.4167822,149.0665567,"",FALSE
 "","BWS Kippax","Kippax Fair Shopping Centre, Hardwick Crescent","Holt","27/09/2021 - Monday","4:40pm","5:25pm","Monitor",-35.2225871,149.0199712,"",FALSE
 "","Capital Chemist Coombs","110 Woodberry Avenue","Coombs","27/09/2021 - Monday","10:10am","10:55am","Monitor",-35.3197728,149.0395112,"",FALSE
@@ -103,7 +128,7 @@
 "","IGA Isabella Plains","6/131 Ellerston Aveune","Isabella Plains","27/09/2021 - Monday","3:50pm","4:45pm","Casual",-35.4286142,149.0916052,"",FALSE
 "","Kingsley's Chicken Kippax","Kippax Fair Shopping Centre, Hardwick Crescent","Holt","27/09/2021 - Monday","4:35pm","5:15pm","Monitor",-35.2226439,149.0200434,"",FALSE
 "","McDonald's Kippax","84 Hardwick Crescent","Holt","27/09/2021 - Monday","9:00pm","11:59pm","Casual",-35.2201558,149.0179066,"",FALSE
-"","Scott's Crossing Construction Site","Canberra Centre, 148 Bunda Street","Canberra City","27/09/2021 - Monday","6:45am","4:30pm","Close",-35.2802271,149.1332059,"",FALSE
+"","Scott's Crossing Construction Site","Canberra Centre, 148 Bunda Street","Canberra City","27/09/2021 - Monday","6:45am","4:30pm","Close",-35.2802271,149.1331809,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","ShareTea Dickson","8 Cape Street","Dickson","27/09/2021 - Monday","11:45am","12:30pm","Monitor",-35.2515571,149.1375901,"",FALSE
 "","Southside Physiotherapy Tuggeranong","146 Scollay Street","Greenway","27/09/2021 - Monday","11:45am","1:00pm","Casual",-35.418371,149.066255,"",FALSE
 "","The Pharmacy on Northbourne","65 Northbourne Aveune","Canberra City","27/09/2021 - Monday","2:30pm","3:45pm","Monitor",-35.2782064,149.1288999,"",FALSE
@@ -111,38 +136,40 @@
 "","Village Dental Care Kambah","Kambah Village Shopping Centre, Primmer Court","Kambah","27/09/2021 - Monday","3:00pm","4:00pm","Monitor",-35.3808852,149.0575992,"",FALSE
 "","Woolworths Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","27/09/2021 - Monday","11:30am","12:30pm","Casual",-35.3412617,149.0527186,"",FALSE
 "","Woolworths Kambah","Kambah Village Shopping Centre, Primmer Court","Kambah","27/09/2021 - Monday","3:10pm","4:00pm","Monitor",-35.3801801,149.0572697,"",FALSE
-"New","Coles Wanniassa","12 Sangster Place","Wanniassa","27/09/2021 - Monday","6:55pm","7:45pm","Casual",-35.3912889,149.0854722,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Coles Wanniassa","12 Sangster Place","Wanniassa","27/09/2021 - Monday","6:55pm","7:45pm","Casual",-35.3912889,149.0854722,"",FALSE
 "New","Light Rail Route 1 Transport Canberra Code LRV002","Phillip Avenue to Alinga Street","Public Transport","27/09/2021 - Monday","10:43am","10:54am","Casual",-35.2473185,149.1540083,"",FALSE
-"New","Woolworths Mawson","15 Mawson Place","Mawson","27/09/2021 - Monday","6:00pm","6:45pm","Monitor",-35.3661449,149.0946196,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Woolworths Mawson","15 Mawson Place","Mawson","27/09/2021 - Monday","6:00pm","6:45pm","Monitor",-35.3661449,149.0946196,"",FALSE
+"New","Amaroo District Playing Fields (Basketball Courts only)","Horse Park Drive","Amaroo","27/09/2021 - Monday","2:40pm","5:00pm","Casual",-35.1629429,149.128424,"",FALSE
+"New","Patto's Grog Shop","Calwell Shopping Centre, 7 Webber Crescent","Calwell","27/09/2021 - Monday","7:25pm","8:10pm","Monitor",-35.4349653,149.1140879,"",FALSE
 "","7-Eleven Erindale","76 Gartside Street","Wanniassa","26/09/2021 - Sunday","5:40pm","6:30pm","Monitor",-35.4054226,149.1012591,"",FALSE
 "","ALDI Conder","9 Sidney Nolan Street","Conder","26/09/2021 - Sunday","3:30pm","4:10pm","Monitor",-35.4565418,149.093456,"",FALSE
-"","ALDI Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","26/09/2021 - Sunday","6:55pm","8:00pm","Casual",-35.3414467,149.0525899,"",FALSE
+"","ALDI Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","26/09/2021 - Sunday","6:55pm","8:00pm","Casual",-35.3414467,149.0525649,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","ALDI Kippax","Kippax Fair Shopping Centre, Hardwick Crescent","Holt","26/09/2021 - Sunday","12:25pm","1:10pm","Monitor",-35.2218013,149.0193863,"",FALSE
 "","Ampol Foodary Weston","49 Brierly Street","Weston","26/09/2021 - Sunday","5:20am","6:05am","Monitor",-35.3402449,149.0520931,"",FALSE
 "","Baby Su","Corner Moore Street and Alinga Street","Canberra City","26/09/2021 - Sunday","1:20pm","1:50pm","Monitor",-35.278453,149.127524,"",FALSE
 "","Belluci's Trattoria","Franklin Street and Furneaux Street","Griffith","26/09/2021 - Sunday","5:35pm","6:15pm","Monitor",-35.3196219,149.1324215,"",FALSE
 "","Bernies From The Bay","33 Charnwood Place","Charnwood","26/09/2021 - Sunday","12:50pm","1:30pm","Monitor",-35.2044537,149.0336138,"",FALSE
 "","Bottlemart Macquarie","Parc Village, 2 Henshall Way","Macquarie","26/09/2021 - Sunday","1:10pm","2:00pm","Monitor",-35.2537379,149.0698165,"",FALSE
-"","Bus Route 24 Transport Canberra Code BUS709","Evatt (William Webb Drive) to Belconnen","Public Transport","26/09/2021 - Sunday","11:10am","11:15am","Casual",-35.2128182,149.0762379,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Bus Route 24 Transport Canberra Code BUS709","Evatt (William Webb Drive) to Belconnen","Public Transport","26/09/2021 - Sunday","11:10am","11:15am","Casual",-35.2128182,149.0762379,"",FALSE
 "","Chong Co Thai Kingston","31 Eastlake Parade","Kingston","26/09/2021 - Sunday","2:00pm","2:40pm","Monitor",-35.3122041,149.1461583,"",FALSE
 "","Coles Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","26/09/2021 - Sunday","12:00pm","1:30pm","Monitor",-35.237949,149.064887,"",FALSE
 "","Coles Chisholm","42 Halley Street","Chisholm","26/09/2021 - Sunday","4:45pm","5:35pm","Casual",-35.4141067,149.1282419,"",FALSE
 "","Coles Chisholm","Chisholm Village Shopping Centre, 42 Halley Street","Chisholm","26/09/2021 - Sunday","6:10pm","7:00pm","Casual",-35.4140008,149.1282707,"",FALSE
 "","Coles Express Belconnen","Lathlain Street and Wignall Place","Belconnen","26/09/2021 - Sunday","2:40pm","3:20pm","Monitor",-35.242649,149.063961,"",FALSE
-"","Coles Manuka","Franklin Street and Flinders Way","Griffith","26/09/2021 - Sunday","1:45pm","2:15pm","Monitor",-35.3210247,149.1342196,"",FALSE
+"","Coles Manuka","Manuka Terrace, Franklin Street and Flinders Way","Griffith","26/09/2021 - Sunday","1:45pm","2:15pm","Monitor",-35.3208333,149.1341167,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Corks Liquor","18 Norman Lindsay Street","Conder","26/09/2021 - Sunday","3:35pm","4:15pm","Monitor",-35.4583852,149.0934312,"",FALSE
 "","Department of Social Services (Level 3)","Enid Lyons Building, 71 Athllon Drive","Greenway","26/09/2021 - Sunday","8:30am","5:00pm","Casual",-35.4195632,149.0645904,"",FALSE
 "","Domino's Pizza Conder","3/5 Sidney Nolan Street","Conder","26/09/2021 - Sunday","6:35pm","7:10pm","Monitor",-35.4568154,149.0932117,"",FALSE
 "","Elixir Cafe","Queen Elizabeth Terrace","Parkes","26/09/2021 - Sunday","2:25pm","3:05pm","Monitor",-35.2974191,149.1352154,"",FALSE
 "","Gelato Messina Kingston","38 Eyre Street","Kingston","26/09/2021 - Sunday","7:10pm","7:50pm","Monitor",-35.3165027,149.1424467,"",FALSE
-"","Grill'd Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","26/09/2021 - Sunday","11:40am","8:30pm","Casual",-35.2380765,149.0651422,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Grill'd Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","26/09/2021 - Sunday","11:40am","8:30pm","Casual",-35.2380765,149.0651672,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","IGA Chapman","52-60 Perry Drive","Chapman","26/09/2021 - Sunday","9:35am","10:30am","Casual",-35.3556311,149.0405469,"",FALSE
 "","Priceline Pharmacy Tuggeranong","South Point Tuggeranong, Anketell Street and Reed Street","Greenway","26/09/2021 - Sunday","1:50pm","2:20pm","Monitor",-35.4159229,149.066668,"",FALSE
 "","SPAR Express Ngunnawal","Ngunnawal Local Centre, Wanganeen Avenue","Ngunnawal","26/09/2021 - Sunday","5:35pm","6:15pm","Monitor",-35.173951,149.108155,"",FALSE
 "","SUPABARN Kingston","34 Eyre Street","Kingston","26/09/2021 - Sunday","6:50pm","7:40pm","Monitor",-35.3165254,149.1426892,"",FALSE
 "","SUPAEXPRESS Kaleen","Gwydir Square, Maribyrnong Avenue","Kaleen","26/09/2021 - Sunday","11:05am","11:40am","Monitor",-35.2337993,149.1029054,"",FALSE
 "","TSG Wanniassa","12 Sangster Place","Wanniassa","26/09/2021 - Sunday","12:45pm","1:25pm","Monitor",-35.3911367,149.085645,"",FALSE
-"","Woolworths Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","26/09/2021 - Sunday","7:30pm","8:05pm","Monitor",-35.3412617,149.0526936,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","26/09/2021 - Sunday","7:30pm","8:05pm","Monitor",-35.3412617,149.0527186,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Woolworths Kambah","Kambah Village Shopping Centre, Primmer Court","Kambah","26/09/2021 - Sunday","10:20am","11:10am","Casual",-35.3801801,149.0573447,"",FALSE
 "","Woolworths Kippax","Kippax Fair Shopping Centre, 26 Hardwick Crescent","Holt","26/09/2021 - Sunday","1:05pm","1:55pm","Monitor",-35.2218013,149.0193613,"",FALSE
 "","Woolworths Metro Cameron Avenue","1/6 Grazier Lane","Belconnen","26/09/2021 - Sunday","2:20pm","3:10pm","Monitor",-35.2401725,149.0720313,"",FALSE
@@ -151,6 +178,7 @@
 "","7-Eleven Melba","2 Chinner Crescent","Melba","25/09/2021 - Saturday","3:30pm","4:05pm","Monitor",-35.2080038,149.0482575,"",FALSE
 "","ALDI Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","25/09/2021 - Saturday","11:45am","12:50pm","Casual",-35.3414467,149.0526149,"",FALSE
 "","ALDI Jamison","Jamison Plaza, Bowman Street","Macquarie","25/09/2021 - Saturday","6:10pm","7:00pm","Monitor",-35.2527749,149.0715024,"",FALSE
+"","Barry Hawke's Butchery","36 Mildura Street","Fyshwick","25/09/2021 - Saturday","1:35pm","2:20pm","Monitor",-35.3241641,149.1549571,"",FALSE
 "","Blackjack Kiosk","Erindale Shopping Centre, 50-68 Comrie Street","Wanniassa","25/09/2021 - Saturday","3:30pm","5:20pm","Casual",-35.4040236,149.0984006,"",FALSE
 "","BP Chisholm","3 Benham Street","Chisholm","25/09/2021 - Saturday","9:25am","10:10am","Monitor",-35.4131,149.128225,"",FALSE
 "","BP Jamison","Corner Redfern Street and Bowman Street","Macquarie","25/09/2021 - Saturday","5:40pm","6:30pm","Monitor",-35.2531064,149.0732186,"",FALSE
@@ -180,12 +208,11 @@
 "","Woolworths Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","25/09/2021 - Saturday","12:15pm","1:00pm","Monitor",-35.3412617,149.0527936,"",FALSE
 "","Woolworths Metro Cameron Avenue","1/6 Grazier Lane","Belconnen","25/09/2021 - Saturday","10:30am","11:30am","Close",-35.2401725,149.0720063,"",FALSE
 "","Woolworths Metro Cameron Avenue","1/6 Grazier Lane","Belconnen","25/09/2021 - Saturday","11:40am","12:50pm","Casual",-35.2401725,149.0719563,"",FALSE
-"New","Barry Hawke's Butchery","36 Mildura Street","Fyshwick","25/09/2021 - Saturday","1:35pm","2:20pm","Monitor",-35.3241641,149.1549571,"",FALSE
-"New","Coles Wanniassa","12 Sangster Place","Wanniassa","25/09/2021 - Saturday","4:55pm","6:00pm","Casual",-35.3912889,149.0854222,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Coles Wanniassa","12 Sangster Place","Wanniassa","25/09/2021 - Saturday","4:55pm","6:00pm","Casual",-35.3912889,149.0854222,"",FALSE
 "New","Officeworks Tuggeranong","215 Scollay Street","Greenway","25/09/2021 - Saturday","3:15pm","4:10pm","Monitor",-35.4218687,149.0700087,"",FALSE
 "New","Zambrero Tuggeranong","South.Point Tuggeranong, Anketell Street and Reed Street","Greenway","25/09/2021 - Saturday","4:10pm","4:55pm","Monitor",-35.4167822,149.0665317,"",FALSE
 "","7 London Circuit, Building B Level 5 Construction Zone","7 London Circuit","Canberra City","24/09/2021 - Friday","6:50am","4:00pm","Close",-35.2816791,149.124883,"",FALSE
-"","7-Eleven Holt","88 Hardwick Crescent","Holt","24/09/2021 - Friday","5:10pm","5:50pm","Monitor",-35.2209147,149.0178943,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","7-Eleven Holt","88 Hardwick Crescent","Holt","24/09/2021 - Friday","5:10pm","5:50pm","Monitor",-35.2209147,149.0178943,"",FALSE
 "","7-Eleven Melba","2 Chinner Crescent","Melba","24/09/2021 - Friday","5:05pm","5:45pm","Monitor",-35.2080038,149.0482825,"",FALSE
 "","ACT Law Courts Foyer","6 Knowles Place","Canberra City","24/09/2021 - Friday","11:00am","1:00pm","Casual",-35.2809927,149.1272127,"",FALSE
 "","BP Braddon","2 Lonsdale Street","Braddon","24/09/2021 - Friday","4:00pm","4:45pm","Monitor",-35.2759009,149.1327897,"",FALSE
@@ -198,7 +225,7 @@
 "","Cellarbrations Erindale","1/50 Denigan Street","Wanniassa","24/09/2021 - Friday","2:00pm","3:00pm","Casual",-35.4038487,149.0964993,"",FALSE
 "","Chemist Warehouse Woden","24 Corinna Street","Phillip","24/09/2021 - Friday","10:10am","10:50am","Monitor",-35.345342,149.0838302,"",FALSE
 "","Coffee Guru Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","24/09/2021 - Friday","12:15pm","12:55pm","Monitor",-35.34125,149.05282,"",FALSE
-"","Coles Express Gungahlin","1 Ginn Street","Gungahlin","24/09/2021 - Friday","8:00pm","9:00pm","Casual",-35.1834139,149.1267238,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Coles Express Gungahlin","1 Ginn Street","Gungahlin","24/09/2021 - Friday","8:00pm","9:00pm","Casual",-35.1834139,149.1267238,"",FALSE
 "","Coles Supermarket Manuka","Franklin Street and Flinders Way","Griffith","24/09/2021 - Friday","11:00am","12:00pm","Casual",-35.3210247,149.1341696,"",FALSE
 "","Cooleman Court Pharmacy","Cooleman Court Shopping Centre, Brierly Street","Weston","24/09/2021 - Friday","6:35pm","7:20pm","Monitor",-35.3414614,149.0531866,"",FALSE
 "","CORE Building Group - Mulberry Construction Site","330 Northbourne Avenue","Dickson","24/09/2021 - Friday","6:00am","4:00pm","Close",-35.2552295,149.133488,"",FALSE
@@ -212,18 +239,18 @@
 "","Metro Petroleum Fyshwick","15 Barrier Street","Fyshwick","24/09/2021 - Friday","5:50pm","6:30pm","Monitor",-35.3291866,149.1728096,"",FALSE
 "","South.Point Tuggeranong","Anketell Street and Reed Street","Greenway","24/09/2021 - Friday","7:30am","3:00pm","Monitor",-35.4167822,149.0665067,"",FALSE
 "","Supreme Court 1","6 Knowles Place","Canberra City","24/09/2021 - Friday","11:00am","1:00pm","Casual",-35.2809927,149.1271627,"",FALSE
-"","Ten Tops","17 Iron Knob Street","Fyshwick","24/09/2021 - Friday","10:15am","11:00am","Monitor",-35.3362487,149.1807051,"",FALSE
+"","Ten Tops","17 Iron Knob Street","Fyshwick","24/09/2021 - Friday","10:15am","11:00am","Monitor",-35.3362487,149.1806801,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","TSG Chisholm","Chisholm Village Shopping Centre, 42 Halley Street","Chisholm","24/09/2021 - Friday","4:10pm","4:55pm","Monitor",-35.4140008,149.1281707,"",FALSE
 "","Waiting Area Outside Supreme Court 1","6 Knowles Place","Canberra City","24/09/2021 - Friday","11:00am","1:00pm","Casual",-35.2809927,149.1271127,"",FALSE
 "","Westpac Dickson","Corner Badham Street and Woolley Street","Dickson","24/09/2021 - Friday","2:15pm","3:00pm","Monitor",-35.249934,149.137674,"",FALSE
 "","Westpac Manuka","14 Franklin Street","Griffith","24/09/2021 - Friday","1:00pm","2:30pm","Monitor",-35.320374,149.1330851,"",FALSE
-"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","24/09/2021 - Friday","10:35am","11:10am","Monitor",-35.2386596,149.0654012,"",FALSE
-"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","24/09/2021 - Friday","3:15pm","4:00pm","Casual",-35.2386596,149.0652512,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","24/09/2021 - Friday","10:35am","11:10am","Monitor",-35.2386596,149.0653762,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","24/09/2021 - Friday","3:15pm","4:00pm","Casual",-35.2386596,149.0652512,"",FALSE
 "","Woolworths Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","24/09/2021 - Friday","11:55am","12:45pm","Casual",-35.3412617,149.0527686,"",FALSE
 "","Woolworths Metro Cameron Avenue","1/6 Grazier Lane","Belconnen","24/09/2021 - Friday","9:40am","10:15am","Monitor",-35.2401725,149.0719063,"",FALSE
 "","Woolworths Metro Cameron Avenue","1/6 Grazier Lane","Belconnen","24/09/2021 - Friday","11:35am","12:15pm","Monitor",-35.2401725,149.0719313,"",FALSE
 "","YourGP@Denman","1 Felstead Vista","Denman Prospect","24/09/2021 - Friday","12:35pm","1:35pm","Casual",-35.2990684,149.0237426,"",FALSE
-"New","Bus Route 24 Transport Canberra Code BUS318","Evatt (William Webb Drive) to Belconnen Interchange","Public Transport","24/09/2021 - Friday","9:02am","9:10am","Casual",-35.2128182,149.0761879,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Bus Route 24 Transport Canberra Code BUS318","Evatt (William Webb Drive) to Belconnen Interchange","Public Transport","24/09/2021 - Friday","9:02am","9:10am","Casual",-35.2128182,149.0761879,"",FALSE
 "","7 London Circuit, Building B Level 5 Construction Zone","7 London Circuit","Canberra City","23/09/2021 - Thursday","6:50am","4:00pm","Close",-35.2816791,149.124958,"",FALSE
 "","80/20 Food Kingston","5/10 Parbery Street","Kingston","23/09/2021 - Thursday","8:00am","2:45pm","Casual",-35.3169003,149.1495419,"",FALSE
 "","ALDI Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","23/09/2021 - Thursday","2:35pm","3:15pm","Monitor",-35.2382964,149.0638275,"",FALSE
@@ -261,13 +288,13 @@
 "","T & E Asian Grocery","Fresh Food Markets, 12 Dalby Street","Fyshwick","23/09/2021 - Thursday","8:30am","9:15am","Monitor",-35.3241608,149.1547409,"",FALSE
 "","The Spence Grocer","1 Glassey Place","Spence","23/09/2021 - Thursday","2:05pm","2:50pm","Monitor",-35.1947447,149.0615733,"",FALSE
 "","Trugolds Fruit & Vegetables","Fresh Food Markets, 12 Dalby Street","Fyshwick","23/09/2021 - Thursday","8:40am","9:30am","Monitor",-35.3236905,149.154599,"",FALSE
-"","Westfield Belconnen","Benjamin Way","Belconnen","23/09/2021 - Thursday","2:20pm","3:30pm","Monitor",-35.2380765,149.0650922,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Westfield Belconnen","Benjamin Way","Belconnen","23/09/2021 - Thursday","2:20pm","3:30pm","Monitor",-35.2380765,149.0650922,"",FALSE
 "","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","23/09/2021 - Thursday","11:20am","12:00pm","Monitor",-35.2386596,149.0653512,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","23/09/2021 - Thursday","2:30pm","3:15pm","Monitor",-35.2386596,149.0653512,"",FALSE
+"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","23/09/2021 - Thursday","2:30pm","3:15pm","Monitor",-35.2386596,149.0653012,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Woolworths Dickson","1 Dickson Place","Dickson","23/09/2021 - Thursday","3:40pm","4:30pm","Casual",-35.249974,149.1386501,"",FALSE
-"","Woolworths Gungahlin","30/33 Hibberson Street","Gungahlin","23/09/2021 - Thursday","9:45am","10:40am","Casual",-35.1846274,149.1339141,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Gungahlin","30/33 Hibberson Street","Gungahlin","23/09/2021 - Thursday","9:45am","10:40am","Casual",-35.1846274,149.1339141,"",FALSE
 "","Woolworths Gungahlin","30/33 Hibberson Street","Gungahlin","23/09/2021 - Thursday","8:50pm","9:45pm","Casual",-35.1846274,149.1339891,"",FALSE
-"","Woolworths Metro Franklin","Corner Flemington Road and Nullarbor Avenue","Franklin","23/09/2021 - Thursday","2:45pm","3:30pm","Monitor",-35.2000983,149.1489268,"",FALSE
+"","Woolworths Metro Franklin","Corner Flemington Road and Nullarbor Avenue","Franklin","23/09/2021 - Thursday","2:45pm","3:30pm","Monitor",-35.2000983,149.1489018,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","7 London Circuit, Building B Level 5 Construction Zone","7 London Circuit","Canberra City","22/09/2021 - Wednesday","6:50am","4:00pm","Close",-35.2816791,149.124908,"",FALSE
 "","7-Eleven Fyshwick","149 Canberra Aveune","Fyshwick","22/09/2021 - Wednesday","3:30pm","4:30pm","Monitor",-35.3253108,149.1537932,"",FALSE
 "","7-Eleven Melba","2 Chinner Cresent","Melba","22/09/2021 - Wednesday","7:40am","8:25am","Monitor",-35.2080038,149.0482325,"",FALSE
@@ -287,7 +314,7 @@
 "","Coffee Guru Wanniassa","Shop 1/12 Sangster Place","Wanniassa","22/09/2021 - Wednesday","12:20pm","12:50pm","Monitor",-35.3911367,149.08572,"",FALSE
 "","Coffee Guru Wanniassa","Shop 1/12 Sangster Place","Wanniassa","22/09/2021 - Wednesday","2:00pm","2:30pm","Monitor",-35.3911367,149.08567,"",FALSE
 "","Coles Express Charnwood","Lhotsky Street and Charnwood Place","Charnwood","22/09/2021 - Wednesday","4:10pm","4:40pm","Monitor",-35.2056325,149.0332822,"",FALSE
-"","Coles Wanniassa","12 Sangster Place","Wanniassa","22/09/2021 - Wednesday","2:00pm","2:30pm","Monitor",-35.3912889,149.0855222,"",FALSE
+"","Coles Wanniassa","12 Sangster Place","Wanniassa","22/09/2021 - Wednesday","2:00pm","2:30pm","Monitor",-35.3912889,149.0854972,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Communities@Work Kambah - Taylor Child Care and Education Centre","88 Marconi Crescent","Kambah","22/09/2021 - Wednesday","7:00am","2:30pm","Casual",-35.378526,149.0641174,"",FALSE
 "","Cooleman Court Shopping Centre","Cooleman Court Shopping Centre, Brierly Street","Weston","22/09/2021 - Wednesday","9:00am","9:45am","Monitor",-35.3412617,149.0527436,"",FALSE
 "","Daily Market Gungahlin","137/43 Hibberson Street","Gungahlin","22/09/2021 - Wednesday","12:00pm","12:30pm","Monitor",-35.1854965,149.1363642,"",FALSE
@@ -310,12 +337,12 @@
 "","SUPABARN Casey","Casey Market Town, 15 Kingsland Parade","Casey","22/09/2021 - Wednesday","7:00pm","8:05pm","Casual",-35.1741413,149.0960254,"",FALSE
 "","SUPAEXPRESS Florey","1/26 Kesteven Street","Florey","22/09/2021 - Wednesday","2:25pm","3:10pm","Monitor",-35.2263914,149.0544019,"",FALSE
 "","Vina Groceries","135/56 Ernest Cavanagh Street","Gungahlin","22/09/2021 - Wednesday","5:45pm","6:50pm","Casual",-35.1847931,149.136494,"",FALSE
-"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","22/09/2021 - Wednesday","12:45pm","1:30pm","Monitor",-35.2386596,149.0653012,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","22/09/2021 - Wednesday","12:45pm","1:30pm","Monitor",-35.2386596,149.0653012,"",FALSE
 "","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","22/09/2021 - Wednesday","2:55pm","4:00pm","Casual",-35.2386596,149.0651762,"",FALSE
 "","Woolworths Charnwood","25-30 Charnwood Place","Charnwood","22/09/2021 - Wednesday","4:15pm","4:45pm","Monitor",-35.2045295,149.0328578,"",FALSE
 "","Woolworths Conder","Lanyon Marketplace, 4 Sidney Nolan Street","Conder","22/09/2021 - Wednesday","9:25am","10:15am","Casual",-35.457644,149.092661,"",FALSE
-"","Woolworths Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","22/09/2021 - Wednesday","12:15pm","1:15pm","Casual",-35.3412617,149.0526936,"",FALSE
-"","Woolworths Gungahlin","30/33 Hibberson Street","Gungahlin","22/09/2021 - Wednesday","7:15am","8:00am","Monitor",-35.1846274,149.1340141,"",FALSE
+"","Woolworths Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","22/09/2021 - Wednesday","12:15pm","1:15pm","Casual",-35.3412617,149.0526686,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Gungahlin","30/33 Hibberson Street","Gungahlin","22/09/2021 - Wednesday","7:15am","8:00am","Monitor",-35.1846274,149.1339891,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Woolworths Kambah","Kambah Village Shopping Centre, Primmer Court","Kambah","22/09/2021 - Wednesday","7:20am","8:15am","Casual",-35.3801801,149.0572947,"",FALSE
 "","7 London Circuit, Building B Level 5 Construction Zone","7 London Circuit, City","Canberra City","21/09/2021 - Tuesday","6:50am","4:00pm","Close",-35.2816791,149.124858,"",FALSE
 "","80/20 Food Kingston","5/10 Parbery Street","Kingston","21/09/2021 - Tuesday","7:00am","2:45pm","Casual",-35.3169003,149.1494419,"",FALSE
@@ -324,7 +351,7 @@
 "","Amaroo Village Shopping Centre","11 Pioneer Street","Amaroo","21/09/2021 - Tuesday","1:10pm","2:15pm","Monitor",-35.1646953,149.1316822,"",FALSE
 "","Bakers Delight Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","21/09/2021 - Tuesday","3:10pm","3:45pm","Monitor",-35.3412268,149.0527689,"",FALSE
 "","Bus Route 2 Transport Canberra Code BUS476","ANU to Westfield Belconnen","Public Transport","21/09/2021 - Tuesday","10:14am","10:28am","Casual",-35.2380765,149.0650422,"",FALSE
-"","Bus Route 3 Transport Canberra Code BUS595","Westfield Belconnen to ANU","Public Transport","21/09/2021 - Tuesday","9:14am","9:29am","Casual",-35.2380765,149.0651422,"",FALSE
+"","Bus Route 3 Transport Canberra Code BUS595","Westfield Belconnen to ANU","Public Transport","21/09/2021 - Tuesday","9:14am","9:29am","Casual",-35.2380765,149.0651172,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Bus Route 3 Transport Canberra Code BUS595","Westfield Belconnen to Florey","Public Transport","21/09/2021 - Tuesday","10:55am","11:01am","Casual",-35.2380765,149.0650172,"",FALSE
 "","Bus Route 41 Transport Canberra Code BUS374","Florey to Westfield Belconnen","Public Transport","21/09/2021 - Tuesday","9:08am","9:14am","Casual",-35.2380765,149.0651672,"",FALSE
 "","Cafe Au Lait Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","21/09/2021 - Tuesday","2:40pm","3:10pm","Monitor",-35.3415323,149.052843,"",FALSE
@@ -344,10 +371,10 @@
 "","Chemist Warehouse Woden","24 Corinna Street","Phillip","21/09/2021 - Tuesday","7:15pm","8:30pm","Monitor",-35.345342,149.0837802,"",FALSE
 "","Coffee Guru Amaroo","11 Pioneer Street","Amaroo","21/09/2021 - Tuesday","1:35pm","2:15pm","Monitor",-35.164832,149.1324217,"",FALSE
 "","Coles Amaroo","Horse Park Drive","Amaroo","21/09/2021 - Tuesday","1:10pm","2:00pm","Casual",-35.1646128,149.1318816,"",FALSE
-"","Coles Express Gungahlin","1 Ginn Street","Gungahlin","21/09/2021 - Tuesday","10:30pm","11:10pm","Monitor",-35.1834139,149.1267738,"",FALSE
+"","Coles Express Gungahlin","1 Ginn Street","Gungahlin","21/09/2021 - Tuesday","10:30pm","11:10pm","Monitor",-35.1834139,149.1267488,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Coles Jamison","Jamison Plaza, Bowman Street","Macquarie","21/09/2021 - Tuesday","1:40pm","2:35pm","Casual",-35.2528076,149.0713598,"",FALSE
-"","Cooleman Court Shopping Centre","Cooleman Court Shopping Centre, Brierly Street","Weston","21/09/2021 - Tuesday","1:30pm","2:30pm","Monitor",-35.3412617,149.0526436,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"","Cooleman Court Shopping Centre","Cooleman Court Shopping Centre, Brierly Street","Weston","21/09/2021 - Tuesday","3:00pm","4:00pm","Monitor",-35.3412617,149.0525936,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Cooleman Court Shopping Centre","Cooleman Court Shopping Centre, Brierly Street","Weston","21/09/2021 - Tuesday","1:30pm","2:30pm","Monitor",-35.3412617,149.0526436,"",FALSE
+"","Cooleman Court Shopping Centre","Cooleman Court Shopping Centre, Brierly Street","Weston","21/09/2021 - Tuesday","3:00pm","4:00pm","Monitor",-35.3412617,149.0526186,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Guardian Pharmacy Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","21/09/2021 - Tuesday","12:45pm","1:30pm","Monitor",-35.2375421,149.0669633,"",FALSE
 "","KFC Tuggeranong","133 Reed Street","Greenway","21/09/2021 - Tuesday","6:35pm","7:15pm","Monitor",-35.4159332,149.0701953,"",FALSE
 "","Kitchen King Grocers","14-16 Colbee Court","Phillip","21/09/2021 - Tuesday","2:50pm","3:35pm","Monitor",-35.3521283,149.0872725,"",FALSE
@@ -359,15 +386,16 @@
 "","Sakeena's Cafe","Cooleman Court Shopping Centre, Brierly Street","Weston","21/09/2021 - Tuesday","3:00pm","3:40pm","Monitor",-35.3417649,149.052915,"",FALSE
 "","St. George Bank Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","21/09/2021 - Tuesday","1:35pm","2:15pm","Monitor",-35.3411125,149.0525899,"",FALSE
 "","The Reject Shop Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","21/09/2021 - Tuesday","11:55am","1:00pm","Casual",-35.2384007,149.0664341,"",FALSE
-"","Weston Creek Medical Practice","Cooleman Court Shopping Centre, Brierly Street","Weston","21/09/2021 - Tuesday","2:45pm","3:30pm","Casual",-35.3412617,149.0525936,"",FALSE
-"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","21/09/2021 - Tuesday","10:00am","12:00pm","Casual",-35.2386596,149.0652762,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","21/09/2021 - Tuesday","12:55pm","2:00pm","Casual",-35.2386596,149.0652262,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Weston Creek Medical Practice","Cooleman Court Shopping Centre, Brierly Street","Weston","21/09/2021 - Tuesday","2:45pm","3:30pm","Casual",-35.3412617,149.0525686,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","21/09/2021 - Tuesday","10:00am","12:00pm","Casual",-35.2386596,149.0652762,"",FALSE
+"","Woolworths Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","21/09/2021 - Tuesday","12:55pm","2:00pm","Casual",-35.2386596,149.0652262,"",FALSE
 "","Woolworths Conder","Lanyon Marketplace, 4 Sidney Nolan Street","Conder","21/09/2021 - Tuesday","10:30am","11:10am","Monitor",-35.457644,149.092536,"",FALSE
 "","Woolworths Cooleman Court","Cooleman Court, Brierly Street","Weston","21/09/2021 - Tuesday","3:10pm","3:40pm","Monitor",-35.3412617,149.0525686,"",FALSE
 "","Woolworths Metro Franklin","Corner Flemington Road and Nullarbor Avenue","Franklin","21/09/2021 - Tuesday","1:10pm","2:00pm","Monitor",-35.2000983,149.1488518,"",FALSE
 "","Woolworths Metro Franklin","Corner Flemington Road and Nullarbor Avenue","Franklin","21/09/2021 - Tuesday","2:50pm","3:30pm","Monitor",-35.2000983,149.1489018,"",FALSE
 "","Woolworths Woden","Westfield Woden, Keltie Street","Phillip","21/09/2021 - Tuesday","7:00am","7:40am","Monitor",-35.3463199,149.0860326,"",FALSE
 "","Woolworths Woden","Westfield Woden, Keltie Street","Phillip","21/09/2021 - Tuesday","10:50am","11:40am","Monitor",-35.3463199,149.0860826,"",FALSE
+<<<<<<< HEAD
 "","7 London Circuit, Building B Level 5 Construction Zone","7 London Circuit, City","Canberra City","20/09/2021 - Monday","6:50am","4:00pm","Close",-35.2816791,149.124808,"",FALSE
 "","7-Eleven Holt","88 Hardwick Crescent","Holt","20/09/2021 - Monday","1:00pm","1:30pm","Monitor",-35.2209147,149.0178443,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","7-Eleven Spence","2 Glassey Place","Spence","20/09/2021 - Monday","4:30pm","5:00pm","Monitor",-35.1947608,149.062332,"",FALSE
@@ -1468,3 +1496,5 @@
 "","Yarra Rossa Construction Site","51 Hicks Street","Red Hill","16/09/2021 - Thursday","7:00am","10:30am","Casual",-35.3380861,149.1284444,"",FALSE
 =======
 >>>>>>> 480fcf509426d1cb35f48ab8b5a93ac7ef9efc07
+=======
+>>>>>>> 9fb7bf5ffddc5a8c5117f469b3aa4e51258dbdd0
