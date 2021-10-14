@@ -34,7 +34,7 @@ addBuses = TRUE
 
 
 #load google api
-# gapi <- readLines("c://Code/gapi.txt")
+gapi <- readLines("C://Code/gapi.txt")
 # gapi <- readLines("c:/bernd/r/covid_canberra/gapi.txt")
 register_google(gapi)
 
@@ -42,7 +42,7 @@ register_google(gapi)
 es <- read_html("https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations", )
 
 # https://www.waze.com/en-GB/live-map
-?html_nodes
+# ?html_nodes
 
 #check update
 ll <- es %>%
@@ -76,7 +76,8 @@ lu
 #check if there was an update....
 #cleaned data is over bernds data
 #ARD2021
-ff <- list.files("./data/allfiles/September/")
+# ff <- list.files("./data/allfiles/October/")
+ff <- list.files("./data/")
 # ff <- list.files("c:/Bernd/R/covid_canberra/data/")
 wu <- grep(lu, ff)
 
