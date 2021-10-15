@@ -5,7 +5,11 @@ library(crosstalk)
 
 # generally speaking, use a "unique" key for filter, 
 # especially when you have multiple filters!
-tx <- highlight_key(txhousing)
+ #data structure
+
+
+tx <- highlight_key(tab3)
+
 gg <- ggplot(tx) + geom_line(aes(date, median, group = city))
 filter <- bscols(
   filter_select("id", "Select a city", tx, ~city),

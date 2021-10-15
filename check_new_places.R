@@ -1,5 +1,6 @@
 library(stringr)
 library(data.table)
+
 data_dir <- paste0(getwd(),"/data")
 old_tables <- list.files(data_dir,pattern = "table")
 last_table <- read.csv(paste0(data_dir,"/last.csv"))

@@ -1,5 +1,6 @@
 library(ggplot2)
 
+
 allfiles <- list.files("./data/", pattern="table_")
 fo <- flast[order(file.mtime(file.path("data",flast)), decreasing = FALSE)]
 res <- data.frame(update=NA, date=NA,locations=NA, contact=NA,nsites=NA )
