@@ -1,5 +1,5 @@
 ---
-title: "About the project"
+title: "Vaccine rollout 2021 outbreak"
 date: "`r Sys.Date()`"
 author:  "[Anthony Davidson](https://github.com/davan690)"
 output:
@@ -27,7 +27,15 @@ knitr::opts_chunk$set(
 )
 ```
 
-This website tracks COVID-19 data and mobility information for the ACT and Canberra using code and data developed in the open source community. This information is only a guide. Please refer to official reports and press releases from government certified resources.
+Tracking goverment updates and vital information can be challenging at the best of times. Under the current conditions of the Global Covid19 outbreak this information has been challenging to keep on top of. The information about the current rollout is almost done for this outbreak but the resources will be helpful for future events of a similar nature.
+
+## Rollout tracker
+
+
+
+This website tracks COVID-19 data and mobility information for the ACT and Canberra using code and data developed in the open source community. This information is only a guide. 
+
+Please refer to official reports and press releases from government certified resources.
 
 <!-- <!-- Row {data-width=150} --> -->
 <!-- <!-- ------------------------------------ --> -->

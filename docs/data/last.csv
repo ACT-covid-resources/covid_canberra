@@ -1,9 +1,21 @@
 "Status","Exposure.Location","Street","Suburb","Date","Arrival.Time","Departure.Time","Contact","lat","lon","doubles","moved"
+"New","Campbell Primary School (Construction Site only)","25 Chauvel Street","Campbell","16/10/2021 - Saturday","6:30am","12:30pm","Close",-35.289871,149.156357,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Kippax Uniting Community Centre (foyer only)","Corner Luke Street and Hardwick Crescent","Holt","15/10/2021 - Friday","10:55am","12:00pm","Casual",-35.2229223,149.0185341,"",FALSE
+"New","Campbell Primary School (Construction Site only)","25 Chauvel Street","Campbell","15/10/2021 - Friday","6:30am","3:00pm","Close",-35.289871,149.156307,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"New","Narrabundah Early Childhood School (Grass Parrot Room and Kangaroo Room only)","23-27 Kootara Crescent","Narrabundah","14/10/2021 - Thursday","9:00am","3:30pm","Close",-35.3287917,149.1508882,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Campbell Primary School (Construction Site only)","25 Chauvel Street","Campbell","14/10/2021 - Thursday","6:30am","5:30pm","Close",-35.289871,149.156257,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Kingston Foreshore Medical Centre","147/39 Eastlake Parade","Kingston","13/10/2021 - Wednesday","10:25am","11:20am","Casual",-35.3130966,149.1466272,"",FALSE
+"New","Narrabundah Early Childhood School (Grass Parrot Room and Kangaroo Room only)","23-27 Kootara Crescent","Narrabundah","13/10/2021 - Wednesday","9:00am","3:30pm","Close",-35.3287917,149.1508382,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Campbell Primary School (Construction Site only)","25 Chauvel Street","Campbell","13/10/2021 - Wednesday","6:30am","5:30pm","Close",-35.289871,149.156207,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Phillip Medical and Dental Centre","33 Colbee Court","Phillip","12/10/2021 - Tuesday","7:00am","7:50am","Casual",-35.351947,149.0897732,"",FALSE
-"New","Narrabundah Early Childhood School (Grass Parrot Room and Kangaroo Room only)","23-27 Kootara Crescent","Narrabundah","12/10/2021 - Tuesday","9:00am","3:30pm","Close",-35.3287917,149.1508882,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
-"New","Narrabundah Early Childhood School (Grass Parrot Room and Kangaroo Room only)","23-27 Kootara Crescent","Narrabundah","11/10/2021 - Monday","9:00am","3:30pm","Close",-35.3287917,149.1508382,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Narrabundah Early Childhood School (Grass Parrot Room and Kangaroo Room only)","23-27 Kootara Crescent","Narrabundah","12/10/2021 - Tuesday","9:00am","3:30pm","Close",-35.3287917,149.1508882,"",FALSE
+"","Campbell Primary School (Construction Site only)","25 Chauvel Street","Campbell","12/10/2021 - Tuesday","6:30am","5:30pm","Close",-35.289871,149.156157,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Narrabundah Early Childhood School (Grass Parrot Room and Kangaroo Room only)","23-27 Kootara Crescent","Narrabundah","11/10/2021 - Monday","9:00am","3:30pm","Close",-35.3287917,149.1508382,"",FALSE
+"","Woolworths Majura Park","Majura Park Shopping Centre, 18/16 Spitfire Avenue","Canberra Airport","11/10/2021 - Monday","1:30pm","4:50pm","Casual",-35.3001906,149.1904008,"",FALSE
+"","Belconnen Physiotherapy Clinic","1/20 Purdue Street","Belconnen","11/10/2021 - Monday","4:20pm","5:30pm","Casual",-35.238661,149.061821,"",FALSE
+"","Campbell Primary School (Construction Site only)","25 Chauvel Street","Campbell","11/10/2021 - Monday","6:30am","5:30pm","Close",-35.289871,149.156107,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","Friendly Grocer Hughes","16 Hughes Place","Hughes","10/10/2021 - Sunday","8:00am","12:30pm","Casual",-35.3335607,149.0937384,"",FALSE
-"","Bus Route 4 Transport Canberra Code BUS646","Woden Interchange to Tuggeranong Interchange","Public Transport","09/10/2021 - Saturday","1:15pm","1:28pm","Casual",-35.3444429,149.0873192,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Bus Route 4 Transport Canberra Code BUS646","Woden Interchange to Tuggeranong Interchange","Public Transport","09/10/2021 - Saturday","1:15pm","1:28pm","Casual",-35.3444429,149.0873192,"",FALSE
 "","Bus Route 4 Transport Canberra Code BUS688","Tuggeranong Interchange to Woden Interchange","Public Transport","09/10/2021 - Saturday","11:59am","12:17pm","Casual",-35.414955,149.06613,"",FALSE
 "","Bus Route 74 Transport Canberra Code BUS604","Richardson to Tuggeranong Interchange","Public Transport","09/10/2021 - Saturday","11:34am","11:47am","Casual",-35.414225,149.065303,"",FALSE
 "","Bus Route 75 Transport Canberra Code BUS562","Tuggeranong Interchange to Richardson","Public Transport","09/10/2021 - Saturday","3:34pm","3:45pm","Casual",-35.414955,149.066105,"",FALSE
@@ -26,12 +38,13 @@
 "","Woolworths Woden","Westfield Woden, Keltie Street","Phillip","08/10/2021 - Friday","12:00am","12:30am","Casual",-35.345964,149.084759,"",FALSE
 "","Tuggeranong Discount Drug Store","17 Anketell Street","Greenway","08/10/2021 - Friday","8:20am","5:00pm","Casual",-35.4168087,149.0679445,"",FALSE
 "","Bus Route 75 Transport Canberra Code BUS648","Erindale Interchange to Tuggeranong Interchange","Public Transport","08/10/2021 - Friday","6:49pm","7:01pm","Casual",-35.2809368,149.1300592,"",FALSE
-"","Bus Route 76 Transport Canberra Code BUS600","Chisholm Shops to Erindale Interchange","Public Transport","08/10/2021 - Friday","4:12pm","4:26pm","Casual",-35.3444429,149.0872692,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
+"","Bus Route 76 Transport Canberra Code BUS600","Chisholm Shops to Erindale Interchange","Public Transport","08/10/2021 - Friday","4:12pm","4:26pm","Casual",-35.3444429,149.0872692,"",FALSE
 "","Bus Route 76 Transport Canberra Code BUS638","Tuggeranong Interchange to Chisholm Shops","Public Transport","08/10/2021 - Friday","2:19pm","2:36pm","Casual",-35.4138528,149.1286174,"",FALSE
 "","Bus Route 81 Transport Canberra Code BUS489","Bonython to Tuggeranong Interchange","Public Transport","08/10/2021 - Friday","1:23pm","1:33pm","Casual",-35.2809368,149.1300092,"",FALSE
 "","Bus Route 81 Transport Canberra Code BUS537","Tuggeranong Interchange to Bonython","Public Transport","08/10/2021 - Friday","7:07pm","7:14pm","Casual",-35.414955,149.066055,"",FALSE
+"","Campbell Primary School (Construction Site only)","25 Chauvel Street","Campbell","08/10/2021 - Friday","6:30am","3:00pm","Close",-35.289871,149.156057,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 "","ALDI Conder","9 Sidney Nolan Street","Conder","07/10/2021 - Thursday","6:45pm","8:00pm","Casual",-35.4565418,149.093456,"",FALSE
-"","ALDI Majura Park","Majura Park Shopping Centre, 18-26 Spitfire Avenue","Canberra Airport","07/10/2021 - Thursday","7:20pm","8:25pm","Casual",-35.3001906,149.1903758,"",FALSE
+"","ALDI Majura Park","Majura Park Shopping Centre, 18-26 Spitfire Avenue","Canberra Airport","07/10/2021 - Thursday","7:20pm","8:25pm","Casual",-35.3001906,149.1903508,"",FALSE
 "","Artemis Early Learning Centre","11 Cessnock Street","Fyshwick","07/10/2021 - Thursday","8:20am","4:50pm","Close",-35.3228274,149.172794,"",FALSE
 "","Billini Shoes","Canberra Centre, 148 Bunda Street","Canberra City","07/10/2021 - Thursday","9:00am","5:30pm","Casual",-35.2802938,149.1332637,"",FALSE
 "","Bus Route 5 Transport Canberra Code BUS550","Richardson to Woden Interchange","Public Transport","07/10/2021 - Thursday","1:01pm","1:17pm","Casual",-35.3444429,149.0872442,"",FALSE
@@ -90,22 +103,9 @@
 "","Woolworths Erindale","Erindale Shopping Centre, 50-68 Comrie Street","Wanniassa","04/10/2021 - Monday","6:00am","11:40am","Casual",-35.4035739,149.098702,"",FALSE
 "","Woolworths Erindale","Erindale Shopping Centre, 50-68 Comrie Street","Wanniassa","04/10/2021 - Monday","6:45pm","7:50pm","Casual",-35.4035739,149.098827,"",FALSE
 "","Woolworths Kambah","Kambah Village Shopping Centre, Primmer Court","Kambah","04/10/2021 - Monday","11:30am","12:30pm","Casual",-35.3801801,149.0572697,"",FALSE
-"","Canberra International Golf Centre (Driving Range only)","Corner Jerrabomberra Avenue and Hindmarsh Drive","Narrabundah","03/10/2021 - Sunday","1:25pm","2:30pm","Casual",-35.3405956,149.1555069,"",FALSE
-"","Coles Manuka","Manuka Terrace, Franklin Street and Flinders Way","Griffith","03/10/2021 - Sunday","1:50pm","3:00pm","Casual",-35.3208333,149.1341917,"",FALSE
-"","Woolworths Charnwood","25-30 Charnwood Place","Charnwood","03/10/2021 - Sunday","9:00pm","10:00pm","Casual",-35.2045295,149.0328828,"",FALSE
 "","Woolworths Cooleman Court","Cooleman Court Shopping Centre, Brierly Street","Weston","03/10/2021 - Sunday","5:20pm","6:10pm","Casual",-35.3412617,149.0526436,"",FALSE
-"","Woolworths Erindale","Erindale Shopping Centre, 50-68 Comrie Street","Wanniassa","03/10/2021 - Sunday","9:50am","6:30pm","Casual",-35.4035739,149.098652,"",FALSE
-"","Ainslie Takeaway","1/5 Edgar Street","Ainslie","02/10/2021 - Saturday","2:00pm","8:00pm","Casual",-35.262397,149.1451451,"",FALSE
-"","Akiba","40 Bunda Street","Canberra City","02/10/2021 - Saturday","4:00pm","7:00pm","Casual",-35.2777742,149.1313645,"",FALSE
-"","Al Manoosh","47 Mawson Place","Mawson","02/10/2021 - Saturday","12:55pm","1:45pm","Casual",-35.3654919,149.0949976,"",FALSE
-"","ALDI Chisholm","36 Benham Street","Chisholm","02/10/2021 - Saturday","10:50am","12:20pm","Casual",-35.4148128,149.1292686,"",FALSE
-"","ALDI Majura Park","Majura Park Shopping Centre, 18-26 Spitfire Avenue","Canberra Airport","02/10/2021 - Saturday","2:00pm","3:00pm","Casual",-35.3001906,149.1904008,"",FALSE
-"","Bus Route 4 Transport Canberra Code BUS639","Cohen Street Interchange Belconnen to Woden Interchange","Public Transport","02/10/2021 - Saturday","8:07am","8:41am","Casual",-35.2397979,149.068327,"",FALSE
-"","Bus Route 5 Transport Canberra Code BUS618","Woden Interchange to Gowrie","Public Transport","02/10/2021 - Saturday","4:27pm","4:46pm","Casual",-35.3444429,149.0871942,"",FALSE
-"","Coles Belconnen","Westfield Belconnen, Benjamin Way","Belconnen","02/10/2021 - Saturday","9:25am","10:15am","Casual",-35.237949,149.064837,"",FALSE
-"","Costco Majura Park","39-41 Mustang Avenue","Canberra Airport","02/10/2021 - Saturday","11:05am","12:50pm","Casual",-35.2972375,149.1906089,"",FALSE
-"","Costco Majura Park","39-41 Mustang Avenue","Canberra Airport","02/10/2021 - Saturday","1:30pm","2:30pm","Casual",-35.2972375,149.1905589,"",FALSE
 "","Lazzari Bros' Espresso","3 Carleton Street","Kambah","02/10/2021 - Saturday","10:00am","4:30pm","Casual",-35.383194,149.050096,"",FALSE
+<<<<<<< HEAD
 "","Ten Tops","6/17 Iron Knob Street","Fyshwick","02/10/2021 - Saturday","11:45am","12:40pm","Casual",-35.3362487,149.1807301,"",FALSE
 "","Woolworths Erindale","Erindale Shopping Centre, 50-68 Comrie Street","Wanniassa","02/10/2021 - Saturday","1:00pm","2:10pm","Casual",-35.4035739,149.098777,"",FALSE
 "","Woolworths Gungahlin","Marketplace Gungahlin, 30 and 33 Hibberson Street","Gungahlin","02/10/2021 - Saturday","7:20pm","8:10pm","Casual",-35.1846599,149.1346762,"",FALSE
@@ -1508,6 +1508,8 @@
 "","Lazzari Bros' Espresso","3 Carleton Street","Kambah","25/09/2021 - Saturday","10:00am","4:30pm","Casual",-35.383194,149.050046,"<strong/>!Location has more than<br> one entry. Zoom in and search table!</strong/>",TRUE
 >>>>>>> 1d2a9d020d4058ca7eb5bf93b2085fac017569a3
 =======
+=======
+>>>>>>> 9e61a71b6a17fd5e153238fc356d7aa527dc49c4
 "","Woolworths Kambah","Kambah Village Shopping Centre, Primmer Court","Kambah","30/09/2021 - Thursday","2:10pm","3:00pm","Casual",-35.3801801,149.0572197,"",FALSE
 "","Lazzari Bros' Espresso","3 Carleton Street","Kambah","25/09/2021 - Saturday","10:00am","4:30pm","Casual",-35.383194,149.050046,"",FALSE
 >>>>>>> 61c0114187290c03b014270de24d03fb04d32bee
